@@ -13,8 +13,8 @@ class CreateCentroAcopioBienTable extends Migration
      */
     public function up()
     {
-        Schema::create('centroAcopio_bien', function (Blueprint $table) {
-
+        Schema::create('centro_acopio_bien', function (Blueprint $table) {
+            
             $table->integer('id_bien')->unsigned()->nullable();
             $table->foreign('id_bien')->references('id')
                   ->on('biens')->onDelete('cascade');
@@ -23,17 +23,7 @@ class CreateCentroAcopioBienTable extends Migration
             $table->foreign('id_centroAcopio')->references('id')
                   ->on('centro_de_acopios')->onDelete('cascade');
 
-
-            $table->integer('id_medida')->unsigned()->nullable();
-            $table->foreign('id_medida')->references('id')
-                  ->on('medidas')->onDelete('cascade');
-
-
-
-
-
-            $table->timestamps();
-        });
+            });
     }
 
     /**
@@ -43,8 +33,6 @@ class CreateCentroAcopioBienTable extends Migration
      */
     public function down()
     {
-        Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('centroAcopio_bien');
-        Schema::enableForeignKeyConstraints();
+        Schema::dropIfExists('centro_acopio_bien');
     }
 }

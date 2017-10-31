@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCatastrovesTable extends Migration
+class CreateEventosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateCatastrovesTable extends Migration
      */
     public function up()
     {
-        Schema::create('catastrofes', function (Blueprint $table) {
+        Schema::create('eventos', function (Blueprint $table) {
           $table->increments('id');
-          $table->integer('Tipo_Catastrofe');
+
+          $table->string('Nombre_Evento');
+          $table->string('Actividades');
+          $table->string('Alimentos');
 
           //fk
           $table->integer('id_ubicacion')->unsigned()->nullable();
           $table->foreign('id_ubicacion')->references('id')->on('ubicacions');
-
-          $table->integer('id_usuario')->unsigned()->nullable();
-          $table->foreign('id_usuario')->references('id')->on('usuarios');
 
           $table->timestamps();
         });
@@ -35,8 +35,6 @@ class CreateCatastrovesTable extends Migration
      */
     public function down()
     {
-      Schema::disableForeignKeyConstraints();
-      Schema::dropIfExists('catastrofes');
-      Schema::enableForeignKeyConstraints();
+        Schema::dropIfExists('eventos');
     }
 }

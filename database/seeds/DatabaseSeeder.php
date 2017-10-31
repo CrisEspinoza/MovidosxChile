@@ -11,6 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        DB::table('usuarios')->delete();
+
+        // Añadimos una entrada a esta tabla
+        Usuario::create(array('Rut' => '193916813'));
     }
 }

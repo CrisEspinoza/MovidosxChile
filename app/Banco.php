@@ -12,9 +12,9 @@ class Banco extends Model
       'Nombre_Banco'
     ];
 
-    public function centro_de_acopio(){
+    public function donacion(){
 
-      return $this->hasmany(centro_de_acopio:: class,'Id_Banco', 'id' );
+      return $this->hasmany(Donacion:: class,'Id_Banco', 'id' );
     }
 
     public function setNombre($n)

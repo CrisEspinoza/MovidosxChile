@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Usuario extends Model
 {
+
+    protected $table = 'usuarios';
+
   protected $fillable = [
     'id_rol',
     'Nombres',
@@ -13,6 +16,7 @@ class Usuario extends Model
     'password',
     'Rut'
     ];
+
 
     public function historial()
     {

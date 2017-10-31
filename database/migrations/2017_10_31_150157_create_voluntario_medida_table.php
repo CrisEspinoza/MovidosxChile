@@ -11,10 +11,9 @@ class CreateVoluntarioMedidaTable extends Migration
      *
      * @return void
      */
-     public function up()
-     {
-         Schema::create('voluntario_medida', function (Blueprint $table) {
-
+    public function up()
+    {
+        Schema::create('voluntario_medida', function (Blueprint $table) {
              $table->integer('id_voluntario')->unsigned()->nullable();
              $table->foreign('id_voluntario')->references('id')
                   ->on('voluntarios')->onDelete('cascade');
@@ -25,19 +24,16 @@ class CreateVoluntarioMedidaTable extends Migration
                   ->on('medidas')->onDelete('cascade');
 
              $table->timestamps();
+        });
+    }
 
-         });
-     }
-
-     /**
-      * Reverse the migrations.
-      *
-      * @return void
-      */
-     public function down()
-     {
-       Schema::disableForeignKeyConstraints();
-       Schema::dropIfExists('voluntario_medida');
-       Schema::enableForeignKeyConstraints();
-     }
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('voluntario_medida');
+    }
 }

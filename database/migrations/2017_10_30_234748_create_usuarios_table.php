@@ -18,7 +18,7 @@ class CreateUsuariosTable extends Migration
 
           //fk
           $table->integer('id_rol')->unsigned()->nullable();
-          $table->foreign('id_rol')->references('id')->on('rol');
+          $table->foreign('id_rol')->references('id')->on('rols');
 
           $table->string('Rut')->unique();
           $table->string('Nombres');
