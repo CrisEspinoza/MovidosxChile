@@ -22,8 +22,8 @@ class CreateCatastrovesTable extends Migration
           $table->integer('Id_Ubicacion')->unsigned()->nullable();
           $table->foreign('Id_Ubicacion')->references('id')->on('ubicacion');
 
-          $table->integer('Id_Usuario')->unsigned()->nullable();
-          $table->foreign('Id_Usuario')->references('id')->on('usuarios');
+          $table->integer('id_usuario')->unsigned()->nullable();
+          $table->foreign('id_usuario')->references('id')->on('usuarios');
 
           $table->timestamps();
         });

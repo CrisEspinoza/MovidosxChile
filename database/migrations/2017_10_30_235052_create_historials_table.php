@@ -18,8 +18,8 @@ class CreateHistorialsTable extends Migration
             $table->date('Fecha');
 
             //fk
-            $table->integer('Id_Usuario')->unsigned()->nullable();
-            $table->foreign('Id_Usuario')->references('id')->on('usuarios');
+            $table->integer('id_usuario')->unsigned()->nullable();
+            $table->foreign('id_usuario')->references('id')->on('usuarios');
 
             $table->timestamps();
         });
