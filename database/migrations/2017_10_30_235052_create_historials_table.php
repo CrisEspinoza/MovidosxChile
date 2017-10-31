@@ -16,11 +16,11 @@ class CreateHistorialsTable extends Migration
         Schema::create('historials', function (Blueprint $table) {
             $table->increments('id');
             $table->date('Fecha');
-            
+
             //fk
             $table->integer('Id_Usuario')->unsigned()->nullable();
-            $table->foreign('Id_Usuario')->references('id')->on('users');
-            
+            $table->foreign('Id_Usuario')->references('id')->on('usuarios');
+
             $table->timestamps();
         });
     }
@@ -32,8 +32,8 @@ class CreateHistorialsTable extends Migration
      */
     public function down()
     {
-        Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('historials');
-        Schema::enableForeignKeyConstraints();
+      Schema::disableForeignKeyConstraints();
+      Schema::dropIfExists('historials');
+      Schema::enableForeignKeyConstraints();
     }
 }
