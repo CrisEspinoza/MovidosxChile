@@ -15,7 +15,7 @@ class CreateMedidasTable extends Migration
     {
         Schema::create('medidas', function (Blueprint $table) {
           $table->increments('id');
-          
+
           $table->morphs('medidaOP');
 
           $table->string('Estado');

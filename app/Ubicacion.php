@@ -19,5 +19,9 @@ class Ubicacion extends Model
     {
         return $this->hasMany(Catastrofe::class, 'id_catastrofe', 'id');
     }
-    
+		public function evento()
+    {
+        return $this->hasMany(Evento::class, 'id_evento', 'id');
+    }
+
 }
