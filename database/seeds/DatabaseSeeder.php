@@ -13,7 +13,13 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('usuarios')->delete();
 
-        // Añadimos una entrada a esta tabla
-        Usuario::create(array('Rut' => '193916813'));
+        DB::table('usuarios')->insert([
+          'id' => 1,
+          'id_rol' => null,
+          'Rut'=> '19.391.681-3',
+          'Nombres'=> 'Julio Enrique',
+          'Apellidos'=> 'Serrano Pavez',
+          'password' =>'secret',
+        ]);
     }
 }
