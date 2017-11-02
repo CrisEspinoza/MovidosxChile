@@ -24,8 +24,8 @@ class CreateMedidasTable extends Migration
           $table->date('Fecha_Termino');
 
           //fk
-          $table->integer('id_isuario')->unsigned()->nullable();
-          $table->foreign('id_isuario')->references('id')->on('usuarios');
+          $table->integer('id_usuario')->unsigned()->nullable();
+          $table->foreign('id_usuario')->references('id')->on('usuarios');
 
           $table->integer('id_catastrofe')->unsigned()->nullable();
           $table->foreign('id_catastrofe')->references('id')->on('catastrofes');
