@@ -9,10 +9,10 @@ class Catastrofe extends Model
     public $table = 'catastroves';
 
     protected $fillable = [
- 			'id_usuario',
+ 			      'id_usuario',
             'Tipo_Catastrofe',
             'id_ubicacion'
-           
+
     ];
 
     public function medida(){
@@ -26,7 +26,7 @@ class Catastrofe extends Model
     public function ubicacion(){
     	return $this->belongsTo(Ubicacion::class, 'id_ubicacion','id');
     }
-    
+
 
 
 }

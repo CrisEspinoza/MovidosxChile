@@ -20,6 +20,7 @@ class CreateMedidasTable extends Migration
 
           $table->string('Estado');
           $table->integer('Avance');
+          $table->integer('Meta');
           $table->date('Fecha_Inicio');
           $table->date('Fecha_Termino');
 

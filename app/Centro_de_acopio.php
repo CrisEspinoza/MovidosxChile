@@ -9,7 +9,7 @@ class Centro_de_acopio extends Model
     //
     protected $table = 'centro_de_acopios';
     //public $timestamps = false;
-    
+
 	protected $fillable = [
 		'Nombre_Centro_Acopio'
 

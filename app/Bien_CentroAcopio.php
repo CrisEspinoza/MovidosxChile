@@ -11,9 +11,8 @@ class Bien_CentroAcopio extends Model
 
     protected $fillable = [
        	'id_bien',
-        'id_medida',
         'id_centroAcopio'
-  
+
     ];
 
     public function bien()

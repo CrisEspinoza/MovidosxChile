@@ -18,11 +18,24 @@ class DatabaseSeeder extends Seeder
         DB::table('ubicacions')->delete();
         DB::table('permisos')->delete();
         DB::table('historials')->delete();
+        DB::table('voluntarios')->delete();
+        DB::table('catastrofes')->delete();
+        DB::table('medidas')->delete();
+        DB::table('centro_de_acopios')->delete();
+        DB::table('voluntario_medida')->delete();
+        DB::table('eventos')->delete();
+        DB::table('voluntariados')->delete();
+        DB::table('donacions')->delete();
+        DB::table('centro_acopio_bien')->delete();
+
 
         DB::table('rols')->insert([
           'id' => 1,
           'Tipo_Rol' => 1,
         ]);
+
+
+
 
         DB::table('usuarios')->insert([
           'id' => 1,
@@ -31,7 +44,10 @@ class DatabaseSeeder extends Seeder
           'Nombres'=> 'Julio Enrique',
           'Apellidos'=> 'Serrano Pavez',
           'password' =>'secret',
+          'Mail'=> 'julio.serrano@usach.cl'
         ]);
+
+
 
 
         DB::table('bancos')->insert([
@@ -39,11 +55,16 @@ class DatabaseSeeder extends Seeder
           'Nombre_Banco' => 'banco santander',
         ]);
 
+
+
         DB::table('biens')->insert([
           'id' => 1,
           'Tipo_Bien' => 'polera',
           'Nombre_Bien' => 'Ropa',
         ]);
+
+
+
 
         DB::table('ubicacions')->insert([
           'id' => 1,
@@ -52,10 +73,16 @@ class DatabaseSeeder extends Seeder
           'Ciudad' => 'Santiago',
         ]);
 
+
+
+
         DB::table('permisos')->insert([
           'id' => 1,
           'Permiso' => 2,
         ]);
+
+
+
 
         DB::table('rol_permiso')->insert([
           'id_rol' => 1,
@@ -63,12 +90,21 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+
+
+
         DB::table('historials')->insert([
           'id' => 1,
           'Fecha' => '2014-10-25',
+          'Accion' => 'nada',
+          'Atributo_Modificado'=>'nada',
+          'Nombre_Tabla'=> 'nada',
           'id_usuario' => 1,
         ]);
-        
+
+
+
+
         DB::table('voluntarios')->insert([
           'id' => 1,
           'Nombres_Voluntario' => 'Julio Enrique',
@@ -76,7 +112,11 @@ class DatabaseSeeder extends Seeder
           'Edad' => 20,
         ]);
 
-        
+
+
+
+
+
         DB::table('catastrofes')->insert([
           'id' => 1,
           'Tipo_Catastrofe' => 1,
@@ -84,16 +124,26 @@ class DatabaseSeeder extends Seeder
           'id_ubicacion' => 1,
         ]);
 
-/*
+
+
+
+
         DB::table('medidas')->insert([
           'id' => 1,
+          'medidaOP_id'=> 0,
+          'medidaOP_type'=>'null',
           'id_catastrofe' => 1,
           'id_usuario' => 1 ,
           'Estado' => "estado de la medida",
           'Avance' => 50,
+          'Meta' => 100,
           'Fecha_Inicio' => '20141025',
           'Fecha_Termino' => '20141025',
         ]);
+
+
+
+
 
 
         DB::table('centro_de_acopios')->insert([
@@ -101,10 +151,17 @@ class DatabaseSeeder extends Seeder
           'Nombre_Centro_Acopio' => 'Centro de acopio 1',
         ]);
 
+
+
+
+
         DB::table('voluntario_medida')->insert([
           'id_voluntario' => 1,
           'id_medida' => 1,
         ]);
+
+
+
 
         DB::table('eventos')->insert([
           'id' => 1,
@@ -112,6 +169,10 @@ class DatabaseSeeder extends Seeder
           'Actividades' =>'Actividades a realizar: ' ,
           'Alimentos' => 'Alimentos a la venta: ',
         ]);
+
+
+
+
 
         DB::table('voluntariados')->insert([
           'id' => 1,
@@ -121,23 +182,31 @@ class DatabaseSeeder extends Seeder
           'Cantidad_Maxima_Voluntarios' => 30,
         ]);
 
+
+
+
+
         DB::table('donacions')->insert([
           'id' => 1,
           'Monto' => 50000,
-          'Tipo_Donación' => 1 ,
+          'Tipo_Donacion' => 1 ,
           'id_banco' => 1,
         ]);
 
+
+
+
+
         DB::table('centro_acopio_bien')->insert([
-          'id_banco' => 1 ,
+          'id_bien' => 1 ,
           'id_centroAcopio' => 1,
         ]);
 
 
-*/
 
 
-        
+
+
 
 
 

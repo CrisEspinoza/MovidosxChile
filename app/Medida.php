@@ -9,7 +9,7 @@ class Medida extends Model
     //
     protected $table = 'medidas';
     //public $timestamps = false;
-    
+
 	protected $fillable = [
 		'id_usuario',
 		'id_catastrofe',
@@ -28,6 +28,13 @@ class Medida extends Model
     {
         return $this->belongsTo(Usuario::class, 'id_usuario', 'id');
     }
+
+    public function catastrofe()
+    {
+        return $this->belongsTo(Catastrofe::class, 'id_catastrofe', 'id');
+    }
+
+
 
 
 

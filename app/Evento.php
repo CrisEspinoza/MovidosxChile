@@ -10,7 +10,7 @@ class Evento extends Model
 
     protected $table = 'eventos';
     //public $timestamps = false;
-    
+
 	protected $fillable = [
 		'id_ubicacion',
 		'id_medida'
@@ -27,9 +27,6 @@ class Evento extends Model
 
     public function ubicacion()   //relación con banco
 	{
-        return $this->belongsTo(Banco::class, 'id_ubicacion', 'id');
+        return $this->belongsTo(Ubicacion::class, 'id_ubicacion', 'id');
     }
 }
-
-
-

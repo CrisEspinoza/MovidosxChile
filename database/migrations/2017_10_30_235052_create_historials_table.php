@@ -17,9 +17,15 @@ class CreateHistorialsTable extends Migration
             $table->increments('id');
             $table->date('Fecha');
 
+            $table->string('Accion');
+            $table->string('Nombre_Tabla');
+            $table->string('Atributo_Modificado');
+
+
             //fk
             $table->integer('id_usuario')->unsigned()->nullable();
             $table->foreign('id_usuario')->references('id')->on('usuarios');
+
 
             $table->timestamps();
         });

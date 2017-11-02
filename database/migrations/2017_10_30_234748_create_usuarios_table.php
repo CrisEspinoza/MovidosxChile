@@ -20,6 +20,7 @@ class CreateUsuariosTable extends Migration
           $table->integer('id_rol')->unsigned()->nullable();
           $table->foreign('id_rol')->references('id')->on('rols');
 
+          $table->string('Mail')->unique();
           $table->string('Rut')->unique();
           $table->string('Nombres');
           $table->string('Apellidos');
