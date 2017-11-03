@@ -34,6 +34,21 @@ class DatabaseSeeder extends Seeder
           'Tipo_Rol' => 1,
         ]);
 
+        DB::table('rols')->insert([
+          'id' => 3,
+          'Tipo_Rol' => 1,
+        ]);
+
+        DB::table('rols')->insert([
+          'id' => 2,
+          'Tipo_Rol' => 1,
+        ]);
+
+        DB::table('rols')->insert([
+          'id' => 4,
+          'Tipo_Rol' => 1,
+        ]);
+
         DB::table('usuarios')->insert([
           'id' => 1,
           'id_rol' => 1,
@@ -42,11 +57,6 @@ class DatabaseSeeder extends Seeder
           'Apellidos'=> 'Serrano Pavez',
           'password' =>'secret',
           'Mail'=> 'julio.serrano@usach.cl'
-        ]);
-
-        DB::table('rols')->insert([
-          'id' => 2,
-          'Tipo_Rol' => 1,
         ]);
 
         DB::table('usuarios')->insert([
@@ -59,12 +69,6 @@ class DatabaseSeeder extends Seeder
           'Mail'=> 'claudio.alvarez@gmail.com'
         ]);
 
-
-        DB::table('rols')->insert([
-          'id' => 3,
-          'Tipo_Rol' => 1,
-        ]);
-
         DB::table('usuarios')->insert([
           'id' => 3,
           'id_rol' => 1,
@@ -73,11 +77,6 @@ class DatabaseSeeder extends Seeder
           'Apellidos'=> 'Caceres Cabello',
           'password' =>'secret',
           'Mail'=> 'miguel.angel@gmail.com'
-        ]);
-
-        DB::table('rols')->insert([
-          'id' => 4,
-          'Tipo_Rol' => 1,
         ]);
 
         DB::table('usuarios')->insert([
@@ -89,6 +88,8 @@ class DatabaseSeeder extends Seeder
           'password' =>'secret',
           'Mail'=> 'jorge.rojas@usach.cl'
         ]);
+
+
 
         DB::table('bancos')->insert([
           'id' => 1,
@@ -111,17 +112,21 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+
+
         DB::table('biens')->insert([
           'id' => 1,
-          'Tipo_Bien' => 'polera',
-          'Nombre_Bien' => 'Ropa',
+          'Tipo_Bien' => 'Ropa',
+          'Nombre_Bien' => 'polera',
         ]);
 
         DB::table('biens')->insert([
           'id' => 2,
-          'Tipo_Bien' => 'pantalon',
-          'Nombre_Bien' => 'Ropa',
+          'Tipo_Bien' => 'Comida',
+          'Nombre_Bien' => 'Arroz',
         ]);
+
+
 
         DB::table('ubicacions')->insert([
           'id' => 1,
@@ -159,6 +164,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+
+
         DB::table('permisos')->insert([
           'id' => 1,
           'Permiso' => 2,
@@ -174,8 +181,6 @@ class DatabaseSeeder extends Seeder
 
 
 
-
-
         DB::table('historials')->insert([
           'id' => 1,
           'Fecha' => '2014-10-25',
@@ -184,7 +189,6 @@ class DatabaseSeeder extends Seeder
           'Nombre_Tabla'=> 'nada',
           'id_usuario' => 1,
         ]);
-
 
 
 
@@ -217,16 +221,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-
         DB::table('catastrofes')->insert([
           'id' => 1,
           'Tipo_Catastrofe' => 1,
           'id_usuario' => 1 ,
           'id_ubicacion' => 1,
         ]);
-
-
-
 
 
         DB::table('medidas')->insert([
@@ -244,16 +244,10 @@ class DatabaseSeeder extends Seeder
 
 
 
-
-
-
         DB::table('centro_de_acopios')->insert([
           'id' => 1,
           'Nombre_Centro_Acopio' => 'Centro de acopio 1',
         ]);
-
-
-
 
 
         DB::table('voluntario_medida')->insert([
@@ -263,16 +257,12 @@ class DatabaseSeeder extends Seeder
 
 
 
-
         DB::table('eventos')->insert([
           'id' => 1,
           'Nombre_Evento' => 'Evento 1',
           'Actividades' =>'Actividades a realizar: ' ,
           'Alimentos' => 'Alimentos a la venta: ',
         ]);
-
-
-
 
 
         DB::table('voluntariados')->insert([
@@ -298,9 +288,6 @@ class DatabaseSeeder extends Seeder
           'Cantidad_Minima_Voluntarios' => 2,
           'Cantidad_Maxima_Voluntarios' => 5,
         ]);
-
-
-
 
         DB::table('donacions')->insert([
           'id' => 1,
@@ -332,13 +319,10 @@ class DatabaseSeeder extends Seeder
 
         DB::table('centro_acopio_bien')->insert([
           'id_bien' => 1 ,
-          'id_centroAcopio' => 3,
+          'id_centroAcopio' => 1,
         ]);
 
-        DB::table('centro_acopio_bien')->insert([
-          'id_bien' => 1 ,
-          'id_centroAcopio' => 2,
-        ]);
+
 
 
     }
