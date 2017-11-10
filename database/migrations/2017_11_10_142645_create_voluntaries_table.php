@@ -15,6 +15,9 @@ class CreateVoluntariesTable extends Migration
     {
         Schema::create('voluntaries', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('Nombres_Voluntario');
+            $table->string('Apellidos_Voluntario');
+            $table->integer('Edad');
             $table->timestamps();
         });
     }

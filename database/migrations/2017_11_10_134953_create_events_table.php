@@ -15,7 +15,14 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+
+          $table->string('Nombre_Evento');
+          $table->string('Actividades');
+          $table->string('Alimentos');
+
+            $table->integer('id_location')->unsigned()->nullable();
+            $table->foreign('id_location')->references('id')->on('locations');
+
         });
     }
 

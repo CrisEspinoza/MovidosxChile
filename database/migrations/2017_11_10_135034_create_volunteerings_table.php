@@ -15,6 +15,12 @@ class CreateVolunteeringsTable extends Migration
     {
         Schema::create('volunteerings', function (Blueprint $table) {
             $table->increments('id');
+
+            $table->string('Tipo_Trabajo');
+            $table->string('Perfil_Voluntario');
+            $table->integer('Cantidad_Minima_Voluntarios');
+            $table->integer('Cantidad_Maxima_Voluntarios');
+            
             $table->timestamps();
         });
     }
