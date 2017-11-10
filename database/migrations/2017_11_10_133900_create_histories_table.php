@@ -15,6 +15,16 @@ class CreateHistoriesTable extends Migration
     {
         Schema::create('histories', function (Blueprint $table) {
             $table->increments('id');
+            
+            $table->date('Date');
+            $table->string('Action');
+            $table->string('Nombre_Tabla');
+            $table->string('Atributo_Modificado');
+
+
+            //fk
+            $table->integer('id_user')->unsigned()->nullable();
+            $table->foreign('id_user')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -26,6 +36,8 @@ class CreateHistoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('histories');
+      Schema::disableForeignKeyConstraints();
+      Schema::dropIfExists('histories');
+      Schema::enableForeignKeyConstraints();
     }
 }
