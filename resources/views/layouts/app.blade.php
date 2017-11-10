@@ -8,12 +8,12 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Home</title>
+    <title>Movidos por Chile</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/Principal.css') }}" rel="stylesheet">
-    
+
 </head>
 <body>
     <div id="app">
@@ -47,7 +47,7 @@
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Registro</a></li>
-                            <li><a href="#">Colaboradores</a></li>
+                            <li><a href="{{ route('colaboradores') }}">Colaboradores</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
