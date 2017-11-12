@@ -19,7 +19,7 @@ Auth::routes();
 
 // others
 
-Route::get('/others/home', 'HomeController@index')->name('home');
+Route::get('/others/home', 'controllerOthers\HomeController@index')->name('home');
 Route::get('/others/colaboradores', 'controllerOthers\ColaboradoresController@index')->name('colaboradores');
 
 //government
