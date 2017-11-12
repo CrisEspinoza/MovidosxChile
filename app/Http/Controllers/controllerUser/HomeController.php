@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\controllerGovernment;
+namespace App\Http\Controllers\controllerUser;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('/government/home'); 
+        return view('/user/home'); 
     }
 
     /**

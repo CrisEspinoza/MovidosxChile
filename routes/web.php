@@ -18,10 +18,18 @@ Route::get('/', function () {
 Auth::routes();
 
 // others
-// 
+
 Route::get('/others/home', 'HomeController@index')->name('home');
 Route::get('/others/colaboradores', 'controllerOthers\ColaboradoresController@index')->name('colaboradores');
 
 //government
 
 Route::get('/government/home', 'controllerGovernment\HomeController@index')->name('homeGobernment');
+
+//Organizations
+
+Route::get('/organizations/home', 'controllerOrganizations\HomeController@index')->name('homeOrganizations');
+
+//User
+
+Route::get('/user/home', 'controllerUser\HomeController@index')->name('homeUser');
