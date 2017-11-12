@@ -17,9 +17,7 @@ class CreateCommunesTable extends Migration
             $table->increments('id');
             $table->string('Name');
 
-            $table->integer('id_region')->unsigned()->nullable();
-            $table->foreign('id_region')->references('id')->on('regions');
-
+            $table->integer('region_id');
             $table->timestamps();
         });
     }

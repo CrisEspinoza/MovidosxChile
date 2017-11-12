@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Collection_center extends Model
 {
     protected $table = 'collection_center';
-    
+
 	protected $fillable = [
 		'name'
 	];
 
 	public function action()
     {
-    	return $this->morphMany(Medida::class, 'actionOP');
+    	return $this->morphMany(Action::class, 'actionOP');
     }
 
     public function assets(){

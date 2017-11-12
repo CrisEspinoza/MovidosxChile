@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCatastrophesTable extends Migration
+class CreateBankCollectionCenterTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateCatastrophesTable extends Migration
      */
     public function up()
     {
-        Schema::create('catastrophes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('location_id');
-            $table->string('type');
+        Schema::create('bank_collection_center', function (Blueprint $table) {
+            $table->integer('bank_id');
+            $table->integer('collection_center_id');
+
+            $table->primary(['bank_id','collection_center_id']);
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateCatastrophesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('catastrophes');
+        Schema::dropIfExists('bank_collection_center');
     }
 }

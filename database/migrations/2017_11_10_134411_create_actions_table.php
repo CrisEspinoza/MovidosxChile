@@ -15,14 +15,15 @@ class CreateActionsTable extends Migration
     {
         Schema::create('actions', function (Blueprint $table) {
           $table->increments('id');
+
           $table->morphs('actionOP');
           $table->string('status');
           $table->integer('progress');
           $table->integer('goal');
           $table->date('start_date');
           $table->date('end_date');
-          $table->integer('id_user');
-          $table->integer('id_catastrophe');
+          $table->integer('user_id');
+          $table->integer('catastrophe_id');
         });
     }
 

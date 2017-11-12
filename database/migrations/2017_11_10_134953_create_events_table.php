@@ -18,7 +18,7 @@ class CreateEventsTable extends Migration
             $table->string('name');
             $table->string('activity');
             $table->string('foods');
-            $table->integer('id_location');
+            $table->integer('location_id');
         });
     }
 

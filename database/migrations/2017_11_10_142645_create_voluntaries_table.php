@@ -22,6 +22,7 @@ class CreateVoluntariesTable extends Migration
         });
     }
 
+
     /**
      * Reverse the migrations.
      *
