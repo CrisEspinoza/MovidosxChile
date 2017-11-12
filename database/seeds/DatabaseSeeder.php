@@ -20,8 +20,10 @@ class DatabaseSeeder extends Seeder
         DB::table('roles')->insert(['id'=>2, 'type_Rol'=> 'Gobierno']);
         DB::table('roles')->insert(['id'=>3, 'type_Rol'=> 'Organizacion']);
 
-        DB::table('users')->insert(['name'=> 'Gobierno',
-        'run'=>'0','email'=> 'gobierno@gmail.com', 'password'=>'gobierno123', 'role_id'=>2]);
+        static $password;
+        DB::table('users')->insert(
+        ['name'=> 'Gobierno',
+        'run'=>'0','email'=> 'gobierno@gmail.com', 'password'=> $password ?: $password = bcrypt('gobierno'), 'role_id'=>2]);
         factory(App\User::class, 10)->create();
 
 
