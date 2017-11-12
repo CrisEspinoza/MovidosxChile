@@ -15,21 +15,14 @@ class CreateActionsTable extends Migration
     {
         Schema::create('actions', function (Blueprint $table) {
           $table->increments('id');
-
           $table->morphs('actionOP');
-
-          $table->string('Estado');
-          $table->integer('Avance');
-          $table->integer('Meta');
-          $table->date('Fecha_Inicio');
-          $table->date('Fecha_Termino');
-
-          //fk
-          $table->integer('id_user')->unsigned()->nullable();
-          $table->foreign('id_user')->references('id')->on('users');
-
-          $table->integer('id_catastrophe')->unsigned()->nullable();
-          $table->foreign('id_catastrophe')->references('id')->on('catastrophes');
+          $table->string('status');
+          $table->integer('progress');
+          $table->integer('goal');
+          $table->date('start_date');
+          $table->date('end_date');
+          $table->integer('id_user');
+          $table->integer('id_catastrophe');
         });
     }
 

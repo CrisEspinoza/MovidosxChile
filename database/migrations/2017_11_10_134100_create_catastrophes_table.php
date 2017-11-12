@@ -15,14 +15,8 @@ class CreateCatastrophesTable extends Migration
     {
         Schema::create('catastrophes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('Type');
-            //fk
-            $table->integer('id_location')->unsigned()->nullable();
-            $table->foreign('id_location')->references('id')->on('locations');
-
-            $table->integer('id_user')->unsigned()->nullable();
-            $table->foreign('id_user')->references('id')->on('users');
-
+            $table->integer('id_location');
+            $table->string('type');
             $table->timestamps();
         });
     }
