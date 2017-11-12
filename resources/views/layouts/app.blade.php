@@ -14,10 +14,17 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/Principal.css') }}" rel="stylesheet">
 
+      <!-- Scripts -->
+    <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
+
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-inverse navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -44,11 +51,26 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
-                        @guest
+                        @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Iniciar sesión</a></li>
                             <li><a href="{{ route('register') }}">Registrarse</a></li>
                             <li><a href="{{ route('colaboradores') }}">Colaboradores</a></li>
                         @else
+                            <!-- Navbar for normal user -->
+                            @if (Auth::user()->role_id == 1)
+                            <li><a href="#">Mis datos</a></li>
+                            @endif
+                            <!-- Navbar for government user -->
+                            @if (Auth::user()->role_id == 2)
+                            <li><a href="#">Roles de Usuario</a></li>
+                            <li><a href="#">Tipos de Catástrofes</a></li>
+                            <li><a href="#">Bancos</a></li>
+                            @endif
+                            <!-- Navbar for organization user -->
+                            @if (Auth::user()->role_id == 3)
+                            <li><a href="#">Mis eventos</a></li>
+                            @endif
+                            <!-- Default navbar -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -68,7 +90,7 @@
                                     </li>
                                 </ul>
                             </li>
-                        @endguest
+                        @endif
                     </ul>
                 </div>
             </div>
