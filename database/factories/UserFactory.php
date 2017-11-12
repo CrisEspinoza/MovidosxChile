@@ -32,7 +32,7 @@ $factory->define(App\User::class, function (Faker $faker) {
 $factory->define(App\Catastrophe::class, function (Faker $faker) {
     $type = array('Terremoto', 'Maremoto','Incendio','Inundacion','Erupcion');
     return [
-        'location_id' => 1,
+        'location_id' =>App\Location::all()->random()->id,
         'description'=> $faker->sentence,
         'type'=> $type[random_int(0,4)],
     ];
@@ -47,7 +47,7 @@ $factory->define(App\Event::class, function (Faker $faker) {
         'name' => $faker->name,
         'activity'=> $activities[random_int(0,3)],
         'foods'=> $foods[random_int(0,2)],
-        'location_id'=>1,
+        'location_id'=>App\Location::all()->random()->id,
     ];
 });
 
@@ -63,8 +63,8 @@ $factory->define(App\Action::class, function (Faker $faker) {
         'actionOP_type'=> 'hola',
         'start_date' => $faker->date,
         'end_date' => $faker->date,
-        'user_id'=> random_int(1,10),
-        'catastrophe_id'=> random_int(1,10),
+        'user_id'=> App\User::all()->random()->id,
+        'catastrophe_id'=> App\Catastrophe::all()->random()->id,
     ];
 });
 
@@ -93,7 +93,7 @@ $factory->define(App\Donation::class, function (Faker $faker) {
 
 
     return [
-        'bank_id'=>random_int(1,3),
+        'bank_id'=> App\Bank::all()->random()->id,
         'mount'=> random_int(100000,2000000),
         'type_donation'=>random_int(1,3),
     ];
@@ -118,5 +118,7 @@ $factory->define(App\Collection_center::class, function (Faker $faker) {
 });
 $factory->define(App\Location::class, function (Faker $faker) {
     return [
+      'calle'=> "nada",
+      "commune_id"=>App\Commune::all()->random()->id,
     ];
 });

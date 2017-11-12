@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     protected $table = 'events';
-    
+
 	protected $fillable = [
 		'id_location',
 		'id_action',
@@ -16,7 +16,7 @@ class Event extends Model
 		'foods'
 	];
 
-	public function action()
+public function action()
     {
     	return $this->morphMany(Action::class, 'actionOP');
     }

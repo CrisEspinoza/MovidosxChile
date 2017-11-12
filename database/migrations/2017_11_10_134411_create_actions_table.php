@@ -17,6 +17,7 @@ class CreateActionsTable extends Migration
           $table->increments('id');
 
           $table->morphs('actionOP');
+
           $table->string('status');
           $table->integer('progress');
           $table->integer('goal');

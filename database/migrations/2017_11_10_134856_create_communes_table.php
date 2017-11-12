@@ -17,7 +17,7 @@ class CreateCommunesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('region_id');
-            $table->timestamps();
+
         });
     }
 
