@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\controllerOthers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class colaboradoresController extends Controller
+class HomeController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -13,7 +14,7 @@ class colaboradoresController extends Controller
      */
     public function __construct()
     {
-        //return view('colaboradores')
+        $this->middleware('auth');
     }
 
     /**
@@ -23,6 +24,6 @@ class colaboradoresController extends Controller
      */
     public function index()
     {
-        return view('colaboradores');
+        return view('home');
     }
 }
