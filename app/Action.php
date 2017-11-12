@@ -20,4 +20,9 @@ class Action extends Model
     {
     	return $this->morphTo();
     }
+
+    public function user()
+    {
+        return $this->belongsToMany(User::class, user_id,id);
+    }
 }

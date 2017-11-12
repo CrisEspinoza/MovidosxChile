@@ -18,7 +18,7 @@ class User extends Authenticatable
         'name',
         'last_name',
         'run',
-        'email', 
+        'email',
         'password',
         'role_id'
     ];
@@ -39,12 +39,12 @@ class User extends Authenticatable
 
     public function action()
     {
-        return $this->hasMany(Action::class, 'id_user', 'id');
+        return $this->belongsToMany(Action::class, 'id_user', 'id');
     }
 
     public function role()
     {
-        return $this->belongsTo(Role::class, 'id_user', 'id');
+        return $this->belongsToMany(Role::class, 'id_user', 'id');
     }
 
     public function catastrophes()
