@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Action extends Model
 {
-    protected $table = 'action';
-    
+    protected $table = 'actions';
+
 	protected $fillable = [
 		'id_user',
 		'status',

@@ -9,7 +9,7 @@ class Catastrophe extends Model
     public $table = 'catastrophes';
 
     protected $fillable = [
-              
+
     ];
 
     public function action(){
@@ -17,7 +17,7 @@ class Catastrophe extends Model
     }
 
     public function user(){
-    	return $this->belongsTo(User::class'id_user','id');
+    	return $this->belongsTo(User::class,'id_user','id');
     }
 
     public function location(){
