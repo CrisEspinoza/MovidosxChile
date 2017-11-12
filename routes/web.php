@@ -23,8 +23,8 @@ Route::get('/others/home', 'controllerOthers\HomeController@index')->name('home'
 Route::get('/others/colaboradores', 'controllerOthers\ColaboradoresController@index')->name('colaboradores');
 
 //government
-
-Route::get('/government/home', 'controllerGovernment\HomeController@index')->name('homeGobernment');
+Route::get('/government/home', 'controllerGovernment\HomeController@index')->name('homeGovernment');
+Route::get('/government/newCatastrophe', 'controllerGovernment\NewCatastropheController@index')->name('newCatastropheGov');
 
 //Organizations
 
