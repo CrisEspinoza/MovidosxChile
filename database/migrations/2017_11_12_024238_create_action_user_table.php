@@ -17,8 +17,8 @@ class CreateActionUserTable extends Migration
             $table->integer('action_id');
             $table->integer('user_id');
 
-            $table->primary(['action_id','user_id']);
             $table->timestamps();
+            $table->primary(['action_id','user_id']);
         });
     }
 

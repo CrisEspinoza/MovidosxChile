@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bank extends Model
 {
-	protected $table = 'banks';
+		protected $table = 'banks';
 
-    protected &fillable= [
+    protected $fillable= [
       'name'
     ];
 
@@ -16,4 +16,5 @@ class Bank extends Model
 
       return $this->hasmany(Donation:: class,'Id_Banco', 'id' );
     }
+	
 }

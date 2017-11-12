@@ -24,13 +24,20 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert(
         ['name'=> 'Gobierno',
         'run'=>'0','email'=> 'gobierno@gmail.com', 'password'=> $password ?: $password = bcrypt('gobierno'), 'role_id'=>2]);
+
+
         factory(App\User::class, 10)->create();
-
-
-
         factory(App\Catastrophe::class, 10)->create();
         factory(App\Action::class, 10)->create();
-        factory(App\Event::class, 10)->create();
+        factory(App\Volunteering::class, 10)->create();
+        factory(App\Bank::class, 10)->create();
+        factory(App\Donation::class, 10)->create();
+        factory(App\Asset::class, 10)->create();
+        factory(App\Collection_center::class, 10)->create();
+        factory(App\Location::class, 10)->create();
+
+
+
 
 
 
