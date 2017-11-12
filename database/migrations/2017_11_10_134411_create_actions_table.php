@@ -16,6 +16,8 @@ class CreateActionsTable extends Migration
         Schema::create('actions', function (Blueprint $table) {
           $table->increments('id');
 
+          //actionOP_id
+          //actionOP_type
           $table->morphs('actionOP');
 
           $table->string('status');
@@ -23,8 +25,8 @@ class CreateActionsTable extends Migration
           $table->integer('goal');
           $table->date('start_date');
           $table->date('end_date');
-          $table->integer('user_id');
-          $table->integer('catastrophe_id');
+          $table->integer('user_id')->nullable();
+          $table->integer('catastrophe_id')->nullable();
 
           $table->timestamps();
         });

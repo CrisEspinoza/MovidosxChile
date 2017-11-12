@@ -33,6 +33,7 @@ $factory->define(App\Catastrophe::class, function (Faker $faker) {
     $type = array('Terremoto', 'Maremoto','Incendio','Inundacion','Erupcion');
     return [
         'location_id' =>App\Location::all()->random()->id,
+        'typeCatastrophe_id' =>App\TypeCatastrophe::all()->random()->id,
         'description'=> $faker->sentence,
         'type'=> $type[random_int(0,4)],
     ];
