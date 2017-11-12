@@ -17,6 +17,7 @@ class CreateCatastrophesTable extends Migration
             $table->increments('id');
             $table->integer('location_id');
             $table->string('type');
+            $table->string('description');
             $table->timestamps();
         });
     }
