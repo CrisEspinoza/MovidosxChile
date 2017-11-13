@@ -25,6 +25,7 @@ Route::get('/others/colaboradores', 'controllerOthers\ColaboradoresController@in
 //government
 Route::get('/government/home', 'controllerGovernment\HomeController@index')->name('homeGovernment');
 Route::get('/government/newCatastrophe', 'controllerGovernment\NewCatastropheController@index')->name('newCatastropheGov');
+Route::get('/government/listCatastrophe', 'controllerGovernment\ListCatastropheController@index')->name('listCatastropheGov');
 
 //Organizations
 
@@ -33,3 +34,5 @@ Route::get('/organizations/home', 'controllerOrganizations\HomeController@index'
 //User
 
 Route::get('/user/home', 'controllerUser\HomeController@index')->name('homeUser');
+
+Route::get('/user/Mydata', 'controllerUser\MydataController@index')->name('Mydata');
