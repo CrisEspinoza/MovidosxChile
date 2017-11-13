@@ -37,15 +37,30 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        Home
+                    <a class="navbar-brand">
+                        
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        @if (Auth::guest())
+                            <li><a href="{{ url('/') }}"> Home </a></li>
+                        @else
+                            <!-- Navbar for normal user -->
+                            @if (Auth::user()->role_id == 1)
+                            <li><a href="{{ route('homeUser') }}">Home</a></li>
+                            @endif
+                            <!-- Navbar for government user -->
+                            @if (Auth::user()->role_id == 2)
+                            <li><a href="{{ route('homeGobernment') }}">Home</a></li>
+                            @endif
+                            <!-- Navbar for organization user -->
+                            @if (Auth::user()->role_id == 3)
+                            <li><a href="{{ route('homeOrganizations') }}">Home</a></li>
+                            @endif
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
