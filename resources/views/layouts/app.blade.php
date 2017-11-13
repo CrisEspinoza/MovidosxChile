@@ -73,12 +73,12 @@
                         @else
                             <!-- Navbar for normal user -->
                             @if (Auth::user()->role_id == 1)
-                            <li><a href="#">Mis datos</a></li>
+                            <li><a href="{{ route('Mydata') }}">Mis datos</a></li>
                             @endif
                             <!-- Navbar for government user -->
                             @if (Auth::user()->role_id == 2)
                             <li><a href="#">Roles de Usuario</a></li>
-                            <li><a href="#">Tipos de Catástrofes</a></li>
+                            <li><a href="{{ route('listCatastropheGov') }}">Lista de Catástrofes</a></li>
                             <li><a href="#">Bancos</a></li>
                             @endif
                             <!-- Navbar for organization user -->
