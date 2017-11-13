@@ -35,7 +35,7 @@ $factory->define(App\Catastrophe::class, function (Faker $faker) {
         'location_id' =>App\Location::all()->random()->id,
         'typeCatastrophe_id' =>App\TypeCatastrophe::all()->random()->id,
         'description'=> $faker->sentence,
-        'type'=> $type[random_int(0,4)],
+        'name'=> $faker->cityPrefix . ' ' . $faker->company,
     ];
 });
 

@@ -15,11 +15,10 @@ class CreateCatastrophesTable extends Migration
     {
         Schema::create('catastrophes', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->integer('location_id');
             $table->integer('typeCatastrophe_id');
-            $table->string('type');
             $table->string('description');
-
             $table->timestamps();
         });
     }

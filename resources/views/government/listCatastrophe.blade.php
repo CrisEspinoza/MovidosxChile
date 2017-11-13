@@ -13,14 +13,18 @@
                     <table class="table table-hover">
                         <tr>
                             <th>Nombre</th>
-                            <th>Descripción</th>
                             <th>Tipo</th>
+                            <th>Región</th>
+                            <th>Comuna</th>
+                            <th>Acción</th>
                         </tr>
                         @foreach ($catastrophes as $c)
                         <tr>
-                            <td> name </td>
-                            <td> {{ $c->description }}</td>
-                            <td> {{ $c->typeCatastrophe->name_type}}</td>
+                            <td> {{ $c->name }} </td>
+                            <td> {{ $c->typeCatastrophe->name_type }}</td>
+                            <td> {{ $c->location->commune->region->name }} </td>
+                            <td> {{ $c->location->commune->name }}</td>
+                            <td> <a class="btn btn-warning" type="button" href="#" > Ver </a></td>
                         </tr>
                         @endforeach
                     </table>
