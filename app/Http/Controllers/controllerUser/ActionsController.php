@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\controllerUser;
-use Auth;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class MyDataController extends Controller
+class ActionsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class MyDataController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        return view('/user/Mydata',compact('user')); 
+        return view('/user/actions');
     }
 
     /**
