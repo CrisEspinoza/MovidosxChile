@@ -26,6 +26,7 @@ Route::get('/others/colaboradores', 'controllerOthers\ColaboradoresController@in
 Route::get('/government/home', 'controllerGovernment\HomeController@index')->name('homeGovernment');
 Route::get('/government/newCatastrophe', 'controllerGovernment\NewCatastropheController@index')->name('newCatastropheGov');
 Route::get('/government/listCatastrophe', 'controllerGovernment\ListCatastropheController@index')->name('listCatastropheGov');
+Route::get('/government/seedCatastrophe', 'controllerGovernment\SeedCatastropheController@index')->name('seedCatastropheGov');
 
 //Organizations
 

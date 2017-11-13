@@ -11,7 +11,6 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><h2>Agregar catástrofe</h2></div>
                     <div class="panel-body">
-
                         <div class="form-group row">
                             <div class="col-md-6">
                                 <label> Nombre mnemotécnico: </label>
