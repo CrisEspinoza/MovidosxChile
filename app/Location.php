@@ -8,15 +8,15 @@ class Location extends Model
 {
     public function catastrophes()
     {
-        return $this->hasMany(Catastrophe::class, 'catastrophe_id', 'id');
+        return $this->hasMany(Catastrophe::class);
     }
 	public function events()
     {
-        return $this->hasMany(Event::class, 'event_id', 'id');
+        return $this->hasMany(Event::class);
     }
     public function commune()
       {
-          return $this->belongsTo(Commune::class, 'commune_id', 'id');
+          return $this->belongsTo(Commune::class);
       }
 
 }

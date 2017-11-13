@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBankCollectionCenterTable extends Migration
+class CreateAssetCollectionCenterTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateBankCollectionCenterTable extends Migration
      */
     public function up()
     {
-        Schema::create('bank_collection_center', function (Blueprint $table) {
-            $table->integer('bank_id');
+        Schema::create('asset_collection_center', function (Blueprint $table) {
+            $table->integer('asset_id');
             $table->integer('collection_center_id');
 
-            $table->primary(['bank_id','collection_center_id']);
+            $table->primary(['asset_id','collection_center_id']);
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateBankCollectionCenterTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bank_collection_center');
+        Schema::dropIfExists('asset_collection_center');
     }
 }

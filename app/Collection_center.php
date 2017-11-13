@@ -18,6 +18,6 @@ class Collection_center extends Model
     }
 
     public function assets(){
-         return $this->hasMany(Asset::class, 'id_centroAcopio');
+         return $this->belongsToMany(Asset::class);
     }
 }
