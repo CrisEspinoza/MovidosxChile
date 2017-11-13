@@ -34,21 +34,21 @@ class User extends Authenticatable
 
     public function history()
     {
-        return $this->hasMany(History::class, 'id_user', 'id');
+        return $this->hasMany(History::class);
     }
 
     public function action()
     {
-        return $this->belongsToMany(Action::class, 'id_user', 'id');
+        return $this->belongsToMany(Action::class);
     }
 
     public function role()
     {
-        return $this->belongsToMany(Role::class, 'id_user', 'id');
+        return $this->belongsToMany(Role::class);
     }
 
     public function catastrophes()
     {
-       return $this->hasMany(Catastrophe::class, 'id_user', 'id');
+       return $this->hasMany(Catastrophe::class);
     }
 }

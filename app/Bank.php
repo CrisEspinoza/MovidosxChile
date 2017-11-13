@@ -14,7 +14,7 @@ class Bank extends Model
 
     public function donation(){
 
-      return $this->hasmany(Donation:: class,'Id_Banco', 'id' );
+      return $this->hasmany(Donation:: class );
     }
-	
+
 }

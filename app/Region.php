@@ -9,6 +9,6 @@ class Region extends Model
 
   public function commune()
   {
-      return $this->hasMany(Commune::class, 'commune_id', 'id');
+      return $this->hasMany(Commune::class);
   }
 }
