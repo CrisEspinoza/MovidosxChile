@@ -52,7 +52,7 @@
                         </div>
 	                    <div class="panel-footer">
 	                        <input class="btn btn-primary" type="submit" id = "add" value="Registrar catástrofe">
-	                        <input class="btn btn-danger" type="submit" id = "cancel" value="Cancelar">
+	                        <a class="btn btn-danger" type="submit" id = "cancel" href="{{ route ('homeGovernment') }}"> Cancelar </a>
 	                    </div>
                 	</div>
             	</div>

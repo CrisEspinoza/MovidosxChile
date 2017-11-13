@@ -35,5 +35,4 @@ Route::get('/organizations/home', 'controllerOrganizations\HomeController@index'
 //User
 
 Route::get('/user/home', 'controllerUser\HomeController@index')->name('homeUser');
-
 Route::get('/user/Mydata', 'controllerUser\MydataController@index')->name('Mydata');
