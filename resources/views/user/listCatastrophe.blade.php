@@ -24,7 +24,7 @@
                             <td> {{ $c->typeCatastrophe->name_type }}</td>
                             <td> {{ $c->location->commune->region->name }} </td>
                             <td> {{ $c->location->commune->name }}</td>
-                            <td> <a class="btn btn-warning" type="button" href="#" > Ver </a></td>
+                            <td> <a class="btn btn-warning" type="button" href="{{ route('seeCatastropheUser')}} " > Ver </a></td>
                             <td> <a class="btn btn-warning" type="button" href="{{ route('actionsUser')}} " > Aportar medida </a></td>
                         </tr>
                         @endforeach

@@ -8,6 +8,7 @@ use App\Region;
 use App\Commune;
 use App\TypeCatastrophe;
 
+
 class NewCatastropheController extends Controller
 {
     public function index()

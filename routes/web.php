@@ -38,3 +38,4 @@ Route::get('/user/home', 'controllerUser\HomeController@index')->name('homeUser'
 Route::get('/user/Mydata', 'controllerUser\MydataController@index')->name('Mydata');
 Route::get('/user/listCatastrophe', 'controllerUser\ListCatastropheController@index')->name('listCatastropheUser');
 Route::get('/user/actions', 'controllerUser\ActionsController@index')->name('actionsUser');
+Route::get('/user/seeCatastrophe', 'controllerUser\SeeCatastropheController@index')->name('seeCatastropheUser');

@@ -1,11 +1,15 @@
 <?php
 
 namespace App\Http\Controllers\controllerUser;
-use Auth;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Region;
+use App\Commune;
+use App\TypeCatastrophe;
+use Auth;
 
-class MyDataController extends Controller
+class SeeCatastropheController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +18,10 @@ class MyDataController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        return view('/user/MyData', compact('user')); 
+        $regions = Region::all()->sortby('id');
+        $communes = Commune::all()->sortby('region_id');
+        $typesCats = TypeCatastrophe::all()->sortby('id');
+        return view('/user/SeeCatastrophe', compact('regions', 'communes','typesCats','catastrophe'));
     }
 
     /**

@@ -9,7 +9,7 @@
         <div class="col-md-8 col-md-offset-2" style="filter: alpha(opacity=25); -moz-opacity: 0.3; opacity: 0.9; -khtml-opacity: 0.3;">
             <form method="POST">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h2>Agregar catástrofe</h2></div>
+                    <div class="panel-heading"><h2> Catástrofe FALTA AGREGAR DATOS</h2></div>
                     <div class="panel-body">
                         <div class="form-group row">
                             <div class="col-md-6">
@@ -51,8 +51,8 @@
                             </div>
                         </div>
 	                    <div class="panel-footer">
-	                        <input class="btn btn-primary" type="submit" id = "add" value="Registrar catástrofe">
-	                        <a class="btn btn-danger" type="submit" id = "cancel" href="{{ route ('homeGovernment') }}"> Cancelar </a>
+                            <a class="btn btn-primary" type="submit" id = "cancel" href="#"> Guardar cambios </a>
+	                        <a class="btn btn-danger" type="submit" id = "cancel" href="{{ route ('listCatastropheUser') }}"> Cancelar </a>
 	                    </div>
                 	</div>
             	</div>
