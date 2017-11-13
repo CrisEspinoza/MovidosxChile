@@ -54,7 +54,7 @@
                             @endif
                             <!-- Navbar for government user -->
                             @if (Auth::user()->role_id == 2)
-                            <li><a href="{{ route('homeGobernment') }}">Home</a></li>
+                            <li><a href="{{ route('homeGovernment') }}">Home</a></li>
                             @endif
                             <!-- Navbar for organization user -->
                             @if (Auth::user()->role_id == 3)
