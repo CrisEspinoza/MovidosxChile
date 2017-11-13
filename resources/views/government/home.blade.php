@@ -8,6 +8,7 @@
     <div class="jumbotron jumbotron-fluid">
         <h1> Nueva catastrofe </h1>
         <p> Agrega una nueva catastrofe para mantener al tanto a los ciudadanos del pais </p>
+        <a class="btn btn-info btn-lg" type="button" href="{{ route ('newCatastropheGov') }}"> Agregar nueva catastrofe </a>
     </div>
 </div>
 
