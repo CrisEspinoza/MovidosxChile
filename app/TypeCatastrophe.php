@@ -10,7 +10,7 @@ class TypeCatastrophe extends Model
 
     public function catastrophe()
     {
-        return $this->hasMany(Catastrophe::class, 'catastrophe_id', 'id');
+        return $this->hasMany(Catastrophe::class);
     }
 
 }

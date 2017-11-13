@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Donation extends Model
 {
     protected $table = 'donations';
-    
+
 	protected $fillable = [
 		'id_bank',
 		'mount',
@@ -21,6 +21,6 @@ class Donation extends Model
 
 	public function bank()
 	{
-        return $this->belongsTo(Bank::class, 'id_bank', 'id');
+        return $this->belongsTo(Bank::class);
     }
 }

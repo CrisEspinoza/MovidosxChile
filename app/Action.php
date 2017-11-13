@@ -23,6 +23,6 @@ class Action extends Model
 
     public function user()
     {
-        return $this->belongsToMany(User::class, user_id,id);
+        return $this->belongsToMany(User::class);
     }
 }

@@ -13,19 +13,19 @@ class Catastrophe extends Model
     ];
 
     public function action(){
-    	return $this->hasMany(Action::class,'id_catastrophe');
+    	return $this->hasMany(Action::class);
     }
 
     public function user(){
-    	return $this->belongsTo(User::class,'id_user','id');
+    	return $this->belongsTo(User::class);
     }
 
     public function location(){
-    	return $this->belongsTo(Location::class, 'id_location','id');
+    	return $this->belongsTo(Location::class);
     }
 
     public function typeCatastrophe(){
-    	return $this->belongsTo(TypeCatastrofe::class,'typeCatastrophe_id','id');
+    	return $this->belongsTo(TypeCatastrofe::class);
     }
 
 }

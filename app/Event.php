@@ -23,6 +23,6 @@ public function action()
 
     public function location()   //relación con banco
 	{
-        return $this->belongsTo(Location::class, 'id_location', 'id');
+        return $this->belongsTo(Location::class);
     }
 }
