@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCatastrophesTable extends Migration
+class CreateTypeCatastrophesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateCatastrophesTable extends Migration
      */
     public function up()
     {
-        Schema::create('catastrophes', function (Blueprint $table) {
+        Schema::create('type_catastrophes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('location_id');
-            $table->integer('typeCatastrophe_id');
-            $table->string('type');
-            $table->string('description');
-
+            $table->string('name_type');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class CreateCatastrophesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('catastrophes');
+        Schema::dropIfExists('type_catastrophes');
     }
 }

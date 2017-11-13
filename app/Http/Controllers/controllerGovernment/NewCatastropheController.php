@@ -14,7 +14,7 @@ class NewCatastropheController extends Controller
      */
     public function index()
     {
-        //
+        return view('/government/newCatastrophe'); 
     }
 
     /**

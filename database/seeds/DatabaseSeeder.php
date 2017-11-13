@@ -25,8 +25,6 @@ class DatabaseSeeder extends Seeder
         ['name'=> 'Gobierno',
         'run'=>'0','email'=> 'gobierno@gmail.com', 'password'=> $password ?: $password = bcrypt('gobierno'), 'role_id'=>2]);
 
-
-
         DB::table('regions')->insert([ 'name'=>'Región Metropolitana']);
         DB::table('regions')->insert([ 'name'=>'Arica y Parinacota']);
         DB::table('regions')->insert([ 'name'=>'Tarapacá']);
@@ -412,9 +410,19 @@ class DatabaseSeeder extends Seeder
         DB::table('communes')->insert([ 'name'=>'Natales', 'region_id'=>16]);
         DB::table('communes')->insert([ 'name'=>'Torres del Paine', 'region_id'=>16]);
 
+        DB::table('type_catastrophes')->insert([ 'name_type'=>'Terremoto']);
+        DB::table('type_catastrophes')->insert([ 'name_type'=>'Tsunami']);
+        DB::table('type_catastrophes')->insert([ 'name_type'=>'Incendio']);
+        DB::table('type_catastrophes')->insert([ 'name_type'=>'Inundación']);
+        DB::table('type_catastrophes')->insert([ 'name_type'=>'Aluvion']);
+        DB::table('type_catastrophes')->insert([ 'name_type'=>'Temporal de lluvia']);
+        DB::table('type_catastrophes')->insert([ 'name_type'=>'Sequía']);
+        DB::table('type_catastrophes')->insert([ 'name_type'=>'Erupción']);
+
+        
+
 
         factory(App\Location::class, 10)->create();
-
         factory(App\User::class, 10)->create();
         factory(App\Catastrophe::class, 10)->create();
         factory(App\Action::class, 10)->create();
@@ -423,6 +431,8 @@ class DatabaseSeeder extends Seeder
         factory(App\Donation::class, 10)->create();
         factory(App\Asset::class, 10)->create();
         factory(App\Collection_center::class, 10)->create();
+        factory(App\Event::class, 10)->create();
+
 
 
 

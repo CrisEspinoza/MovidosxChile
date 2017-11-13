@@ -23,4 +23,9 @@ class Catastrophe extends Model
     public function location(){
     	return $this->belongsTo(Location::class, 'id_location','id');
     }
+
+    public function typeCatastrophe(){
+    	return $this->belongsTo(TypeCatastrofe::class,'typeCatastrophe_id','id');
+    }
+
 }
