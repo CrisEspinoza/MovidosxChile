@@ -25,7 +25,7 @@ class Catastrophe extends Model
     }
 
     public function typeCatastrophe(){
-    	return $this->belongsTo(TypeCatastrofe::class);
+    	return $this->belongsTo(TypeCatastrophe::class, 'typeCatastrophe_id', 'id');
     }
 
 }

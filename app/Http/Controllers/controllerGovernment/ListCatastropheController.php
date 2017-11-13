@@ -4,6 +4,9 @@ namespace App\Http\Controllers\controllerGovernment;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\TypeCatastrophe;
+use App\Catastrophe;
+use App\Location;
 
 class ListCatastropheController extends Controller
 {
@@ -14,7 +17,9 @@ class ListCatastropheController extends Controller
      */
     public function index()
     {
-        return view('/government/listCatastrophe'); 
+        $catastrophes = Catastrophe::all()->sortby('location_id');
+        $types = TypeCatastrophe::all();
+        return view('/government/listCatastrophe', compact('catastrophes', 'types')); 
     }
 
     /**
