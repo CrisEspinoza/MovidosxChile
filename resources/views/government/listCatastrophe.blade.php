@@ -18,7 +18,7 @@
                     <td>  </td>
                     <td>  </td>
                     <td>  </td>
-                    <td><button type="button" class="btn btn-warning" href="#" >Ver </button></td>
+                    <td><a type="button" class="btn btn-warning" href="{{ route('seedCatastropheGov') }}" > Ver </a></td>
             </table>
         </div>
         <div class="panel-footer">
