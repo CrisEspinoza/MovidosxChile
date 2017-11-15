@@ -55,13 +55,14 @@ $factory->define(App\Event::class, function (Faker $faker) {
 
 
 $factory->define(App\Action::class, function (Faker $faker) {
-
+    $status = array('bien','mal');
+    $action_types=array('App\Event','App\Collection_center','App\Donation','App\Volunteering');
     return [
-        'status' => 'cualquier wea',
+        'status' => $status[random_int(0,1)],
         'progress'=> random_int(0,100),
         'goal'=> random_int(100,1000),
-        'actionOP_id'=> 1,
-        'actionOP_type'=> 'hola',
+        'actionOP_id'=> random_int(1,10),
+        'actionOP_type'=> $action_types[random_int(0,3)],
         'start_date' => $faker->date,
         'end_date' => $faker->date,
         'user_id'=> App\User::all()->random()->id,
