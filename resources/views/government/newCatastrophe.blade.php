@@ -16,6 +16,12 @@
                             <div class="col-md-6">
                                 <label> Nombre memotécnico: </label>
                                 <input type="text" name = "name" class="form-control" placeholder="27F">
+                                
+                                @if ($errors->has('name'))
+                                    <span class="help-block" style="color:red">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                             <div class="col-md-6">
                                 <label> Tipo: </label>

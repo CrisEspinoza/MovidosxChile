@@ -22,7 +22,7 @@ class NewCatastropheController extends Controller
 
     public function create(Request $request)
     {
-        /*$validator = Validator::make($request->all(),
+        $validator = Validator::make($request->all(),
             [
             'name' => 'required|string|max:20',
             'typeCatastrophe_id' => 'required|integer',
@@ -35,7 +35,7 @@ class NewCatastropheController extends Controller
             'max' => 'Cantidad mayor a la permitida',
             'integer' => 'Debe ser un valor numérico'
         ]
-        );*/
+        );
 
         $cat =  new Catastrophe;
         $cat->name= $request->name;
@@ -64,13 +64,14 @@ class NewCatastropheController extends Controller
         );
 
         if ($validator->fails()){
-            echo "location_id: " . $request->location_id ."\n";
-            echo "region_id: " . $request->region_id."\n";
-            echo "name: " .$request->name."\n";
-            echo "descripcion: " .$request->description."\n";
-            echo "type: " .$request->typeCatastrophe_id ."\n";
-            //return redirect()->route('newCatastrophe.index')->withErrors($validator);
-            return " ";
+            //echo "location_id: " . $request->location_id ."\n";
+            //echo "region_id: " . $request->region_id."\n";
+            //echo "name: " .$request->name."\n";
+            //echo "descripcion: " .$request->description."\n";
+            return redirect()->route('newCatastrophe.index')->withErrors($validator)->withInput();
+
+
+            //return "sd ";
         }
 
         NewCatastropheController::create($request);
