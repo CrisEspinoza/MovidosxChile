@@ -7,18 +7,19 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2" style="filter: alpha(opacity=25); -moz-opacity: 0.3; opacity: 0.9; -khtml-opacity: 0.3;">
-            <form method="POST">
+            <form method="POST" action="{{route('newCatastrophe.store')}}">
+                {{ csrf_field() }}
                 <div class="panel panel-default">
                     <div class="panel-heading"><h2>Agregar catástrofe</h2></div>
                     <div class="panel-body">
                         <div class="form-group row">
                             <div class="col-md-6">
                                 <label> Nombre memotécnico: </label>
-                                <input type="text" id = "name" class="form-control" placeholder="27F">
+                                <input type="text" name = "name" class="form-control" placeholder="27F">
                             </div>
                             <div class="col-md-6">
                                 <label> Tipo: </label>
-                                <select class="form-control" name="id_type">
+                                <select class="form-control" name="typeCatastrophe_id" id="typeCatastrophe_id">
                                     @foreach ($typesCats as $type)
                                         <option value="{{$type->id}}">{{ $type->name_type }}</option>
                                     @endforeach
@@ -29,7 +30,7 @@
                         <div class="form-group row">
                             <div class="col-md-6">
                                 <label> Región: </label>
-                                <select class="form-control" name="id_region">
+                                <select class="form-control" name="region_id">
                                     @foreach ($regions as $region)
                                         <option value="{{$region->id}}">{{ $region->name }}</option>
                                     @endforeach
@@ -37,7 +38,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label> Comuna: </label>
-                                <select class="form-control" name="id_commune">
+                                <select class="form-control" name="location_id">
                                     @foreach ($communes as $commune)
                                         <option value="{{ $commune->id}}">{{ $commune->name }}</option>
                                     @endforeach
@@ -47,11 +48,11 @@
 						
                     	<div class="form-group row">
                             <div class="col-md-12">
-                                <textarea id="description" class="form-control" rows="10" cols="50" placeholder="Descripción de la catástrofe..."></textarea>
+                                <textarea name="description" class="form-control" rows="10" cols="50" placeholder="Descripción de la catástrofe..."></textarea>
                             </div>
                         </div>
 	                    <div class="panel-footer">
-	                        <input class="btn btn-primary" type="submit" id = "add" value="Registrar catástrofe">
+	                        <button class="btn btn-primary" type="submit">Registrar catástrofe</button>
 	                        <a class="btn btn-danger" type="submit" id = "cancel" href="{{ route ('homeGovernment') }}"> Cancelar </a>
 	                    </div>
                 	</div>

@@ -28,6 +28,11 @@ Route::get('/government/newCatastrophe', 'controllerGovernment\NewCatastropheCon
 Route::get('/government/listCatastrophe', 'controllerGovernment\ListCatastropheController@index')->name('listCatastropheGov');
 Route::get('/government/seedCatastrophe', 'controllerGovernment\SeedCatastropheController@index')->name('seedCatastropheGov');
 
+Route::resource('newCatastrophe', 'controllerGovernment\NewCatastropheController');
+
+
+
+
 //Organizations
 
 Route::get('/organizations/home', 'controllerOrganizations\HomeController@index')->name('homeOrganizations');
