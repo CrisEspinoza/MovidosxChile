@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2" style="filter: alpha(opacity=25); -moz-opacity: 0.3; opacity: 0.9; -khtml-opacity: 0.3;">
             <div class="panel panel-default">
-                <div class="panel-heading">Perfil Falta rellenar los datos </div>
+                <div class="panel-heading">Perfil Falta rellenar el apellido </div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
@@ -14,7 +14,7 @@
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Nombre</label>
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ $user->name }}" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -27,7 +27,7 @@
                         <div class="form-group{{ $errors->has('lastname') ? ' has-error' : '' }}">
                             <label for="lastname" class="col-md-4 control-label">Apellidos</label>
                             <div class="col-md-6">
-                                <input id="lastname" type="text" class="form-control" name="lastname" value="{{ old('lastname') }}" required autofocus>
+                                <input id="lastname" type="text" class="form-control" name="lastname" value="{{ $user->lastname }}" required autofocus>
 
                                 @if ($errors->has('lastname'))
                                     <span class="help-block">
@@ -40,7 +40,7 @@
                         <div class="form-group{{ $errors->has('run') ? ' has-error' : '' }}">
                             <label for="run" class="col-md-4 control-label">RUN</label>
                             <div class="col-md-6">
-                                <input id="run" type="text" class="form-control" name="run" value="{{ old('run') }}" required autofocus>
+                                <input id="run" type="text" class="form-control" name="run" value="{{ $user->run }}" required autofocus>
 
                                 @if ($errors->has('run'))
                                     <span class="help-block">
@@ -55,7 +55,7 @@
                             <label for="email" class="col-md-4 control-label">Correo electrónico</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ $user->email }}" required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">

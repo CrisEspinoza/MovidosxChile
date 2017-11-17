@@ -8,8 +8,7 @@ class Catastrophe extends Model
 {
     public $table = 'catastrophes';
 
-    protected $fillable = [
-
+    protected $fillable = ['name','location_id','typeCatastrophe_id','description'
     ];
 
     public function action(){

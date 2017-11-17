@@ -425,7 +425,6 @@ class DatabaseSeeder extends Seeder
         factory(App\Location::class, 10)->create();
         factory(App\User::class, 10)->create();
         factory(App\Catastrophe::class, 10)->create();
-        factory(App\Action::class, 10)->create();
         factory(App\Volunteering::class, 10)->create();
         factory(App\Bank::class, 10)->create();
         factory(App\Donation::class, 10)->create();
@@ -447,6 +446,7 @@ class DatabaseSeeder extends Seeder
           }
         });
 
+        factory(App\Action::class, 10)->create();
 
 
 
