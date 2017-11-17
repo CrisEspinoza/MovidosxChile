@@ -37,6 +37,7 @@
                             <div class="col-md-6">
                                 <label> Región: </label>
                                 <select class="form-control" name="region_id" id="select-region">
+                                    <option value = ""> Seleccione una región </option>
                                     @foreach ($regions as $region)
                                         <option value="{{$region->id}}">{{ $region->name }}</option>
                                     @endforeach
@@ -45,9 +46,8 @@
                             <div class="col-md-6">
                                 <label> Comuna: </label>
                                 <select class="form-control" name="location_id" id=select-commune>
-                                    @foreach ($communes as $commune)
-                                        <option value="{{ $commune->id}}">{{ $commune->name }}</option>
-                                    @endforeach
+                                    
+                                    
                                 </select>
                             </div>
                         </div>
