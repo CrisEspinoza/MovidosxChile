@@ -52,7 +52,7 @@ class NewCatastropheController extends Controller
 
         $cat->save();
 
-        $message = "Nueva catástrofe: " . $request->name . " en " . $loc->commune->name . ", " . $loc->commune->region->name . " #CatastrofeNacional";
+        $message = "ALERTA DE CATÁSTROFE: " . $request->name . " en " . $loc->commune->name . ", " . $loc->commune->region->name . " #CatastrofeNacional";
         Twitter::postTweet(['status' => $message, 'format' => 'json']);
     }
 
