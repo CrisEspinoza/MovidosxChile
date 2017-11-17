@@ -3,6 +3,10 @@ $(function(){
 	$('#select-region').on('change',onSelectRegionChange);
 });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 48b42f212160d620f6542b4cf860e9e96d6c590c
 function onSelectRegionChange(){
 	var region_id = $(this).val();
 	

@@ -3,7 +3,7 @@
 @section('title', 'NewCatastrophe')
 
 @section('content')
-
+<script src="{{ asset('js/completer.js') }}"></script>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2" style="filter: alpha(opacity=25); -moz-opacity: 0.3; opacity: 0.9; -khtml-opacity: 0.3;">
@@ -37,6 +37,7 @@
                             <div class="col-md-6">
                                 <label> Región: </label>
                                 <select class="form-control" name="region_id" id="select-region">
+                                    <option value = ""> Seleccione una región </option>
                                     @foreach ($regions as $region)
                                         <option value="{{$region->id}}">{{ $region->name }}</option>
                                     @endforeach
@@ -45,9 +46,8 @@
                             <div class="col-md-6">
                                 <label> Comuna: </label>
                                 <select class="form-control" name="location_id" id=select-commune>
-                                    @foreach ($communes as $commune)
-                                        <option value="{{ $commune->id}}">{{ $commune->name }}</option>
-                                    @endforeach
+                                    
+                                    
                                 </select>
                             </div>
                         </div>
@@ -74,5 +74,7 @@
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="/js/user/newCatastrophe.js"></script>
+
+
 @endsection
 
