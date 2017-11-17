@@ -3,8 +3,6 @@ $(function(){
 	$('#select-region').on('change',onSelectRegionChange);
 });
 
-
-
 function onSelectRegionChange(){
 	var region_id = $(this).val();
 	
