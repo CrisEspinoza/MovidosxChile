@@ -17,6 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/enviar_tweet', function()
+{
+    return Twitter::postTweet(['status' => 'Mi primer tweet desde Laravel', 'format' => 'json']);
+});
+
 // others
 
 Route::get('/others/home', 'controllerOthers\HomeController@index')->name('home');

@@ -3,7 +3,7 @@
 @section('title', 'NewCatastrophe')
 
 @section('content')
-
+<script src="{{ asset('js/completer.js') }}"></script>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2" style="filter: alpha(opacity=25); -moz-opacity: 0.3; opacity: 0.9; -khtml-opacity: 0.3;">
