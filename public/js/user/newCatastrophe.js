@@ -4,7 +4,6 @@ $(function(){
 });
 
 
-
 function onSelectRegionChange(){
 	var region_id = $(this).val();
 	
