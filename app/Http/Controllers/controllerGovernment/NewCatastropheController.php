@@ -8,6 +8,7 @@ use App\Catastrophe;
 use App\Region;
 use App\Commune;
 use App\TypeCatastrophe;
+use App\Location;
 use Validator;
 
 class NewCatastropheController extends Controller
@@ -37,13 +38,19 @@ class NewCatastropheController extends Controller
         ]
         );
 
+        $loc = new Location;
+        $loc->commune_id= $request->location_id;
+        $loc->save();
+
+
         $cat =  new Catastrophe;
         $cat->name= $request->name;
         $cat->typeCatastrophe_id =$request->typeCatastrophe_id;
-        $cat->location_id = $request->location_id;
+        $cat->location_id = $loc->id;
         $cat->description = $request->description;
 
         $cat->save();
+
     }
 
     public function store(Request $request)
@@ -75,7 +82,10 @@ class NewCatastropheController extends Controller
         }
 
         NewCatastropheController::create($request);
-        return "holi";
+        $catastrophes = Catastrophe::all()->sortby('typeCatastrophe_id');
+        $types = TypeCatastrophe::all();
+        return view('/government/listCatastrophe', compact('catastrophes', 'types'));
+
     }
 
     public function show($id)

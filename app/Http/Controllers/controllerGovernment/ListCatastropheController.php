@@ -17,7 +17,7 @@ class ListCatastropheController extends Controller
      */
     public function index()
     {
-        $catastrophes = Catastrophe::all()->sortby('ypeCatastrophe_id');
+        $catastrophes = Catastrophe::all()->sortby('typeCatastrophe_id');
         $types = TypeCatastrophe::all();
         return view('/government/listCatastrophe', compact('catastrophes', 'types')); 
     }

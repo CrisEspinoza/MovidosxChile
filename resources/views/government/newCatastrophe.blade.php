@@ -54,7 +54,12 @@
 						
                     	<div class="form-group row">
                             <div class="col-md-12">
-                                <textarea name="description" class="form-control" rows="10" cols="50" placeholder="Descripción de la catástrofe..."></textarea>
+                                <textarea name="description" class="form-control" rows="5" cols="50" placeholder="Descripción de la catástrofe..."></textarea>
+                                @if ($errors->has('description'))
+                                    <span class="help-block" style="color:red">
+                                        <strong>{{ $errors->first('description') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 	                    <div class="panel-footer">
@@ -62,9 +67,14 @@
 	                        <a class="btn btn-danger" type="submit" id = "cancel" href="{{ route ('homeGovernment') }}"> Cancelar </a>
 	                    </div>
                 	</div>
-            	</div>
+            	</div>s
             </form>
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+    <script src="/js/newCatastrophe.js/"></script>
+
 @endsection
