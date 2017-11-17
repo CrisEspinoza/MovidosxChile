@@ -92,4 +92,9 @@ class NewCatastropheController extends Controller
     {
         //
     }
+
+    public function byRegion($id){
+        return Commune::where('region_id',$id)->get();
+
+    }
 }

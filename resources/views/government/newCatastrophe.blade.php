@@ -36,7 +36,7 @@
                         <div class="form-group row">
                             <div class="col-md-6">
                                 <label> Región: </label>
-                                <select class="form-control" name="region_id">
+                                <select class="form-control" name="region_id" id="select-region">
                                     @foreach ($regions as $region)
                                         <option value="{{$region->id}}">{{ $region->name }}</option>
                                     @endforeach
@@ -44,7 +44,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label> Comuna: </label>
-                                <select class="form-control" name="location_id">
+                                <select class="form-control" name="location_id" id=select-commune>
                                     @foreach ($communes as $commune)
                                         <option value="{{ $commune->id}}">{{ $commune->name }}</option>
                                     @endforeach
@@ -72,9 +72,7 @@
         </div>
     </div>
 </div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/js/user/newCatastrophe.js"></script>
 @endsection
 
-@section('scripts')
-    <script src="/js/newCatastrophe.js/"></script>
-
-@endsection
