@@ -30,14 +30,14 @@ Route::get('/others/colaboradores', 'controllerOthers\ColaboradoresController@in
 
 //government
 
-Route::get('/government/home', 'controllerGovernment\HomeController@index')->name('homeGovernment');
-Route::get('/government/newCatastrophe', 'controllerGovernment\NewCatastropheController@index')->name('newCatastropheGov');
-Route::get('/government/listCatastrophe', 'controllerGovernment\ListCatastropheController@index')->name('listCatastropheGov');
-Route::get('/government/newActions', 'controllerGovernment\NewActionsController@index')->name('newActionsGov');
-Route::get('/government/seeActions', 'controllerGovernment\SeeActionsController@index')->name('seeActionsGov');
-Route::get('/government/listUsers', 'controllerGovernment\ListUsersController@index')->name('listUsersGov');
+Route::get('/government/home', 'controllerGovernment\HomeController@index')->name('homeGovernment')->middleware('permiso:2');
+Route::get('/government/newCatastrophe', 'controllerGovernment\NewCatastropheController@index')->name('newCatastropheGov')->middleware('permiso:2');
+Route::get('/government/listCatastrophe', 'controllerGovernment\ListCatastropheController@index')->name('listCatastropheGov')->middleware('permiso:2');
+Route::get('/government/newActions', 'controllerGovernment\NewActionsController@index')->name('newActionsGov')->middleware('permiso:2');
+Route::get('/government/seeActions', 'controllerGovernment\SeeActionsController@index')->name('seeActionsGov')->middleware('permiso:2');
+Route::get('/government/listUsers', 'controllerGovernment\ListUsersController@index')->name('listUsersGov')->middleware('permiso:2');
 
-Route::resource('newCatastrophe', 'controllerGovernment\NewCatastropheController');
+Route::resource('newCatastrophe', 'controllerGovernment\NewCatastropheController')->middleware('permiso:2');
 
 //Organizations
 
