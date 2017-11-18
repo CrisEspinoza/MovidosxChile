@@ -20,13 +20,13 @@ class CreateActionsTable extends Migration
           //actionOP_type
           $table->morphs('actionOP');
 
-          $table->string('status');
-          $table->integer('progress');
+          $table->string('status')->nullable();
+          $table->integer('progress')->nullable();
           $table->integer('goal');
           $table->date('start_date');
           $table->date('end_date');
-          $table->integer('user_id')->nullable();
-          $table->integer('catastrophe_id')->nullable();
+          $table->integer('user_id');
+          $table->integer('catastrophe_id');
 
           $table->timestamps();
         });

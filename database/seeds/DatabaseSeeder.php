@@ -429,13 +429,21 @@ class DatabaseSeeder extends Seeder
         DB::table('type_catastrophes')->insert([ 'name_type'=>'Erupción']);
 
 
+        DB::table('banks')->insert([ 'name'=>'Banco de Chile']);
+        DB::table('banks')->insert([ 'name'=>'BCI']);
+        DB::table('banks')->insert([ 'name'=>'BBVA']);
+        DB::table('banks')->insert([ 'name'=>'Banco Estado']);
+        DB::table('banks')->insert([ 'name'=>'Banco Falabella']);
+        DB::table('banks')->insert([ 'name'=>'Banco Santander']);
+        DB::table('banks')->insert([ 'name'=>'Banco Itau']);
+
+
 
 
         factory(App\Location::class, 10)->create();
         factory(App\User::class, 10)->create();
         factory(App\Catastrophe::class, 10)->create();
         factory(App\Volunteering::class, 10)->create();
-        factory(App\Bank::class, 10)->create();
         factory(App\Donation::class, 10)->create();
         factory(App\Event::class, 10)->create();
 

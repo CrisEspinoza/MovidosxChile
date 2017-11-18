@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\controllerOrganizations;
 
+use App\Bank;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,8 @@ class DonnarMonayController extends Controller
      */
     public function index()
     {
-        return view('/organizations/donnarMonay'); 
+
+        return view('/organizations/donnarMonay');
     }
 
     /**

@@ -53,6 +53,8 @@ Route::get('/organizations/listMyEvent', 'controllerOrganizations\ListMyEventCon
 Route::get('/organizations/seeActions', 'controllerOrganizations\SeeActionsController@index')->name('seeActionsOrgan');
 Route::get('/organizations/modifyActions', 'controllerOrganizations\ModifyActionsController@index')->name('modifyActionsOrgan');
 
+Route::resource('volunteering', 'controllerOrganizations\VolunteeringController');
+
 //User
 
 Route::get('/user/home', 'controllerUser\HomeController@index')->name('homeUser');
