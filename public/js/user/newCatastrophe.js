@@ -4,7 +4,6 @@ $(function(){
 });
 
 
-
 function onSelectRegionChange(){
 	var region_id = $(this).val();
 	
@@ -19,6 +18,5 @@ function onSelectRegionChange(){
 
 		$('#select-commune').html(html_select);
 	});
-
 }
 

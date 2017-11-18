@@ -10,6 +10,7 @@ use App\Commune;
 use App\TypeCatastrophe;
 use App\Location;
 use Validator;
+use Thujohn\Twitter\Facades\Twitter;
 
 class NewCatastropheController extends Controller
 {
@@ -25,7 +26,7 @@ class NewCatastropheController extends Controller
     {
         $validator = Validator::make($request->all(),
             [
-            'name' => 'required|string|max:20',
+            'name' => 'required|string|max:100',
             'typeCatastrophe_id' => 'required|integer',
             'location_id' => 'required|integer',
             'description' => 'required|string|min:5|max:255'
@@ -51,6 +52,8 @@ class NewCatastropheController extends Controller
 
         $cat->save();
 
+        $message = "ALERTA DE CATÁSTROFE: " . $request->name . " en " . $loc->commune->name . ", " . $loc->commune->region->name . " #CatastrofeNacional";
+        Twitter::postTweet(['status' => $message, 'format' => 'json']);
     }
 
     public function store(Request $request)
@@ -92,7 +95,6 @@ class NewCatastropheController extends Controller
     {
         //
     }
-
     public function byRegion($id){
         return Commune::where('region_id',$id)->get();
 

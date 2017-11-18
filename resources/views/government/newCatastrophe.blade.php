@@ -3,7 +3,7 @@
 @section('title', 'NewCatastrophe')
 
 @section('content')
-
+<script src="{{ asset('js/completer.js') }}"></script>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2" style="filter: alpha(opacity=25); -moz-opacity: 0.3; opacity: 0.9; -khtml-opacity: 0.3;">
@@ -72,7 +72,10 @@
         </div>
     </div>
 </div>
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="/js/user/newCatastrophe.js"></script>
+
+
 @endsection
 
