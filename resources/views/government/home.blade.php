@@ -12,40 +12,33 @@
     </div>
 </div>
 
-<!-- <div class = "container">
+<div class = "container">
     <div class="row">
 
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="thumbnail">
                 <img src="https://image.flaticon.com/icons/svg/236/236822.svg" alt="..." width="200" height="200">
                 <div class="caption">
-                    <h3> Lista de Alumnos </h3>
-                    <p> Revisa la lista todos los alumnos </p>
+                    <h3> Lista de usuarios </h3>
+                    <p> Revisa la lista todos los usuarios </p>
+                    <a class="btn btn-info btn-lg" type="button" href="{{ route ('listUsersGov') }}"> Revisa los usuarios </a>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="thumbnail">
                 <img src="https://image.flaticon.com/icons/svg/236/236834.svg" alt="..." width="200" height="200">
                 <div class="caption">
-                    <h3> Lista de profesores </h3>
-                    <p> Revisa la lista de profesores actuales de la asignatura </p>
+                    <h3> Agregar nueva organización </h3>
+                    <p> Agrega una nueva organización para expandir la compañia </p>
+                    <a class="btn btn-info btn-lg" type="button" href="#"> Agregar nueva organización </a>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <img src="https://image.flaticon.com/icons/svg/234/234695.svg" alt="..." width="200" height="200">
-                <div class="caption">
-                    <h3> Agregar nuevo profesor </h3>
-                    <p> Agregar un nuevo profesor a una asignatura especifica </p>
-                </div>
-            </div>
-        </div>
 
     </div>
-</div> -->
+</div> 
 
 @endsection

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\controllerGovernment;
+namespace App\Http\Controllers\controllerOrganizations;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class SeedCatastropheController extends Controller
+class ListMyEventController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class SeedCatastropheController extends Controller
      */
     public function index()
     {
-        return view('/government/seedCatastrophe'); 
+        return view('/organizations/listMyEvent'); 
     }
 
     /**

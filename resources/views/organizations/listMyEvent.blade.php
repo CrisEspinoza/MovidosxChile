@@ -16,22 +16,26 @@
                             <th>Tipo</th>
                             <th>Región</th>
                             <th>Comuna</th>
-                            <th>Acción</th>
+                            <th>Progreso</th>
+                            <th><center>Acciones para la medida</center></th>
+                            <th></th>
+                            <th></th>
                         </tr>
-                        @foreach ($catastrophes as $c)
+
                         <tr>
-                            <td> {{ $c->name }} </td>
-                            <td> {{ $c->typeCatastrophe->name_type }}</td>
-                            <td> {{ $c->location->commune->region->name }} </td>
-                            <td> {{ $c->location->commune->name }}</td>
-                            <td> <a class="btn btn-warning" type="button" href="{{ route('seeCatastropheUser')}} " > Ver </a></td>
-                            <td> <a class="btn btn-warning" type="button" href="{{ route('acceptActionsUser')}} " > Aportar medida </a></td>
+                            <td> - </td>
+                            <td> - </td>
+                            <td> - </td>
+                            <td> - </td>
+                            <td> - </td>
+                            <td> <a class="btn btn-warning" type="button" href="{{ route('seeActionsOrgan')}} " > Ver medida</a></td>
+                            <td> <a class="btn btn-warning" type="button" href="{{ route('acceptActionsUser')}} " >Eliminar medida </a></td>
                         </tr>
-                        @endforeach
+                      
                     </table>
                 </div>
                 <div class="panel-footer">
-                    <a class="btn btn-info btn-lg" type="button" href="{{ route('homeUser') }}" > Atras </a>
+                    <a class="btn btn-info btn-lg" type="button" href="{{ route('homeOrganizations') }}" > Atras </a>
                 </div>
                 <div class="panel-footer"></div>
             </div>

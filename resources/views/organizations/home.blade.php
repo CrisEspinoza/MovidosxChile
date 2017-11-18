@@ -6,8 +6,9 @@
 
 <div class = "container">
     <div class="jumbotron jumbotron-fluid">
-        <h1> Nueva catastrofe </h1>
-        <p> Agrega una nueva catastrofe para mantener al tanto a los ciudadanos del pais </p>
+        <h1> Lista de catastrofes </h1>
+        <p> Revisa la lista de catastrofes y agrega alguna medida a estas </p>        
+        <a class="btn btn-info btn-lg" type="button" href="{{ route ('listCatastropheOrgan') }}"> Revisar lista de catastrofes </a>
     </div>
 </div>
 

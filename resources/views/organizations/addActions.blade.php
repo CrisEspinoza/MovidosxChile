@@ -12,7 +12,7 @@
             <div class="caption">
                 <h3> Centros de acopio </h3>
                 <p>Revisa los centros de acipio que se encuentran disponibles</p>
-                <p><a ng-click="go('/student/exercisesStudent')" class="btn btn-primary" role="button">Ir a Centros de acopio</a></p>
+                <p><a href="{{ route ('collectionCenterOrgan') }}" class="btn btn-primary" role="button">Ir a Centros de acopio</a></p>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
             <div class="caption">
                 <h3> Voluntariados </h3>
                 <p>Unete a los distintos voluntariados que existen</p>
-                <p><a ng-click="go('/student/coding')" class="btn btn-primary" role="button">Ir a voluntariados</a></p>
+                <p><a href="{{ route ('VolunOrgan') }}" class="btn btn-primary" role="button">Ir a voluntariados</a></p>
             </div>
         </div>
     </div>
@@ -35,7 +35,7 @@
             <div class="caption">
                 <h3>Eventos a beneficios</h3>
                 <p>Revisa los distintos tipos de eventos que se encuentran disponibles</p>
-                <p><a href="#" class="btn btn-primary" role="button">Ir a eventos a beneficios</a></p>
+                <p><a href="{{ route ('eventOrgan') }}" class="btn btn-primary" role="button">Ir a eventos a beneficios</a></p>
             </div>
         </div>
     </div>
@@ -46,7 +46,7 @@
             <div class="caption">
                 <h3>Donaciones de dinero</h3>
                 <p>Ingresa a esta opción para poder realizar tu aporte</p>
-                <p><a href="#" class="btn btn-primary" role="button">Ir donacion de dineros</a></p>
+                <p><a href="{{ route ('DonnarMonayOrgan') }}" class="btn btn-primary" role="button">Ir donacion de dineros</a></p>
             </div>
         </div>
     </div>

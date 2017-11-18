@@ -16,7 +16,8 @@
                             <th>Tipo</th>
                             <th>Región</th>
                             <th>Comuna</th>
-                            <th>Acción</th>
+                            <th><center>Acción</center></th>
+                            <th></th>
                         </tr>
                         @foreach ($catastrophes as $c)
                         <tr>
@@ -24,8 +25,8 @@
                             <td> {{ $c->typeCatastrophe->name_type }}</td>
                             <td> {{ $c->location->commune->region->name }} </td>
                             <td> {{ $c->location->commune->name }}</td>
-                            <td> <a class="btn btn-warning" type="button" href="{{ route('seeCatastropheUser')}} " > Ver </a></td>
-                            <td> <a class="btn btn-warning" type="button" href="{{ route('acceptActionsUser')}} " > Aportar medida </a></td>
+                            <td> <a class="btn btn-warning" type="button" href="{{ route('SeeCatastropheOrgan')}} " > Ver </a></td>
+                            <td> <a class="btn btn-warning" type="button" href="{{ route('AddActionsOrgan')}} " > Agregar Medida </a></td>
                         </tr>
                         @endforeach
                     </table>
