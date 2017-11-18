@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\controllerUser;
+namespace App\Http\Controllers\controllerGovernment;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Catastrophe;
+use App\TypeCatastrophe;
+use App\Action;
 
-class ActionsController extends Controller
+class NewActionsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +17,7 @@ class ActionsController extends Controller
      */
     public function index()
     {
-        return view('/user/actions');
+        return view('/government/newActions'); 
     }
 
     /**

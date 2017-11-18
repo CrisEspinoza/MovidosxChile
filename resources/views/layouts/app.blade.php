@@ -77,13 +77,13 @@
                             @endif
                             <!-- Navbar for government user -->
                             @if (Auth::user()->role_id == 2)
-                            <li><a href="#">Roles de Usuario</a></li>
+                            <!--<li><a href="#">Roles de Usuario</a></li>-->
                             <li><a href="{{ route('listCatastropheGov') }}">Lista de Catástrofes</a></li>
-                            <li><a href="#">Bancos</a></li>
+                            <!--<li><a href="#">Bancos</a></li>-->
                             @endif
                             <!-- Navbar for organization user -->
                             @if (Auth::user()->role_id == 3)
-                            <li><a href="#">Mis eventos</a></li>
+                            <li><a href="{{ route('listMyEventOrgan') }}">Mis eventos</a></li>
                             @endif
                             <!-- Default navbar -->
                             <li class="dropdown">

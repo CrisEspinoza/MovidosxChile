@@ -13,22 +13,17 @@
                     <table class="table table-hover">
                         <tr>
                             <th>Nombre</th>
-                            <th>Tipo</th>
-                            <th>Región</th>
-                            <th>Comuna</th>
+                            <th>Rol</th>
                             <th> <center>Acciónes</center></th>
                             <th></th>
                         </tr>
-                        @foreach ($catastrophes as $c)
+                        
                         <tr>
-                            <td> {{ $c->name }} </td>
-                            <td> {{ $c->typeCatastrophe->name_type }}</td>
-                            <td> {{ $c->location->commune->region->name }} </td>
-                            <td> {{ $c->location->commune->name }}</td>
-                            <td> <a class="btn btn-warning" type="button" href="{{ route('newActionsGov') }}"> Agregar medida </a></td>
-                            <td> <a class="btn btn-warning" type="button" href="{{ route('seeActionsGov') }}"> Ver medidas </a></td>
+                            <td> - </td>
+                            <td> - </td>
+                            <td> <a class="btn btn-warning" type="button" href="#"> Modificar </a></td>
+                            <td> <a class="btn btn-warning" type="button" href="#"> Eliminar </a></td>
                         </tr>
-                        @endforeach
                     </table>
                 </div>
                 <div class="panel-footer">
