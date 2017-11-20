@@ -15,7 +15,7 @@
                             <div class="form-group row">
                                 <div class="col-md-6">
                                     <label> Nombre de catastrofe: </label>
-                                    <p name = "cat_id" value = "{{$c->id}}">{{ $c->name }}</p>
+                                    <input disabled type="text" name = "cat_id" class="form-control" value="{{ $c->id }}">
                                 </div>
                                 <div class="col-md-6">
                                     <label> Meta: </label>
