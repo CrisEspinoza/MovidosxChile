@@ -26,11 +26,16 @@ class VolunteeringController extends Controller
 
         $volunt->save();
 
+
+        $cat =  Catastrophe::where('name',$request->name)->first();
+
+
+
         $action = new Action;
 
         $action->start_date = $request->start_date;
         $action->end_date = $request->end_date;
-        $action->catastrophe_id =$request->cat_id;
+        $action->catastrophe_id =$cat->id;
         $action->user_id = 1;
         $action->goal = $request->goal;
 
