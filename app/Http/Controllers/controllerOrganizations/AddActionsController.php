@@ -9,9 +9,10 @@ use App\Catastrophe;
 class AddActionsController extends Controller
 {
 
-    public function index()
+    public function index($id)
     {
-        return view('/organizations/addActions'); 
+        $c = Catastrophe::find($id);
+        return view('/organizations/addActions', compact("c"));
     }
 
 

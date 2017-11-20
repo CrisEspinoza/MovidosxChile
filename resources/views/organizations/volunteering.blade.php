@@ -15,13 +15,7 @@
                             <div class="form-group row">
                                 <div class="col-md-6">
                                     <label> Nombre de catastrofe: </label>
-
-                                    <select class="form-control" name="cat_id">
-                                        @foreach ($catastrophes as $cat)
-                                            <option value="{{$cat->id}}">{{ $cat->name }}</option>
-                                        @endforeach
-                                    </select>
-
+                                    <p name = "cat_id" value = "{{$c->id}}">{{ $c->name }}</p>
                                 </div>
                                 <div class="col-md-6">
                                     <label> Meta: </label>
@@ -90,7 +84,7 @@
 
                         <div class="panel-footer">
                             <button class="btn btn-primary" type="submit">Agregar medida voluntariado</button>
-                            <a class="btn btn-danger" type="submit" id = "cancel" href="{{ route ('AddActionsOrgan') }}"> Cancelar </a>
+                            <a class="btn btn-danger" type="submit" id = "cancel" href="{{ route ('AddActionsOrgan', $c->id) }}"> Cancelar </a>
                         </div>
                     </div>
             </div>s
