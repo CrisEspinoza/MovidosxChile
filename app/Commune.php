@@ -14,11 +14,11 @@ class Commune extends Model
 
     public function location()
     {
-        return $this->hasMany(Location::class);
+        return $this->hasMany(Location::class,'location_id', 'id');
     }
 
     public function region()
       {
-          return $this->belongsTo(Region::class);
+          return $this->belongsTo(Region::class,'region_id', 'id');
       }
 }

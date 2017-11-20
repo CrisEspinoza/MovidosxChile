@@ -18,4 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/region/{id}/communes','controllerGovernment\NewCatastropheController@byRegion');
+Route::get('/region/{id}/communes','catastropheController@byRegion');

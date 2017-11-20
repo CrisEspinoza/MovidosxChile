@@ -12,15 +12,15 @@ class Catastrophe extends Model
     ];
 
     public function action(){
-    	return $this->hasMany(Action::class);
+    	return $this->hasMany(Action::class,'action_id', 'id');
     }
 
     public function user(){
-    	return $this->belongsTo(User::class);
+    	return $this->belongsTo(User::class,'user_id', 'id');
     }
 
     public function location(){
-    	return $this->belongsTo(Location::class);
+    	return $this->belongsTo(Location::class,'location_id', 'id');
     }
 
     public function typeCatastrophe(){
