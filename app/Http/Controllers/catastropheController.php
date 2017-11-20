@@ -67,7 +67,6 @@ class catastropheController extends Controller
         }
 
         Catastrophe::create($request->all());
-
         return "hola";
 
 
