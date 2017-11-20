@@ -12,57 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('/others/welcome');
+    return view('/welcome');
 });
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/enviar_tweet', function()
-{
-    return Twitter::postTweet(['status' => 'Mi primer tweet desde Laravel', 'format' => 'json']);
-});
-
-// others
-
-Route::get('/others/home', 'controllerOthers\HomeController@index')->name('home');
-Route::get('/others/colaboradores', 'controllerOthers\ColaboradoresController@index')->name('colaboradores');
-
-
-//government
-
-Route::get('/government/home', 'controllerGovernment\HomeController@index')->name('homeGovernment')->middleware('permiso:2');
-Route::get('/government/newCatastrophe', 'controllerGovernment\NewCatastropheController@index')->name('newCatastropheGov')->middleware('permiso:2');
-Route::get('/government/listCatastrophe', 'controllerGovernment\ListCatastropheController@index')->name('listCatastropheGov')->middleware('permiso:2');
-Route::get('/government/newActions', 'controllerGovernment\NewActionsController@index')->name('newActionsGov')->middleware('permiso:2');
-Route::get('/government/seeActions', 'controllerGovernment\SeeActionsController@index')->name('seeActionsGov')->middleware('permiso:2');
-Route::get('/government/listUsers', 'controllerGovernment\ListUsersController@index')->name('listUsersGov')->middleware('permiso:2');
-
-Route::resource('newCatastrophe', 'controllerGovernment\NewCatastropheController')->middleware('permiso:2');
-
-//Organizations
-
-Route::get('/organizations/home', 'controllerOrganizations\HomeController@index')->name('homeOrganizations');
-Route::get('/organizations/listCatastrophe', 'controllerOrganizations\ListCatastropheController@index')->name('listCatastropheOrgan');
-Route::get('/organizations/addActions/{id}', 'controllerOrganizations\AddActionsController@index')->name('AddActionsOrgan');
-Route::get('/organizations/SeeCatastrophe', 'controllerOrganizations\SeeCatastropheController@index')->name('SeeCatastropheOrgan');
-Route::get('/organizations/doonarMonay', 'controllerOrganizations\DonnarMonayController@index')->name('DonnarMonayOrgan');
-Route::get('/organizations/volunteering/{id}', 'controllerOrganizations\VolunteeringController@index')->name('VOrgan');
-Route::get('/organizations/collectionCenter', 'controllerOrganizations\CollectionCenterController@index')->name('collectionCenterOrgan');
-Route::get('/organizations/event/{id}', 'controllerOrganizations\EventController@index')->name('eventOrgan');
-Route::get('/organizations/listMyEvent', 'controllerOrganizations\ListMyEventController@index')->name('listMyEventOrgan');
-Route::get('/organizations/seeActions', 'controllerOrganizations\SeeActionsController@index')->name('seeActionsOrgan');
-Route::get('/organizations/modifyActions', 'controllerOrganizations\ModifyActionsController@index')->name('modifyActionsOrgan');
-
-Route::resource('volunteering', 'controllerOrganizations\VolunteeringController');
-Route::resource('addActionsO', 'controllerOrganizations\AddActionsController');
-Route::resource('listCatastrophe', 'controllerOrganizations\ListCatastropheController');
-
-//User
-
-Route::get('/user/home', 'controllerUser\HomeController@index')->name('homeUser');
-Route::get('/user/Mydata', 'controllerUser\MydataController@index')->name('Mydata');
-Route::get('/user/listCatastrophe', 'controllerUser\ListCatastropheController@index')->name('listCatastropheUser');
-Route::get('/user/actions', 'controllerUser\ActionsController@index')->name('actionsUser');
-Route::get('/user/seeCatastrophe', 'controllerUser\SeeCatastropheController@index')->name('seeCatastropheUser');
-Route::get('/user/acceptActions', 'controllerUser\AcceptActionsController@index')->name('acceptActionsUser');
-Route::get('/user/seeActions', 'controllerUser\SeeActionsController@index')->name('seeActionsUser');
+Route::resource('action', 'actionController');
+Route::resource('asset', 'assetController');
+Route::resource('bank', 'bankController');
+Route::resource('catastrophe', 'catastropheController');
+Route::resource('collectionCenter', 'collectionCenterController');
+Route::resource('donation', 'donationController');
+Route::resource('event', 'eventController');
+Route::resource('organization', 'organizationController');
+Route::resource('user', 'userController');
+Route::resource('voluntary', 'voluntaryController');
+Route::resource('vounteering', 'bankController');

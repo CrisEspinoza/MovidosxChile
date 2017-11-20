@@ -50,15 +50,15 @@
                         @else
                             <!-- Navbar for normal user -->
                             @if (Auth::user()->role_id == 1)
-                            <li><a href="{{ route('homeUser') }}">Home</a></li>
+                            <li><a href="#">Home</a></li>
                             @endif
                             <!-- Navbar for government user -->
                             @if (Auth::user()->role_id == 2)
-                            <li><a href="{{ route('homeGovernment') }}">Home</a></li>
+                            <li><a href="#">Home</a></li>
                             @endif
                             <!-- Navbar for organization user -->
                             @if (Auth::user()->role_id == 3)
-                            <li><a href="{{ route('homeOrganizations') }}">Home</a></li>
+                            <li><a href="#">Home</a></li>
                             @endif
                         @endif
                     </ul>
@@ -69,21 +69,20 @@
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Iniciar sesión</a></li>
                             <li><a href="{{ route('register') }}">Registrarse</a></li>
-                            <li><a href="{{ route('colaboradores') }}">Colaboradores</a></li>
                         @else
                             <!-- Navbar for normal user -->
                             @if (Auth::user()->role_id == 1)
-                            <li><a href="{{ route('Mydata') }}">Mis datos</a></li>
+                            <li><a href="#">Mis datos</a></li>
                             @endif
                             <!-- Navbar for government user -->
                             @if (Auth::user()->role_id == 2)
                             <!--<li><a href="#">Roles de Usuario</a></li>-->
-                            <li><a href="{{ route('listCatastropheGov') }}">Lista de Catástrofes</a></li>
+                            <li><a href="#">Lista de Catástrofes</a></li>
                             <!--<li><a href="#">Bancos</a></li>-->
                             @endif
                             <!-- Navbar for organization user -->
                             @if (Auth::user()->role_id == 3)
-                            <li><a href="{{ route('listMyEventOrgan') }}">Mis eventos</a></li>
+                            <li><a href="#">Mis eventos</a></li>
                             @endif
                             <!-- Default navbar -->
                             <li class="dropdown">
