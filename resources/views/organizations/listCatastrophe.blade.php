@@ -25,7 +25,7 @@
                             <td> {{ $c->typeCatastrophe->name_type }}</td>
                             <td> {{ $c->location->commune->region->name }} </td>
                             <td> {{ $c->location->commune->name }}</td>
-                            <td> <a class="btn btn-warning" type="button" href="{{ route('SeeCatastropheOrgan')}} " > Ver </a></td>
+                            <td> <a class="btn btn-warning" type="button" href="{{ route('listCatastrophe.show', $c->id) }} " > Ver </a></td>
                             <td> <a class="btn btn-warning" type="button" href="{{ route('AddActionsOrgan')}} " > Agregar Medida </a></td>
                         </tr>
                         @endforeach

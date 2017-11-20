@@ -9,19 +9,16 @@
         <div class="col-md-8 col-md-offset-2" style="filter: alpha(opacity=25); -moz-opacity: 0.3; opacity: 0.9; -khtml-opacity: 0.3;">
             <form method="POST">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h2> Catástrofe FALTA AGREGAR DATOS</h2></div>
+                    <div class="panel-heading"><h2> Catástrofe:  {{$c->name }}</h2></div>
                     <div class="panel-body">
                         <div class="form-group row">
                             <div class="col-md-6">
-                                <label> Nombre memotécnico: </label>
-                                <input type="text" id = "name" class="form-control" placeholder="27F">
+                                <label> Nombre nmemotécnico: </label>
+                                <p> {{$c->name}} </p>
                             </div>
                             <div class="col-md-6">
                                 <label> Tipo: </label>
-                                <select class="form-control" name="id_type">
-                                    @foreach ($typesCats as $type)
-                                        <option value="{{$type->id}}">{{ $type->name_type }}</option>
-                                    @endforeach
+                                <p> {{ $c->typeCatastrophe->name_type  }}</p>
                                 </select>
                             </div>
                         </div>
@@ -29,25 +26,17 @@
                         <div class="form-group row">
                             <div class="col-md-6">
                                 <label> Región: </label>
-                                <select class="form-control" name="id_region">
-                                    @foreach ($regions as $region)
-                                        <option value="{{$region->id}}">{{ $region->name }}</option>
-                                    @endforeach
-                                </select>
+                                <p> {{$c->location->commune->region->name }}</p>
                             </div>
                             <div class="col-md-6">
                                 <label> Comuna: </label>
-                                <select class="form-control" name="id_commune">
-                                    @foreach ($communes as $commune)
-                                        <option value="{{ $commune->id}}">{{ $commune->name }}</option>
-                                    @endforeach
-                                </select>
+                                <p> {{$c->location->commune->name}} </p>
                             </div>
                         </div>
                         
                         <div class="form-group row">
                             <div class="col-md-12">
-                                <textarea id="description" class="form-control" rows="10" cols="50" placeholder="Descripción de la catástrofe..."></textarea>
+                                <textarea disabled id="description" class="form-control" style=" resize: none;">{{ $c->description }}</textarea>
                             </div>
                         </div>
                         <div class="panel-footer">

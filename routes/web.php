@@ -54,6 +54,7 @@ Route::get('/organizations/seeActions', 'controllerOrganizations\SeeActionsContr
 Route::get('/organizations/modifyActions', 'controllerOrganizations\ModifyActionsController@index')->name('modifyActionsOrgan');
 
 Route::resource('volunteering', 'controllerOrganizations\VolunteeringController');
+Route::resource('listCatastrophe', 'controllerOrganizations\ListCatastropheController');
 
 //User
 
