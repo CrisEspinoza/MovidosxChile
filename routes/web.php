@@ -48,12 +48,13 @@ Route::get('/organizations/SeeCatastrophe', 'controllerOrganizations\SeeCatastro
 Route::get('/organizations/doonarMonay', 'controllerOrganizations\DonnarMonayController@index')->name('DonnarMonayOrgan');
 Route::get('/organizations/volunteering', 'controllerOrganizations\VolunteeringController@index')->name('VolunOrgan');
 Route::get('/organizations/collectionCenter', 'controllerOrganizations\CollectionCenterController@index')->name('collectionCenterOrgan');
-Route::get('/organizations/event', 'controllerOrganizations\EventController@index')->name('eventOrgan');
+Route::get('/organizations/event/{id}', 'controllerOrganizations\EventController@index')->name('eventOrgan');
 Route::get('/organizations/listMyEvent', 'controllerOrganizations\ListMyEventController@index')->name('listMyEventOrgan');
 Route::get('/organizations/seeActions', 'controllerOrganizations\SeeActionsController@index')->name('seeActionsOrgan');
 Route::get('/organizations/modifyActions', 'controllerOrganizations\ModifyActionsController@index')->name('modifyActionsOrgan');
 
 Route::resource('volunteering', 'controllerOrganizations\VolunteeringController');
+Route::resource('addActionsO', 'controllerOrganizations\AddActionsController');
 Route::resource('listCatastrophe', 'controllerOrganizations\ListCatastropheController');
 
 //User

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\controllerOrganizations;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Catastrophe;
 
 class EventController extends Controller
 {
@@ -12,9 +13,10 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return view('/organizations/event'); 
+        $c = Catastrophe::find($id);
+        return view('/organizations/event', compact("c"));
     }
 
     /**

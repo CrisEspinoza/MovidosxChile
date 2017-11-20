@@ -15,9 +15,10 @@ class ListCatastropheController extends Controller
         return view('/organizations/listCatastrophe', compact('catastrophes')); 
     }
 
-    public function create()
+    public function create($id)
     {
-        //
+        $c = Catastrophe::find($id);
+        return  view('organizations.addActions', compact("c"));
     }
 
 
@@ -29,7 +30,8 @@ class ListCatastropheController extends Controller
 
     public function edit($id)
     {
-        //
+        $c = Catastrophe::find($id);
+        return  view('organizations.addActions', compact("c"));
     }
 
 

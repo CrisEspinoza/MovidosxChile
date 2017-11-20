@@ -35,7 +35,7 @@
             <div class="caption">
                 <h3>Eventos a beneficios</h3>
                 <p>Revisa los distintos tipos de eventos que se encuentran disponibles</p>
-                <p><a href="{{ route ('eventOrgan') }}" class="btn btn-primary" role="button">Ir a eventos a beneficios</a></p>
+                <p><a href="{{ route ('eventOrgan', $c->id) }}" class="btn btn-primary" role="button">Ir a eventos a beneficios</a></p>
             </div>
         </div>
     </div>
