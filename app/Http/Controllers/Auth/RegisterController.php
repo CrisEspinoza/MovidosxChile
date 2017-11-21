@@ -27,15 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected function redirectTo()
-    {
-        if (Auth::user()->role_id == 1) 
-            return '/user/home';
-        if (Auth::user()->role_id == 2)
-            return '/government/home';
-        if (Auth::user()->role_id == 3)
-            return '/organizations/home';         
-    }
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
