@@ -3,81 +3,74 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Validator;
 class organizationController extends Controller
 {
-    //
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('organization.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(),
+            [
+                'name' => 'required|string|max:100',
+                'last_name' => 'required|string|max:100',
+                'run' => 'required|string',
+                'email' => 'required|string|min:5|max:255',
+                'password' => 'required|string|min:6|confirmed',
+            ],
+            [
+                'required' => 'Este campo es requerido',
+                'string' => 'Debe usar caracteres',
+                'max' => 'Cantidad mayor a la permitida',
+            ]
+        );
+        if ($validator->fails()) {
+            return redirect()->route('organization.create')->withErrors($validator)->withInput();
+        }
+
+        $user = new User;
+        $user->name = $request->name;
+        $user->last_name = $request->lastname;
+        $user->run = "0";
+        $user->password = $request->password;
+        $user->role_id = 3;
+        
+        $user->save();
+
+        return redirect()->route('organization.create')->with('success', true)->with('message','Catastrofe creada exitosamente');
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         //

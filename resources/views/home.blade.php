@@ -31,7 +31,7 @@
                 <div class="caption">
                     <h3> Agregar nueva organización </h3>
                     <p> Agrega una nueva organización para expandir la compañia </p>
-                    <a class="btn btn-info btn-lg" type="button" href="#"> Agregar nueva organización </a>
+                    <a class="btn btn-info btn-lg" type="button" href={{ route('organization.create') }}> Agregar nueva organización </a>
                 </div>
             </div>
         </div>
