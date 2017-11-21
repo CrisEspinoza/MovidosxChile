@@ -31,4 +31,4 @@ Route::resource('event', 'eventController');
 Route::resource('organization', 'organizationController');
 Route::resource('user', 'userController');
 Route::resource('voluntary', 'voluntaryController');
-Route::resource('vounteering', 'bankController');
+Route::resource('volunteering', 'volunteeringController');
