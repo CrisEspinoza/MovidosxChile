@@ -49,15 +49,20 @@ class catastropheController extends Controller
             return redirect()->route('catastrophe.create')->withErrors($validator)->withInput();
         }
 
-        Catastrophe::create($request->all());
-<<<<<<< HEAD
-        return "hola";
+        $loc = new Location;
+        $loc->commune_id= $request->location_id;
+        $loc->save();
+        
+        $cat =  new Catastrophe;
+        $cat->name= $request->name;
+        $cat->typeCatastrophe_id =$request->typeCatastrophe_id;
+        $cat->location_id = $loc->id;
+        $cat->description = $request->description;
 
-
-=======
+        $cat->save();
 
         return redirect()->route('catastrophe.index')->with('success', true)->with('message','Catastrofe creada exitosamente');
->>>>>>> dae7a4eb8a3d5a9a2aed13339b99446421cef43b
+
     }
 
     public function show($id)
