@@ -45,7 +45,7 @@ class organizationController extends Controller
         $user->run = "0";
         $user->password = $request->password;
         $user->role_id = 3;
-        
+
         $user->save();
 
         return redirect()->route('organization.create')->with('success', true)->with('message','Catastrofe creada exitosamente');
