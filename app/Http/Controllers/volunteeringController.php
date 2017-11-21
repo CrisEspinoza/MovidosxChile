@@ -24,7 +24,7 @@ class volunteeringController extends Controller
      */
     public function create()
     {
-        //
+        return view('volunteering.create');
     }
 
     /**

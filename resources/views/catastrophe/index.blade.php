@@ -12,12 +12,14 @@
                     <div class="panel-body">
                         <table class="table table-hover">
                             <tr>
+
+
                                 <th>N°</th>
                                 <th>Nombre</th>
                                 <th>Tipo</th>
                                 <th>Región</th>
                                 <th>Comuna</th>
-                                <th></th>
+                                <th> <center>Acciónes</center></th>
                                 <th></th>
                             </tr>
                             @foreach ($catastrophes as $c)
@@ -27,8 +29,16 @@
                                 <td>{{ $c->typeCatastrophe->name_type }}</td>
                                 <td>{{ $c->location->commune->region->name  }}</td>
                                 <td>{{ $c->location->commune->name }}</td>
-                                <td> <a class="btn btn-warning" type="button" href="#" > Ver </a> </td>
-                                <td> <a class="btn btn-danger" type="button" href="#" > Finalizar</a> </td>
+                                @if (Auth::user()->role_id == 2)
+                                    <td> <a class="btn btn-warning" type="button" href="#" > Ver </a> </td>
+                                    <td> <a class="btn btn-danger" type="button" href="#" > Finalizar</a> </td>
+                                @endif
+
+                                @if (Auth::user()->role_id == 3)
+                                    <td> <a class="btn btn-warning" type="button" href="{{route('menu',$c->id)}}"> Agregar medida </a></td>
+                                    <td> <a class="btn btn-warning" type="button" href="#"> Ver medidas </a></td>
+                                @endif
+
                             </tr>
                             @endforeach
                         </table>

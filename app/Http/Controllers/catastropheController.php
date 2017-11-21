@@ -52,7 +52,7 @@ class catastropheController extends Controller
         $loc = new Location;
         $loc->commune_id= $request->location_id;
         $loc->save();
-        
+
         $cat =  new Catastrophe;
         $cat->name= $request->name;
         $cat->typeCatastrophe_id =$request->typeCatastrophe_id;
@@ -65,7 +65,7 @@ class catastropheController extends Controller
 
     }
 
-    public function show($id)
+    public function show()
     {
         $catastrophes = Catastrophe::all();
         $types = TypeCatastrophe::all();

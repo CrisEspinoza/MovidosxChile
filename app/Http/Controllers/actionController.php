@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Catastrophe;
 
 class actionController extends Controller
 {
@@ -14,7 +15,7 @@ class actionController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -46,7 +47,8 @@ class actionController extends Controller
      */
     public function show($id)
     {
-        //
+
+
     }
 
     /**
@@ -81,6 +83,13 @@ class actionController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function menu($id)
+    {
+        $c = Catastrophe::find($id);
+        return view('action.menu',compact('c'));
+
     }
 
 }

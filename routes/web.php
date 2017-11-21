@@ -19,6 +19,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
+Route::get('/action/{id}','actionController@menu')->name('menu');
+
 Route::resource('action', 'actionController');
 Route::resource('asset', 'assetController');
 Route::resource('bank', 'bankController');

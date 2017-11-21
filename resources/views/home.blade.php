@@ -44,7 +44,7 @@
     <div class="jumbotron jumbotron-fluid">
         <h1> Lista de catastrofes </h1>
         <p> Revisa la lista de catastrofes y agrega alguna medida a estas </p>        
-        <a class="btn btn-info btn-lg" type="button" href="#"> Revisar lista de catastrofes </a>
+        <a class="btn btn-info btn-lg" type="button" href="{{ route('catastrophe.index')}}"> Revisar lista de catastrofes </a>
     </div>
 </div>
 @endif
