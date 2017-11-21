@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Catastrophe;
+
 
 class volunteeringController extends Controller
 {
@@ -15,6 +17,8 @@ class volunteeringController extends Controller
     public function index()
     {
         //
+
+
     }
 
     /**
@@ -24,7 +28,7 @@ class volunteeringController extends Controller
      */
     public function create()
     {
-        return view('volunteering.create');
+
     }
 
     /**
@@ -58,6 +62,7 @@ class volunteeringController extends Controller
     public function edit($id)
     {
         //
+
     }
 
     /**
@@ -81,5 +86,11 @@ class volunteeringController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function createVolunteering($id)
+    {
+        $c = Catastrophe::find($id);
+        return view('volunteering.createVolunteering', compact("c"));
     }
 }

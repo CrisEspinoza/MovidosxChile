@@ -21,6 +21,9 @@ Auth::routes();
 
 Route::get('/action/{id}','actionController@menu')->name('menu');
 
+
+Route::get('/volunteering/{id}','volunteeringController@createVolunteering')->name('createVol');
+
 Route::resource('action', 'actionController');
 Route::resource('asset', 'assetController');
 Route::resource('bank', 'bankController');

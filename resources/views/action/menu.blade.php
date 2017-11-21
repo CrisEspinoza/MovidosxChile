@@ -23,7 +23,7 @@
                 <div class="caption">
                     <h3> Voluntariados </h3>
                     <p>Únete a los distintos voluntariados que existen</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Ir a voluntariados</a></p>
+                    <p><a href="{{ route('createVol',$c->id) }}" class="btn btn-primary" role="button">Ir a voluntariados</a></p>
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
                 <div class="caption">
                     <h3>Eventos a beneficios</h3>
                     <p>Revisa los distintos tipos de eventos que se encuentran disponibles</p>
-                    <p><a href="{{route('volunteering.create')}}" class="btn btn-primary" role="button">Ir a eventos a beneficios</a></p>
+                    <p><a href="#" class="btn btn-primary" role="button">Ir a eventos a beneficios</a></p>
                 </div>
             </div>
         </div>
