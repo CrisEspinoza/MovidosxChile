@@ -46,7 +46,7 @@
                 <div class="caption">
                     <h3>Donaciones de dinero</h3>
                     <p>Ingresa a esta opción para poder realizar tu aporte</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Ir donacion de dineros</a></p>
+                    <p><a href="{{ route('createDonation',$c->id) }}" class="btn btn-primary" role="button">Ir donacion de dineros</a></p>
                 </div>
             </div>
         </div>

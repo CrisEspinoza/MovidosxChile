@@ -15,9 +15,9 @@ class CreateDonationsTable extends Migration
     {
         Schema::create('donations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('bank_id');
-            $table->integer('mount');
-            $table->integer('type_donation');
+            $table->integer('bank_id')->nullable();
+            $table->integer('mount')->nullable();
+            $table->integer('type_donation')->nullable();
             $table->timestamps();
         });
     }

@@ -24,6 +24,7 @@ Route::get('/action/{id}','actionController@menu')->name('menu');
 Route::get('/volunteering/{id}','volunteeringController@create')->name('createVol');
 Route::get('/event/{id}','eventController@create')->name('createEvent');
 Route::get('/collection_center/{id}','collectionCenterController@create')->name('createCollCenter');
+Route::get('/donation/{id}','donationController@create')->name('createDonation');
 
 Route::resource('action', 'actionController');
 Route::resource('asset', 'assetController');

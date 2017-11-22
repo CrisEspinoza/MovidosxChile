@@ -63,6 +63,7 @@ class eventController extends Controller
                 'string' => 'Debe usar caracteres',
                 'max' => 'Cantidad mayor a la permitida',
                 'integer' => 'Debe ser un valor numérico',
+                'after' => 'La fecha seleccionada no es válida',
 
             ]
         );
