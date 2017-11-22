@@ -21,7 +21,7 @@ public function action()
     	return $this->morphMany(Action::class, 'actionOP');
     }
 
-    public function location()   //relación con banco
+    public function location()
 	{
         return $this->belongsTo(Location::class);
     }

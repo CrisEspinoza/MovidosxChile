@@ -16,6 +16,7 @@ class CreateCollectionCentersTable extends Migration
         Schema::create('collection_centers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->integer('location_id');
             $table->timestamps();
         });
     }

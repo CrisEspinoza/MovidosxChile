@@ -77,7 +77,7 @@
                             <!-- Navbar for government user -->
                             @if (Auth::user()->role_id == 2)
                             <!--<li><a href="#">Roles de Usuario</a></li>-->
-                            <li><a href="#">Lista de Catástrofes</a></li>
+                            <li><a href="{{ route('catastrophe.index')}}">Lista de Catástrofes</a></li>
                             <!--<li><a href="#">Bancos</a></li>-->
                             @endif
                             <!-- Navbar for organization user -->

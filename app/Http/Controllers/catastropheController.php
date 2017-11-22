@@ -65,12 +65,11 @@ class catastropheController extends Controller
 
     }
 
-    public function show()
+    public function show($id)
     {
-        $catastrophes = Catastrophe::all();
-        $types = TypeCatastrophe::all();
+        $c=Catastrophe::where('id',$id)->first();
 
-        return view('catastrophe.show', compact('catastrophes', 'types'));
+        return view('catastrophe.show', compact('c'));
     }
 
     public function edit($id)

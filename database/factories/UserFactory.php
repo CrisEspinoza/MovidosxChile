@@ -116,6 +116,7 @@ $factory->define(App\Collection_center::class, function (Faker $faker) {
 
     return [
         'name'=>$faker->name,
+        'location_id'=>1,
     ];
 });
 $factory->define(App\Location::class, function (Faker $faker) {

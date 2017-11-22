@@ -77,6 +77,7 @@
                                     <button type="submit" class="btn btn-primary">
                                         Registrar
                                     </button>
+                                    <a class="btn btn-danger" type="submit" id = "cancel" href="{{ route ('home') }}"> Cancelar </a>
                                 </div>
                             </div>
                         </form>

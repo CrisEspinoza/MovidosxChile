@@ -11,8 +11,8 @@
                 <img src="https://image.flaticon.com/icons/svg/291/291932.svg" alt="..." width="200" height="200">
                 <div class="caption">
                     <h3> Centros de acopio </h3>
-                    <p>Revisa los centros de acipio que se encuentran disponibles</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Ir a Centros de acopio</a></p>
+                    <p>Revisa los centros de acopio que se encuentran disponibles</p>
+                    <p><a href="{{ route('createCollCenter',$c->id) }}" class="btn btn-primary" role="button">Ir a Centros de acopio</a></p>
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
                 <div class="caption">
                     <h3>Eventos a beneficios</h3>
                     <p>Revisa los distintos tipos de eventos que se encuentran disponibles</p>
-                    <p><a href="#" class="btn btn-primary" role="button">Ir a eventos a beneficios</a></p>
+                    <p><a href="{{ route('createEvent',$c->id) }}" class="btn btn-primary" role="button">Ir a eventos a beneficios</a></p>
                 </div>
             </div>
         </div>

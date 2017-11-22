@@ -14,6 +14,10 @@ class Location extends Model
     {
         return $this->hasMany(Event::class);
     }
+    public function collection_center()
+    {
+        return $this->hasMany(Collection_center::class);
+    }
     public function commune()
       {
           return $this->belongsTo(Commune::class);
