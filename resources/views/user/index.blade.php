@@ -6,12 +6,13 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading"><h2>Lista de usuarios</h2></div>
-
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" href="#admin">Administradores</a></li>
-                        <li><a data-toggle="tab" href="#organ">Organizaciones</a></li>
-                        <li><a data-toggle="tab" href="#menu3">Usuarios</a></li>
-                    </ul>
+                    <div class="col-md-6">
+                        <ul class="nav nav-pills">
+                            <li class="active"><a data-toggle="pill" href="#admin">Administradores</a></li>
+                            <li><a data-toggle="pill" href="#organ">Organizaciones</a></li>
+                            <li><a data-toggle="pill" href="#user">Usuarios</a></li>
+                        </ul>
+                    </div>
 
                     <div class="tab-content">
                         <div id="admin" class="tab-pane fade in active">
@@ -77,7 +78,7 @@
                             </div>
                         </div>
 
-                        <div id="menu3" class="tab-pane fade">
+                        <div id="user" class="tab-pane fade">
                             <div class="panel-body">
 
                                 <table class="table" style="width:100%">
