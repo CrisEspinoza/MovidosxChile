@@ -2,6 +2,16 @@
 
 @section('content')
 
+@if (Auth::user()->role_id == 1)
+<div class = "container" style="filter: alpha(opacity=25); -moz-opacity: 0.3; opacity: 0.9; -khtml-opacity: 0.3;">
+    <div class="jumbotron jumbotron-fluid">
+        <h1> Catastrofes </h1>
+        <p> Ver las catastrofes actuales </p>
+        <a class="btn btn-info btn-lg" type="button" href="{{ route('catastrophe.create') }}"> Ver catastrofes </a>
+    </div>
+</div>
+@endif
+
 @if (Auth::user()->role_id == 2)
 <div class = "container" style="filter: alpha(opacity=25); -moz-opacity: 0.3; opacity: 0.9; -khtml-opacity: 0.3;">
     <div class="jumbotron jumbotron-fluid">
@@ -36,14 +46,14 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
 @endif
 
 @if (Auth::user()->role_id == 3)
 <div class = "container">
     <div class="jumbotron jumbotron-fluid">
         <h1> Lista de catastrofes </h1>
-        <p> Revisa la lista de catastrofes y agrega alguna medida a estas </p>        
+        <p> Revisa la lista de catastrofes y agrega alguna medida a estas </p>
         <a class="btn btn-info btn-lg" type="button" href="{{ route('catastrophe.index')}}"> Revisar lista de catastrofes </a>
     </div>
 </div>
