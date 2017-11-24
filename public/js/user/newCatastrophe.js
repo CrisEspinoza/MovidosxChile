@@ -1,4 +1,3 @@
-
 $(function(){
 	$('#select-region').on('change',onSelectRegionChange);
 });

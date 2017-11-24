@@ -36,15 +36,17 @@ class userController extends Controller
         return view('user.edit', compact('user'));
     }
 
+
     public function update(Request $request, $id)
     {
         $user= User::find($id);
-        if($request->input('banned')==true){
+        if($request->input('banned')==1){
             $user->banned=true;
         }
         else{
             $user->banned=false;
         }
+
         $user->banned = $request->input('banned');
         $user->name = $request->input('name');
         $user->last_name = $request->input('last_name');

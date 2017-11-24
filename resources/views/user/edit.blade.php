@@ -36,11 +36,11 @@
                                         <label> Estado: </label>
                                         <select class="col-md-6 form-control" name="banned" id="banned">
                                             @if ($user->banned)
-                                                <option value="{{ true }}" selected> Bloqueado </option>
-                                                <option value="{{ false }}"> Activo </option>
+                                                <option value="{{ 1 }}" selected> Bloqueado </option>
+                                                <option value="{{ 0 }}"> Activo </option>
                                             @else
-                                                <option value="{{ true }}"> Bloqueado </option>
-                                                <option value="{{ false }}" selected> Activo </option>
+                                                <option value="{{ 1 }}"> Bloqueado </option>
+                                                <option value="{{ 0 }}" selected> Activo </option>
                                             @endif
                                         </select>
                                     </div>
