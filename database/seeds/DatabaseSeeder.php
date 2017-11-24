@@ -23,15 +23,15 @@ class DatabaseSeeder extends Seeder
         static $password;
         DB::table('users')->insert(
         ['name'=> 'Gobierno',
-        'run'=>'0','email'=> 'gobierno@gmail.com', 'password'=> $password ?: $password = bcrypt('gobierno'), 'role_id'=>2, 'banned'=>false]);
+        'run'=>'0','email'=> 'gobierno@gmail.com', 'password'=> $password ?: $password = bcrypt('gobierno'), 'role_id'=>2, 'banned'=>0]);
 
         DB::table('users')->insert(
             ['name'=> 'Techo para chile',
-                'run'=>'1','email'=> 'techo@gmail.com', 'password'=> $password ?: $password = bcrypt('secret'), 'role_id'=>3, 'banned'=>false]);
+                'run'=>'1','email'=> 'techo@gmail.com', 'password'=> $password ?: $password = bcrypt('secret'), 'role_id'=>3, 'banned'=>0]);
 
         DB::table('users')->insert(
             ['name'=> 'Greenpeace',
-                'run'=>'2','email'=> 'green@gmail.com', 'password'=> $password ?: $password = bcrypt('secret'), 'role_id'=>3, 'banned'=>false]);
+                'run'=>'2','email'=> 'green@gmail.com', 'password'=> $password ?: $password = bcrypt('secret'), 'role_id'=>3, 'banned'=>0]);
 
 
         DB::table('regions')->insert([ 'name'=>'Región Metropolitana']);
