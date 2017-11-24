@@ -34,15 +34,25 @@
                                     </div>
                                     <div class="col-md-4">
                                         <label> Estado: </label>
-                                        <select class="col-md-6 form-control" name="banned" id="banned">
-                                            @if ($user->banned)
-                                                <option value="{{ 1 }}" selected> Bloqueado </option>
-                                                <option value="{{ 0 }}"> Activo </option>
+                                        
+                                            @if ($user->role_id != 2  )    
+                                                @if ($user->banned)
+                                                    <input disabled class="form-control" name="banned" id="banned" value="Bloqueado"> 
+                                                @else
+                                                    <input disabled class="form-control" name="banned" id="banned" value="Activo">
+                                                @endif
                                             @else
-                                                <option value="{{ 1 }}"> Bloqueado </option>
-                                                <option value="{{ 0 }}" selected> Activo </option>
+
+                                            <select class="col-md-6 form-control" name="banned" id="banned">
+                                                @if ($user->banned)
+                                                    <option value="{{ 1 }}" selected> Bloqueado </option>
+                                                    <option value="{{ 0 }}"> Activo </option>
+                                                @else
+                                                    <option value="{{ 1 }}"> Bloqueado </option>
+                                                    <option value="{{ 0 }}" selected> Activo </option>
+                                                @endif
                                             @endif
-                                        </select>
+                                            </select>
                                     </div>
                                 </div>
 
