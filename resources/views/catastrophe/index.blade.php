@@ -29,6 +29,12 @@
                                 <td>{{ $c->typeCatastrophe->name_type }}</td>
                                 <td>{{ $c->location->commune->region->name  }}</td>
                                 <td>{{ $c->location->commune->name }}</td>
+
+
+                                @if (Auth::user()->role_id == 1)
+                                    <td> <a class="btn btn-warning" type="button" href="#"> Ver medidas </a></td>
+                                @endif
+
                                 @if (Auth::user()->role_id == 2)
                                     <td> <a class="btn btn-warning" type="button" href="{{ route('catastrophe.show',$c->id) }}" > Ver </a> </td>
                                     <td> <a class="btn btn-danger" type="button" href="#" > Finalizar</a> </td>
@@ -38,6 +44,10 @@
                                     <td> <a class="btn btn-warning" type="button" href="{{ route('menu',$c->id) }}"> Agregar medida </a></td>
                                     <td> <a class="btn btn-warning" type="button" href="#"> Ver medidas </a></td>
                                 @endif
+
+
+
+
 
                             </tr>
                             @endforeach
