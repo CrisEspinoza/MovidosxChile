@@ -20,7 +20,8 @@ class User extends Authenticatable
         'run',
         'email',
         'password',
-        'role_id'
+        'role_id',
+        'banned'
     ];
 
     /**

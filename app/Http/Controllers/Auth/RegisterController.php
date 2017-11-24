@@ -69,6 +69,7 @@ class RegisterController extends Controller
             'run' => $data['run'],
             'password' => bcrypt($data['password']),
             'role_id' => 1,
+            'banned' => 0,
         ]);
     }
 }

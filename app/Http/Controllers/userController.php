@@ -41,10 +41,10 @@ class userController extends Controller
     {
         $user= User::find($id);
         if($request->input('banned')==1){
-            $user->banned=true;
+            $user->banned=1;
         }
         else{
-            $user->banned=false;
+            $user->banned=0;
         }
 
         $user->banned = $request->input('banned');
