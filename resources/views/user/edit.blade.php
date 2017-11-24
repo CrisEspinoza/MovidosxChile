@@ -1,0 +1,61 @@
+@extends('layouts.app')
+@section('content')
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2" style="filter: alpha(opacity=25); -moz-opacity: 0.3; opacity: 0.9; -khtml-opacity: 0.3;">
+                    <form method="POST" action="{{ route('user.update', $user->id) }}">
+                        {{ method_field('PUT') }}
+                        {{ csrf_field() }}
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><h2>Editando al usuario {{ $user->name }} {{ $user->last_name }}</h2></div>
+                            <div class="panel-body">
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <label> Nombre: </label>
+                                        <input type="text" name = "name" class="form-control" value="{{ $user->name }}">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label> Apellido: </label>
+                                        <input class="form-control" name="last_name" id="last_name" value="{{ $user->last_name }}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-md-4">
+                                        <label> RUN: </label>
+                                        <input disabled class="form-control" name="run" id="run" value="{{ $user->run }}">
+
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label> Correo: </label>
+                                        <input class="form-control" name="email" id="email" value="{{ $user->email }}">
+
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label> Estado: </label>
+                                        <select class="col-md-6 form-control" name="banned" id="banned">
+                                            @if ($user->banned)
+                                                <option value="{{ true }}" selected> Bloqueado </option>
+                                                <option value="{{ false }}"> Activo </option>
+                                            @else
+                                                <option value="{{ true }}"> Bloqueado </option>
+                                                <option value="{{ false }}" selected> Activo </option>
+                                            @endif
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="panel-footer">
+                                    <button class="btn btn-primary" type="submit">Guardar</button>
+                                    <a class="btn btn-danger" type="submit" id = "cancel" href="{{ route ('user.index') }}"> Cancelar </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+@endsection
