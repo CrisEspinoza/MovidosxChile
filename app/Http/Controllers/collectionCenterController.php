@@ -56,14 +56,14 @@ class collectionCenterController extends Controller
                 'commune_id' => 'required|integer',
                 'address' => 'required|string|min:5|max:255',
                 'goal' => 'required|integer',
-                'after' => 'La fecha seleccionada no es válida',
+                
             ],
             [
                 'required' => 'Este campo es requerido',
                 'string' => 'Debe usar caracteres',
                 'max' => 'Cantidad mayor a la permitida',
                 'integer' => 'Debe ser un valor numérico',
-
+                'after' => 'La fecha seleccionada no es válida',
 
             ]
         );
