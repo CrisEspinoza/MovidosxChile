@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="panel-footer">
-                            <button class="btn btn-primary" type="submit">Registrar organización</button>
+                            <button class="btn btn-primary" type="submit" >Registrar organización</button>
                             <a class="btn btn-danger" id = "cancel" href="{{ route ('home') }}"> Cancelar </a>
                         </div>
                     </div>

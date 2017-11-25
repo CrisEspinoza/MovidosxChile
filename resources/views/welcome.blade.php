@@ -9,41 +9,41 @@
       <div class="carousel-inner">
 
         <div class="item active">
-          <img src="http://glacierhub.org/wp-content/uploads/2017/06/greenland-tsunami-damage.jpg">
+          <img src="http://glacierhub.org/wp-content/uploads/2017/06/greenland-tsunami-damage.jpg" height="400" width="760">
            <div class="carousel-caption">
-            <h4><a href="#">Tsunami en la region del Biobio causó gran destrucción en la zona. <a class="label label-primary" target="_blank">Free Bootstrap Carousel Collection</a></p>
+            <h4><a href="#">Tsunami en la region del Biobio causó gran destrucción en la zona.</p>
           </div>
         </div><!-- End Item -->
 
          <div class="item">
-          <img src="https://pbs.twimg.com/media/C2c2Ja_XAAEJy5v.jpg">
+          <img src="https://pbs.twimg.com/media/C2c2Ja_XAAEJy5v.jpg" height="400" width="760">
            <div class="carousel-caption">
             <h4><a href="#">Tsunami en Santiago</a></h4>
-            <p>Tsunami en Santiago deja a 0 muertos.<a class="label label-primary" href="#" target="_blank">Free Bootstrap Carousel Collection</a></p>
+            <p>Tsunami en Santiago deja a 0 muertos.</p>
           </div>
         </div><!-- End Item -->
 
         <div class="item">
-          <img src="http://i.frikkinawesome.com/2013/09/Volc%C3%A1n-de-Fuego-Guatemala-By-Adrian-Rohnfelder.jpg">
+          <img src="http://i.frikkinawesome.com/2013/09/Volc%C3%A1n-de-Fuego-Guatemala-By-Adrian-Rohnfelder.jpg" height="400" width="760">
            <div class="carousel-caption">
             <h4><a href="#">Volcan chaiten</a></h4>
-            <p>Volcan chaiten vuelve a reactivarse. <a class="label label-primary" href="#" target="_blank">Free Bootstrap Carousel Collection</a></p>
+            <p>Volcan chaiten vuelve a reactivarse. </p>
           </div>
         </div><!-- End Item -->
 
         <div class="item">
-          <img src="http://cdn.c.photoshelter.com/img-get/I0000tQuE2ZnSVOU/s/860/688/DSC-6274.jpg">
+          <img src="http://cdn.c.photoshelter.com/img-get/I0000tQuE2ZnSVOU/s/860/688/DSC-6274.jpg" height="400" width="760">
            <div class="carousel-caption">
             <h4><a href="#">Terremoto en la zona norte del pais</a></h4>
-            <p>Terremoto de grado 6.5 afectó a la zona norte durante la tarde. <a class="label label-primary" href="#" target="_blank">Free Bootstrap Carousel Collection</a></p>
+            <p>Terremoto de grado 6.5 afectó a la zona norte durante la tarde. </p>
           </div>
         </div><!-- End Item -->
 
         <div class="item">
-          <img src="https://noticias.eltiempo.es/wp-content/uploads/2014/11/temporal.jpg">
+          <img src="https://noticias.eltiempo.es/wp-content/uploads/2014/11/temporal.jpg" height="400" width="760">
            <div class="carousel-caption">
             <h4><a href="#">Temporal afecta zona sur</a></h4>
-            <p>Se preveen grandes perdidad en el sur debido al temporal. <a class="label label-primary" href="#" target="_blank">Free Bootstrap Carousel Collection</a></p>
+            <p>Se preveen grandes perdidas en el sur debido al temporal. </p>
           </div>
         </div><!-- End Item -->
 
