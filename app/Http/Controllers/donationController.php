@@ -11,6 +11,7 @@ use App\Location;
 use App\Donation;
 use Validator;
 use Auth;
+use App\Bank;
 
 class donationController extends Controller
 {
@@ -33,8 +34,9 @@ class donationController extends Controller
     public function create($id)
     {
         //
+        $banks = Bank::All();
         $c = Catastrophe::find($id);
-        return view('donation.create', compact("c"));
+        return view('donation.create', compact("c",'banks'));
     }
 
 
@@ -52,7 +54,7 @@ class donationController extends Controller
                 'start_date' => 'required|date|after:today',
                 'end_date' => 'required|date|after:start_date',
                 'goal' => 'required|integer',
-                
+                'bank' => 'required|integer',
             ],
             [
                 'required' => 'Este campo es requerido',
@@ -68,6 +70,8 @@ class donationController extends Controller
         }
         
         $donation = new Donation;
+        $donation->bank_id = $request->bank;
+        $donation->mount = 0;
         $donation->save();
 
 

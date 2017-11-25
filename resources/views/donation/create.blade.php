@@ -76,36 +76,37 @@
                                     @endif
                                 </div>
                             </div>
-                        </div>
-<<<<<<< HEAD
 
-                        <div class="form-group row">
-                            <div class="col-md-6">
-                                <label> Banco: </label>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label> Banco: </label>
 
-                                <select class="form-control" name="bank" id="bank">
-                                    <option value = ""> Seleccione un banco </option>
-                                    @foreach ($banks as $bank)
-                                        <option value="{{$bank->id}}">{{ $bank->name }}</option>
-                                    @endforeach
-                                </select>
-                                @if ($errors->has('bank'))
-                                    <span class="help-block" style="color:red">
-                                        <strong>{{ $errors->first('bank') }}</strong>
-                                    </span>
-                                @endif
+                                    <select class="form-control" name="bank" id="bank">
+                                        <option value = ""> Seleccione un banco </option>
+                                        @foreach ($banks as $bank)
+                                            <option value="{{$bank->id}}">{{ $bank->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @if ($errors->has('bank'))
+                                        <span class="help-block" style="color:red">
+                                            <strong>{{ $errors->first('bank') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
 
+
+
+
+
+                        </div>
 
 
                         
-
-=======
                         <div class="panel-footer">
                             <button class="btn btn-primary" type="submit">Agregar medida donación</button>
                             <a class="btn btn-danger" type="submit" id = "cancel" href="{{ route('menu', $c->id) }}"> Cancelar </a>
->>>>>>> fa79f4ea587461e42e012a130781ed71d30e8f21
+
                         </div>
                     </div>
                 </form>
