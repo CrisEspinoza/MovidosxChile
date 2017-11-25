@@ -21,7 +21,7 @@ class Action extends Model
     	return $this->morphTo();
     }
 
-    public function user()
+    public function action_user()
     {
         return $this->belongsToMany(User::class);
     }

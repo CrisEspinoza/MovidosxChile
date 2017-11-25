@@ -87,6 +87,7 @@ class volunteeringController extends Controller
         $volunt->profile_voluntary= $request->profile_voluntary;
         $volunt->type_work = $request->type_work;
         $volunt->location_id = $loc->id;
+        $volunt->current_voluntaries= 0;
 
         $volunt->save();
 

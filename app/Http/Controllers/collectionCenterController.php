@@ -81,6 +81,7 @@ class collectionCenterController extends Controller
         $collection = new Collection_center;
         $collection->name = $request->nameCenter;
         $collection->location_id = $loc->id;
+        $collection->collected_assets = 0;
 
         $collection->save();
 

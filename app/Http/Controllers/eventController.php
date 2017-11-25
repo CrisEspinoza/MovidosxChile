@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\User;
 use Illuminate\Http\Request;
 use App\Catastrophe;
 use App\Region;
@@ -85,6 +86,7 @@ class eventController extends Controller
         $event->activity = $request->activities;
         $event->foods = $request->foods;
         $event->location_id = $loc->id;
+        $event->participants = 0;
 
         $event->save();
 
@@ -102,7 +104,7 @@ class eventController extends Controller
         $event->action()->save($action);
 
 
-        return redirect()->route('createEvent', $cat->id)->with('success', true)->with('message','Evento creado exitosamente');;
+        return redirect()->route('createEvent', $cat->id)->with('success', true)->with('message','Evento creado exitosamente');
 
     }
 
@@ -137,7 +139,32 @@ class eventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $event = Event::find($id);
+        $event->participants = $event->participants + 1;
+        $event->update();
+
+        $action = Action::where('actionOP_id',$id)->get();
+
+        for($i=0 ; $i< count($action); $i++){
+            if($action[$i]->actionOP_type == 'App\Event'){
+                $action[$i]->progress = ($event->participants / $action[$i]->goal)*100;
+                $action[$i]->update();
+
+                $user = User::find(Auth::id());
+
+                $user-> action_user()->attach($action[$i]->id);
+
+
+                return $user;
+
+                return redirect()->route('action.edit', $action[$i]->id)->with('success', true)->with('message','Gracias por participar en esta medida');
+            }
+        }
+
+
+
+
+
     }
 
     /**

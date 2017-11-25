@@ -38,7 +38,7 @@ class User extends Authenticatable
         return $this->hasMany(History::class);
     }
 
-    public function action()
+    public function action_user()
     {
         return $this->belongsToMany(Action::class);
     }

@@ -17,6 +17,7 @@ class CreateCollectionCentersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('location_id');
+            $table->integer('collected_assets');
             $table->timestamps();
         });
     }
