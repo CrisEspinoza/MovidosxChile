@@ -80,5 +80,5 @@
   </div>
 </div>
 </div>
-<div id="googleMap" style="width:400px;height:400px;"></div>
+
 @endsection

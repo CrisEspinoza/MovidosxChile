@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.maps')
 
 @section('title', 'NewCatastrophe')
 
@@ -66,7 +66,7 @@
                                 <a class="btn btn-danger" type="submit" id = "cancel" href="{{ route ('home') }}"> Cancelar </a>
                             </div>
                         </div>
-                    </div>
+                    </div>              
                 </form>
             </div>
         </div>
