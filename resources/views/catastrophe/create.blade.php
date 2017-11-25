@@ -49,8 +49,9 @@
 
                                     </select>
                                 </div>
-                            </div>
 
+                            </div>
+                            
                             <div class="form-group row">
                                 <div class="col-md-12">
                                     <textarea name="description" class="form-control" rows="5" cols="50" placeholder="Descripción de la catástrofe..."></textarea>

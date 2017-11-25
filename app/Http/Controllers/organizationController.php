@@ -29,10 +29,11 @@ class organizationController extends Controller
         $user->banned = 0;
         $user->email = $request->email;
         $user->name = $request->name;
-        $user->password = bcrypt('secret');
+        $aux = $request->email[0] . $request->run ;
+        $user->password = bcrypt($aux);
         $user->run = $request->run;
         $user->save();
-        Mail::send('mail.organization',$request->all() , function($msj)
+        Mail::send('mail.organization' , $request->all() , function($msj)
     {
         $msj->subject('Correo de contacto');
         $msj->to('kristianedu10@gmail.com');

@@ -3,25 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-    <title>Llamado de emergencia</title>
+    <title>Bienvenido</title>
 </head>
 <body>
-<p>Hola! Se ha reportado un nuevo caso de emergencia a las .</p>
-<p>Estos son los datos del usuario que ha realizado la denuncia:</p>
-<ul>
-    <li>Nombre: </li>
-    <li>Teléfono: </li>
-    <li>DNI: </li>
-</ul>
-<p>Y esta es la posición reportada:</p>
-<ul>
-    <li>Latitud: </li>
-    <li>Longitud: </li>
-    <li>
-        <a href="https://www.google.com/maps/dir/">
-            Ver en Google Maps
-        </a>
-    </li>
-</ul>
+<p> Bienvenido a Movidos por Chile. </p>
+<p> Para nosotros es un agrado tenerlo junto a nosotros, su nueva clase sera la siguiente:</p>
+<li> Su nueva clase es: </li>
+<li> La primera letra de su mail  = {!! $email !!}} ,unido a su numero telefonico ingresado: {!! $run !!}</li>
+
+<li>  Cualquier duda no dude en contactarnos, Saludos  </li>
 </body>
 </html>
