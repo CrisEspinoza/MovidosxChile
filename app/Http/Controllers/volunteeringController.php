@@ -7,6 +7,7 @@ use App\Catastrophe;
 use Validator;
 use App\Volunteering;
 use App\Action;
+use Auth;
 
 
 class volunteeringController extends Controller
@@ -88,7 +89,7 @@ class volunteeringController extends Controller
         $action->start_date = $request->start_date;
         $action->end_date = $request->end_date;
         $action->catastrophe_id =$cat->id;
-        $action->user_id = 1;
+        $action->user_id = Auth::id();
         $action->goal = $request->goal;
 
         $volunt->action()->save($action);

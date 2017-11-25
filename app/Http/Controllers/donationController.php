@@ -10,6 +10,7 @@ use App\Action;
 use App\Location;
 use App\Donation;
 use Validator;
+use Auth;
 
 class donationController extends Controller
 {
@@ -77,7 +78,7 @@ class donationController extends Controller
         $action->start_date = $request->start_date;
         $action->end_date = $request->end_date;
         $action->catastrophe_id =$cat->id;
-        $action->user_id = 1;
+        $action->user_id = Auth::id();
         $action->goal = $request->goal;
 
         $donation->action()->save($action);
