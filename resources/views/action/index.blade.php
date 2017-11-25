@@ -49,7 +49,9 @@
                                         </div>
                                         <div class="panel-body">
                                             <div class="row">
-                                                <div class="col-md-4"></div>
+                                                <div class="col-md-4">
+                                                    <label> Nombre: </label>
+                                                        <input class="form-control" name="email" id="email" value="nombre"> </div>
                                                     <div class="col-md-4 col-md-offset-4">
                                                         <label>Progreso:</label>
                                                             <div class="progress">
@@ -70,14 +72,23 @@
                                         </div>
                                         <div class="panel-body">
                                             <div class="row">
-                                                <div class="col-md-4"></div>
+                                                <div class="col-md-4">                                                    
+                                                    <label> Nombre evento: </label>
+                                                        <input class="form-control" name="type" id="nombre" value="nombre"> 
+                                                    <label> Actividad: </label>
+                                                        <input class="form-control" name="actividad" id="actividad" value="Paseo"> 
+                                                    
+                                                    </div>
                                                     <div class="col-md-4 col-md-offset-4">
-                                                        <label>Progreso:</label>
+                                                        <label>Progreso de avance:</label>
                                                             <div class="progress">
                                                                 <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
                                                                     <span class="sr-only">45% Complete</span>
                                                                 </div>
                                                             </div>
+                                                        <label> Comidas: </label>
+                                                        <input class="form-control" name="comida" id="comida" value="Pollo"> 
+                                                    
                                                     </div>
                                             </div>
                                         </div>
@@ -91,8 +102,14 @@
                                         </div>
                                         <div class="panel-body">
                                             <div class="row">
-                                                <div class="col-md-4"></div>
-                                                    <div class="col-md-4 col-md-offset-4">
+                                                <div class="col-md-6">
+                                                    <label> Tipo: </label>
+                                                        <input class="form-control" name="type" id="type" value="tipo"> 
+                                                    <label> Minimo de voluntariados: </label>
+                                                        <input class="form-control" name="voluntariados" id="voluntariados" value="cantVoluntariado"> 
+                                                    
+                                                    </div>
+                                                    <div class="col-md-6 ">
                                                         <label>Progreso:</label>
                                                             <div class="progress">
                                                                 <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">

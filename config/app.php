@@ -164,6 +164,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Thujohn\Twitter\TwitterServiceProvider::class,
+        Qafeen\Manager\ManagerServiceProvider::class,
+        Modelizer\Selenium\SeleniumServiceProvider::class,
 
         /*
          * Package Service Providers...
