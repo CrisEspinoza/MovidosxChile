@@ -32,7 +32,7 @@
 
 
                                 @if (Auth::user()->role_id == 1)
-                                    <td> <a class="btn btn-warning" type="button" href="#"> Ver medidas </a></td>
+                                    <td> <a class="btn btn-warning" type="button" href="{{ route('indexAction', $c->id) }}"> Ver medidas </a></td>
                                 @endif
 
                                 @if (Auth::user()->role_id == 2)

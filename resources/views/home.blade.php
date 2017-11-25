@@ -7,7 +7,7 @@
     <div class="jumbotron jumbotron-fluid">
         <h1> Catastrofes </h1>
         <p> Ver las catastrofes actuales </p>
-        <a class="btn btn-info btn-lg" type="button" href="{{ route('catastrophe.create') }}"> Ver catastrofes </a>
+        <a class="btn btn-info btn-lg" type="button" href="{{ route('catastrophe.index')}}"> Ver catastrofes </a>
     </div>
 </div>
 @endif
