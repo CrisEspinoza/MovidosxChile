@@ -27,15 +27,21 @@
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label>Meta donación:</label>
-                                                    <p> {{"$ " .$medida->goal}} </p>
+                                                        <p> {{"$ " .$medida->goal}} </p>                                                    
+                                                    <label> Fecha inicio: </label>
+                                                        <input class="form-control" name="Fechainicio" id="Fechainicio" value="xx/xx/xx"> 
+                                                    <label> Banco: </label>
+                                                        <input class="form-control" name="banco" id="banco" value="banco estado"> 
                                                 </div>
                                                     <div class="col-md-4 col-md-offset-4">
-                                                        <label>Progreso:</label>
+                                                        <label>Progreso de avance:</label>
                                                             <div class="progress">
                                                                 <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
                                                                     <span class="sr-only">45% Complete</span>
-                                                                </div>
-                                                            </div>
+                                                                </div>                                                                
+                                                            </div>                                                            
+                                                        <label> Fecha termino: </label>
+                                                            <input class="form-control" name="Fechatermino" id="Fechatermino" value="xx/xx/xx"> 
                                                     </div>
                                             </div>
                                         </div>
@@ -50,15 +56,28 @@
                                         <div class="panel-body">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label> Nombre: </label>
-                                                        <input class="form-control" name="email" id="email" value="nombre"> </div>
+                                                    <label>Nombre:</label>         
+                                                        <input class="form-control" name="Fechainicio" id="Fechainicio" value="lalalla">  
+                                                    <label> Fecha inicio: </label>
+                                                        <input class="form-control" name="banco" id="banco" value="xx/xx/xx">  
+                                                    <label> Región: </label>
+                                                        <input class="form-control" name="Fechainicio" id="Fechainicio" value="lalala">                                             
+                                                    <label> Dirección: </label>
+                                                        <input class="form-control" name="Fechainicio" id="Fechainicio" value="lalala">
+                                                    
+                                                </div>
                                                     <div class="col-md-4 col-md-offset-4">
-                                                        <label>Progreso:</label>
+                                                        <label>Progreso de avance:</label>
                                                             <div class="progress">
                                                                 <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
                                                                     <span class="sr-only">45% Complete</span>
-                                                                </div>
-                                                            </div>
+                                                                </div>                                                                
+                                                            </div>                                                            
+                                                        <label> Fecha termino: </label>
+                                                            <input class="form-control" name="Fechatermino" id="Fechatermino" value="xx/xx/xx"> 
+                                                     
+                                                        <label> Comuna: </label>
+                                                            <input class="form-control" name="banco" id="banco" value="lalal">     
                                                     </div>
                                             </div>
                                         </div>
@@ -75,7 +94,13 @@
                                                 <div class="col-md-4">                                                    
                                                     <label> Nombre evento: </label>
                                                         <input class="form-control" name="type" id="nombre" value="nombre"> 
-                                                    <label> Actividad: </label>
+                                                    <label> Fecha inicio: </label>
+                                                        <input class="form-control" name="actividad" id="actividad" value="Paseo">
+                                                    <label> Región: </label>
+                                                        <input class="form-control" name="actividad" id="actividad" value="Paseo"> 
+                                                    <label> Dirección: </label>
+                                                        <input class="form-control" name="actividad" id="actividad" value="Paseo"> 
+                                                    <label> Actividades: </label>
                                                         <input class="form-control" name="actividad" id="actividad" value="Paseo"> 
                                                     
                                                     </div>
@@ -86,9 +111,12 @@
                                                                     <span class="sr-only">45% Complete</span>
                                                                 </div>
                                                             </div>
+                                                        <label> Fecha final: </label>
+                                                            <input class="form-control" name="comida" id="comida" value="Pollo"> 
                                                         <label> Comidas: </label>
-                                                        <input class="form-control" name="comida" id="comida" value="Pollo"> 
-                                                    
+                                                            <input class="form-control" name="comida" id="comida" value="Pollo"> 
+                                                        <label> Comuna: </label>
+                                                            <input class="form-control" name="comida" id="comida" value="Pollo"> 
                                                     </div>
                                             </div>
                                         </div>
@@ -101,23 +129,38 @@
                                             <h3 class="panel-title">Voluntariado </h3>
                                         </div>
                                         <div class="panel-body">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label> Tipo: </label>
-                                                        <input class="form-control" name="type" id="type" value="tipo"> 
-                                                    <label> Minimo de voluntariados: </label>
-                                                        <input class="form-control" name="voluntariados" id="voluntariados" value="cantVoluntariado"> 
+                                        <div class="row">
+                                                <div class="col-md-4">                                                    
+                                                    <label> Nombre : </label>
+                                                        <input class="form-control" name="type" id="nombre" value="nombre"> 
+                                                    <label> Fecha inicio: </label>
+                                                        <input class="form-control" name="actividad" id="actividad" value="Paseo">
+                                                    <label> Maximo voluntarios: </label>
+                                                        <input class="form-control" name="comida" id="comida" value="Pollo"> 
+                                                    <label> Región: </label>
+                                                        <input class="form-control" name="actividad" id="actividad" value="Paseo"> 
+                                                    <label> Dirección: </label>
+                                                        <input class="form-control" name="actividad" id="actividad" value="Paseo"> 
                                                     
                                                     </div>
-                                                    <div class="col-md-6 ">
-                                                        <label>Progreso:</label>
+                                                    <div class="col-md-4 col-md-offset-4">
+                                                        <label>Progreso de avance:</label>
                                                             <div class="progress">
                                                                 <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
                                                                     <span class="sr-only">45% Complete</span>
                                                                 </div>
                                                             </div>
+                                                        <label> Fecha final: </label>
+                                                            <input class="form-control" name="comida" id="comida" value="Pollo"> 
+                                                        <label> Minimo Voluntario: </label>
+                                                            <input class="form-control" name="comida" id="comida" value="Pollo"> 
+                                                        <label> Comuna: </label>
+                                                            <input class="form-control" name="comida" id="comida" value="Pollo"> 
+                                                        <label> Tipo trabajo: </label>
+                                                            <input class="form-control" name="comida" id="comida" value="Pollo"> 
                                                     </div>
                                             </div>
+                                
                                         </div>
                                     </div>
                                 @endif
