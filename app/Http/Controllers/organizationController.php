@@ -36,7 +36,7 @@ class organizationController extends Controller
         Mail::send('mail.organization' , $request->all() , function($msj)
     {
         $msj->subject('Correo de contacto');
-        $msj->to('kristianedu10@gmail.com');
+        $msj->to('catastrofesudes@gmail.com');
     });
         return redirect()->route('organization.create')->with('success', true)->with('message','Organización creada exitosamente');
 
