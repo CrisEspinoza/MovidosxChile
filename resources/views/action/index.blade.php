@@ -12,10 +12,6 @@
                     <div class="panel-body">
                         <table class="table table-hover">
                             
-
-                            
-
-
                             @foreach ($medidas as $medida)
 
                                 @if ($medida->actionOP_type == 'Donación' )
@@ -25,102 +21,83 @@
                                         </div>
                                         <div class="panel-body">
                                             <div class="row">
-                                                <div class="col-md-4">
+                                                <div class="col-md-6">
                                                     <label>Meta donación:</label>
-                                                        <p> {{"$ " .$medida->goal}} </p>                                                    
-                                                    <label> Fecha inicio: </label>
-                                                        <input class="form-control" name="Fechainicio" id="Fechainicio" value="xx/xx/xx"> 
-                                                    <label> Banco: </label>
-                                                        <input class="form-control" name="banco" id="banco" value="banco estado"> 
+                                                    <p> {{"$ " .$medida->goal}} </p>
+                                                    <a class="btn btn-success" type="button" href="#"> Participar en medida </a>
                                                 </div>
-                                                    <div class="col-md-4 col-md-offset-4">
-                                                        <label>Progreso de avance:</label>
-                                                            <div class="progress">
-                                                                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-                                                                    <span class="sr-only">45% Complete</span>
-                                                                </div>                                                                
-                                                            </div>                                                            
-                                                        <label> Fecha termino: </label>
-                                                            <input class="form-control" name="Fechatermino" id="Fechatermino" value="xx/xx/xx"> 
-                                                    </div>
+
+                                                <div class="col-md-6 ">
+                                                    <label>Progreso:</label>
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                                                                <span class="sr-only">45% Complete</span>
+                                                            </div>
+                                                        </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 @endif
 
                                 @if ($medida->actionOP_type == 'Centro de acopio' )
-                                     <div class="panel panel-info" >
-                                        <div class="panel-heading" style="background-color:#819FF7">
-                                            <h3 class="panel-title">  Centro de acopio </h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <label>Nombre:</label>         
-                                                        <input class="form-control" name="Fechainicio" id="Fechainicio" value="lalalla">  
-                                                    <label> Fecha inicio: </label>
-                                                        <input class="form-control" name="banco" id="banco" value="xx/xx/xx">  
-                                                    <label> Región: </label>
-                                                        <input class="form-control" name="Fechainicio" id="Fechainicio" value="lalala">                                             
-                                                    <label> Dirección: </label>
-                                                        <input class="form-control" name="Fechainicio" id="Fechainicio" value="lalala">
-                                                    
+                                    @foreach ($centros as $centro)
+                                        @if($centro->id == $medida->actionOP_id)
+                                             <div class="panel panel-info" >
+                                                <div class="panel-heading" style="background-color:#819FF7">
+                                                    <h3 class="panel-title">  Centro de acopio </h3>
                                                 </div>
-                                                    <div class="col-md-4 col-md-offset-4">
-                                                        <label>Progreso de avance:</label>
-                                                            <div class="progress">
-                                                                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-                                                                    <span class="sr-only">45% Complete</span>
-                                                                </div>                                                                
-                                                            </div>                                                            
-                                                        <label> Fecha termino: </label>
-                                                            <input class="form-control" name="Fechatermino" id="Fechatermino" value="xx/xx/xx"> 
-                                                     
-                                                        <label> Comuna: </label>
-                                                            <input class="form-control" name="banco" id="banco" value="lalal">     
+                                                <div class="panel-body">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label> Nombre centro de acopio: </label>
+                                                                <p>{{$centro->name}}</p>
+                                                                <a class="btn btn-success" type="button" href="#"> Participar en medida </a>
+                                                        </div>
+                                                        <div class="col-md-6 ">
+                                                            <label>Progreso:</label>
+                                                                <div class="progress">
+                                                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                                                                        <span class="sr-only">45% Complete</span>
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                    
                                                     </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                        @endif
+                                    @endforeach
                                 @endif
 
                                 @if ($medida->actionOP_type == 'Evento a beneficio' )
-                                     <div class="panel panel-warning">
-                                        <div class="panel-heading" style="background-color:#F781D8">
-                                            <h3 class="panel-title"> Evento a beneficio </h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <div class="row">
-                                                <div class="col-md-4">                                                    
-                                                    <label> Nombre evento: </label>
-                                                        <input class="form-control" name="type" id="nombre" value="nombre"> 
-                                                    <label> Fecha inicio: </label>
-                                                        <input class="form-control" name="actividad" id="actividad" value="Paseo">
-                                                    <label> Región: </label>
-                                                        <input class="form-control" name="actividad" id="actividad" value="Paseo"> 
-                                                    <label> Dirección: </label>
-                                                        <input class="form-control" name="actividad" id="actividad" value="Paseo"> 
-                                                    <label> Actividades: </label>
-                                                        <input class="form-control" name="actividad" id="actividad" value="Paseo"> 
-                                                    
-                                                    </div>
-                                                    <div class="col-md-4 col-md-offset-4">
-                                                        <label>Progreso de avance:</label>
-                                                            <div class="progress">
-                                                                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-                                                                    <span class="sr-only">45% Complete</span>
-                                                                </div>
+                                    @foreach ($eventos as $evento)
+                                        @if($evento->id == $medida->actionOP_id)
+
+                                             <div class="panel panel-warning">
+                                                <div class="panel-heading" style="background-color:#F781D8">
+                                                    <h3 class="panel-title"> Evento a beneficio </h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row">
+                                                        <div class="col-md-6">                                                    
+                                                            <label> Nombre evento: </label>
+                                                                <p>{{$evento->name}}</p> 
+                                                                <a class="btn btn-success" type="button" href="#"> Participar en medida </a>
+                                                        </div>
+                                                            <div class="col-md-6">
+                                                                <label>Progreso de avance:</label>
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                                                                            <span class="sr-only">45% Complete</span>
+                                                                        </div>
+                                                                    </div>
+
                                                             </div>
-                                                        <label> Fecha final: </label>
-                                                            <input class="form-control" name="comida" id="comida" value="Pollo"> 
-                                                        <label> Comidas: </label>
-                                                            <input class="form-control" name="comida" id="comida" value="Pollo"> 
-                                                        <label> Comuna: </label>
-                                                            <input class="form-control" name="comida" id="comida" value="Pollo"> 
                                                     </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                        @endif
+                                    @endforeach
                                 @endif
 
                                 @if ($medida->actionOP_type == 'Voluntariado' )
@@ -129,38 +106,22 @@
                                             <h3 class="panel-title">Voluntariado </h3>
                                         </div>
                                         <div class="panel-body">
-                                        <div class="row">
-                                                <div class="col-md-4">                                                    
-                                                    <label> Nombre : </label>
-                                                        <input class="form-control" name="type" id="nombre" value="nombre"> 
-                                                    <label> Fecha inicio: </label>
-                                                        <input class="form-control" name="actividad" id="actividad" value="Paseo">
-                                                    <label> Maximo voluntarios: </label>
-                                                        <input class="form-control" name="comida" id="comida" value="Pollo"> 
-                                                    <label> Región: </label>
-                                                        <input class="form-control" name="actividad" id="actividad" value="Paseo"> 
-                                                    <label> Dirección: </label>
-                                                        <input class="form-control" name="actividad" id="actividad" value="Paseo"> 
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label> Meta voluntarios: </label>
+                                                        <p>{{$medida->goal .' voluntarios'}}</p> 
+                                                        <a class="btn btn-success" type="button" href="#"> Participar en medida </a>
                                                     
                                                     </div>
-                                                    <div class="col-md-4 col-md-offset-4">
-                                                        <label>Progreso de avance:</label>
+                                                    <div class="col-md-6 ">
+                                                        <label>Progreso:</label>
                                                             <div class="progress">
                                                                 <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
                                                                     <span class="sr-only">45% Complete</span>
                                                                 </div>
                                                             </div>
-                                                        <label> Fecha final: </label>
-                                                            <input class="form-control" name="comida" id="comida" value="Pollo"> 
-                                                        <label> Minimo Voluntario: </label>
-                                                            <input class="form-control" name="comida" id="comida" value="Pollo"> 
-                                                        <label> Comuna: </label>
-                                                            <input class="form-control" name="comida" id="comida" value="Pollo"> 
-                                                        <label> Tipo trabajo: </label>
-                                                            <input class="form-control" name="comida" id="comida" value="Pollo"> 
                                                     </div>
                                             </div>
-                                
                                         </div>
                                     </div>
                                 @endif

@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;    
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -445,7 +446,7 @@ class DatabaseSeeder extends Seeder
         factory(App\Catastrophe::class, 10)->create();
         factory(App\Volunteering::class, 10)->create();
         factory(App\Donation::class, 10)->create();
-        factory(App\Event::class, 10)->create();
+        //factory(App\Event::class, 10)->create();
 
 
         factory(App\Collection_center::class, 10)->create();

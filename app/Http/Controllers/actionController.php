@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Catastrophe;
 use App\Action;
+use App\Event;
+use App\Volunteering;
+use App\Collection_center;
+use App\Donation;
+use Illuminate\Support\Facades\DB;
 
 class actionController extends Controller
 {
@@ -18,7 +23,7 @@ class actionController extends Controller
     {
         $c = Catastrophe::find($id);
         $medidas = Action::where('catastrophe_id',$id)->get()->sortBy('actionOP_type');
-
+        
         for ($i = 0; $i < count($medidas); $i++) {
             if($medidas[$i]->actionOP_type == "App\Donation"){
                 $medidas[$i]->actionOP_type = "Donación";
@@ -33,9 +38,13 @@ class actionController extends Controller
                 $medidas[$i]->actionOP_type = "Voluntariado";
             }
         }
-                        
 
-        return view('action.index', compact('c','medidas'));
+        $eventos = Event::All();
+        $voluntariados= Volunteering::All();
+        $donaciones = Donation::All();
+        $centros = Collection_center::All();
+             
+        return view('action.index', compact('c','medidas','eventos','voluntariados', 'donaciones', 'centros'));
     }
 
     /**

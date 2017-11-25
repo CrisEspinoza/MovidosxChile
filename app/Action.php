@@ -25,4 +25,8 @@ class Action extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
+    public function catastrophe(){
+        return $this->belongsToMany(Catastrophe::class);
+    }
 }

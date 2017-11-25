@@ -9,6 +9,7 @@ use App\Volunteering;
 use App\Action;
 use App\Region;
 use App\Commune;
+use App\Location;
 use Auth;
 
 
@@ -59,7 +60,7 @@ class volunteeringController extends Controller
                 'min_voluntaries' => 'required|integer',
                 'max_voluntaries' => 'required|integer',
                 'type_work' => 'required|string',
-                'profile_voluntary' => 'required|string|min:5|max:255'
+                'profile_voluntary' => 'required|string|min:5|max:255',
                 'region_id' => 'required|integer',
                 'commune_id' => 'required|integer',
                 'address' => 'required|string|min:5|max:255',

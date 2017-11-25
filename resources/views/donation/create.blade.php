@@ -63,6 +63,24 @@
 
                         </div>
 
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label> Banco: </label>
+
+                                <select class="form-control" name="bank" id="bank">
+                                    <option value = ""> Seleccione un banco </option>
+                                    @foreach ($banks as $bank)
+                                        <option value="{{$bank->id}}">{{ $bank->name }}</option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('bank'))
+                                    <span class="help-block" style="color:red">
+                                        <strong>{{ $errors->first('bank') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
 
 
                         
