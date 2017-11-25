@@ -10,6 +10,7 @@ use App\Commune;
 use App\Action;
 use App\Location;
 use Validator;
+use Auth;
 
 class eventController extends Controller
 {
@@ -95,7 +96,7 @@ class eventController extends Controller
         $action->start_date = $request->start_date;
         $action->end_date = $request->end_date;
         $action->catastrophe_id =$cat->id;
-        $action->user_id = 1;
+        $action->user_id = Auth::id();
         $action->goal = $request->goal;
 
         $event->action()->save($action);
