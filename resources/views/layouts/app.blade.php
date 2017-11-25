@@ -14,6 +14,40 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/Principal.css') }}" rel="stylesheet">
 
+    <style>
+    #myCarousel .carousel-caption {
+        left:0;
+    	right:0;
+    	bottom:0;
+    	text-align:left;
+    	padding:10px;
+    	background:rgba(0,0,0,0.6);
+    	text-shadow:none;
+    }
+
+    #myCarousel .list-group {
+    	position:absolute;
+    	top:0;
+    	right:0;
+    }
+    #myCarousel .list-group-item {
+    	border-radius:0px;
+    	cursor:pointer;
+    }
+    #myCarousel .list-group .active {
+    	background-color:#eee;
+      color:#000;
+    }
+
+    @media (min-width: 992px) {
+    	#myCarousel {padding-right:33.3333%;}
+    	#myCarousel .carousel-controls {display:none;}
+    }
+    @media (max-width: 991px) {
+    	.carousel-caption p,
+    	#myCarousel .list-group {display:none;}
+    }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -109,8 +143,6 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 
-<<<<<<< HEAD
-=======
     <script>
     function myMap() {
     var mapProp= {
@@ -171,6 +203,5 @@ $(window).load(function() {
 });
 </script>
 
->>>>>>> 98353b5e94baed77b1e8beb5f89545dafbb64a1d
 </body>
 </html>
