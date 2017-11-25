@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+use Mail;
+use Session;
+use Redirect;
 use App\User;
+
 class organizationController extends Controller
 {
 
@@ -29,6 +32,11 @@ class organizationController extends Controller
         $user->password = bcrypt('secret');
         $user->run = $request->run;
         $user->save();
+        Mail::send('mail.organization',$request->all() , function($msj)
+    {
+        $msj->subject('Correo de contacto');
+        $msj->to('kristianedu10@gmail.com');
+    });
         return redirect()->route('organization.create')->with('success', true)->with('message','Organización creada exitosamente');
 
     }

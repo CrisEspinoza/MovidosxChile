@@ -29,7 +29,7 @@ Route::get('/donation/{id}','donationController@create')->name('createDonation')
 
 Route::get('/actions/{id}','actionController@index')->name('indexAction');
 
-
+Route::resource('mail', 'MailController');
 Route::resource('action', 'actionController');
 Route::resource('asset', 'assetController');
 Route::resource('bank', 'bankController');
