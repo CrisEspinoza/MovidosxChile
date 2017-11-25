@@ -14,15 +14,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/Principal.css') }}" rel="stylesheet">
 
-      <!-- Scripts -->
-    <script>
-        window.Laravel = {!! json_encode([
-            'csrfToken' => csrf_token(),
-        ]) !!};
-    </script>
-<style>
-body { padding-top: 50px; }
 
+<style>
 #myCarousel .carousel-caption {
     left:0;
 	right:0;
@@ -44,6 +37,7 @@ body { padding-top: 50px; }
 }
 #myCarousel .list-group .active {
 	background-color:#eee;
+  color:#000;
 }
 
 @media (min-width: 992px) {
@@ -55,7 +49,6 @@ body { padding-top: 50px; }
 	#myCarousel .list-group {display:none;}
 }
 </style>
-
 </head>
 <body>
     <div id="app">
@@ -85,15 +78,15 @@ body { padding-top: 50px; }
                         @else
                             <!-- Navbar for normal user -->
                             @if (Auth::user()->role_id == 1)
-                            <li><a href="#">Home</a></li>
+                            <li><a href="{{ route('home') }}">Home</a></li>
                             @endif
                             <!-- Navbar for government user -->
                             @if (Auth::user()->role_id == 2)
-                            <li><a href="#">Home</a></li>
+                            <li><a href="{{ route('home') }}">Home</a></li>
                             @endif
                             <!-- Navbar for organization user -->
                             @if (Auth::user()->role_id == 3)
-                            <li><a href="#">Home</a></li>
+                            <li><a href="{{ route('home') }}">Home</a></li>
                             @endif
                         @endif
                     </ul>
@@ -150,37 +143,37 @@ body { padding-top: 50px; }
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+<script>
+$(document).ready(function(){
 
-    <script>
-    $(document).ready(function(){
+	var clickEvent = false;
+	$('#myCarousel').carousel({
+		interval:   4000
+	}).on('click', '.list-group li', function() {
+			clickEvent = true;
+			$('.list-group li').removeClass('active');
+			$(this).addClass('active');
+	}).on('slid.bs.carousel', function(e) {
+		if(!clickEvent) {
+			var count = $('.list-group').children().length -1;
+			var current = $('.list-group li.active');
+			current.removeClass('active').next().addClass('active');
+			var id = parseInt(current.data('slide-to'));
+			if(count == id) {
+				$('.list-group li').first().addClass('active');
+			}
+		}
+		clickEvent = false;
+	});
+})
 
-    	var clickEvent = false;
-    	$('#myCarousel').carousel({
-    		interval:   4000
-    	}).on('click', '.list-group li', function() {
-    			clickEvent = true;
-    			$('.list-group li').removeClass('active');
-    			$(this).addClass('active');
-    	}).on('slid.bs.carousel', function(e) {
-    		if(!clickEvent) {
-    			var count = $('.list-group').children().length -1;
-    			var current = $('.list-group li.active');
-    			current.removeClass('active').next().addClass('active');
-    			var id = parseInt(current.data('slide-to'));
-    			if(count == id) {
-    				$('.list-group li').first().addClass('active');
-    			}
-    		}
-    		clickEvent = false;
-    	});
-    })
+$(window).load(function() {
+    var boxheight = $('#myCarousel .carousel-inner').innerHeight();
+    var itemlength = $('#myCarousel .item').length;
+    var triggerheight = Math.round(boxheight/itemlength+1);
+	$('#myCarousel .list-group-item').outerHeight(triggerheight);
+});
+</script>
 
-    $(window).load(function() {
-        var boxheight = $('#myCarousel .carousel-inner').innerHeight();
-        var itemlength = $('#myCarousel .item').length;
-        var triggerheight = Math.round(boxheight/itemlength+1);
-    	$('#myCarousel .list-group-item').outerHeight(triggerheight);
-    });
-    </script>
 </body>
 </html>

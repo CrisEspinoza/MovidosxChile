@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.maps')
 
 @section('title', 'NewCatastrophe')
 
@@ -49,8 +49,9 @@
 
                                     </select>
                                 </div>
-                            </div>
 
+                            </div>
+                            
                             <div class="form-group row">
                                 <div class="col-md-12">
                                     <textarea name="description" class="form-control" rows="5" cols="50" placeholder="Descripción de la catástrofe..."></textarea>
@@ -66,7 +67,7 @@
                                 <a class="btn btn-danger" type="submit" id = "cancel" href="{{ route ('home') }}"> Cancelar </a>
                             </div>
                         </div>
-                    </div>
+                    </div>              
                 </form>
             </div>
         </div>

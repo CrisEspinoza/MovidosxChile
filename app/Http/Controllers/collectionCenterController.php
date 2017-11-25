@@ -98,7 +98,7 @@ class collectionCenterController extends Controller
         $collection->action()->save($action);
 
 
-        return $request;
+        return redirect()->route('createCollCenter', $cat->id)->with('success', true)->with('message','Centro de acopio creado exitosamente');;
     }
 
     /**

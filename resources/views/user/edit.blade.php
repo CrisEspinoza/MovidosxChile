@@ -58,7 +58,7 @@
 
                                 <div class="panel-footer">
                                     <button class="btn btn-primary" type="submit">Guardar</button>
-                                    <a class="btn btn-danger" type="submit" id = "cancel" href="{{ route ('user.index') }}"> Cancelar </a>
+                                    <a class="btn btn-danger" type="submit" id = "cancel" href="{{ route ('home') }}"> Cancelar </a>
                                 </div>
 
                             </div>

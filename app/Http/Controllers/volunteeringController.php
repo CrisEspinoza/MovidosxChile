@@ -16,16 +16,9 @@ use Auth;
 class volunteeringController extends Controller
 {
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         //
-
-
     }
 
     /**
@@ -108,8 +101,7 @@ class volunteeringController extends Controller
         $action->goal = $request->goal;
 
         $volunt->action()->save($action);
-
-
+        return redirect()->route('createVol', $cat->id)->with('success', true)->with('message','Voluntariado creado exitosamente');
     }
 
     /**

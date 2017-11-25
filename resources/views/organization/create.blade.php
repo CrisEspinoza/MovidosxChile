@@ -1,89 +1,69 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2" style="filter: alpha(opacity=25); -moz-opacity: 0.3; opacity: 0.9; -khtml-opacity: 0.3;">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Registro de una nueva organizacion</div>
 
-                    <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="{{ route('organization.store') }}">
-                            {{ csrf_field() }}
-
-                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                <label for="name" class="col-md-4 control-label">Nombre de organización</label>
-                                <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
-                                    @if ($errors->has('name'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('lastname') ? ' has-error' : '' }}">
-                                <label for="lastname" class="col-md-4 control-label">Contacto</label>
-                                <div class="col-md-6">
-                                    <input id="lastname" type="text" class="form-control" name="lastname" value="{{ old('lastname') }}" required autofocus>
-
-                                    @if ($errors->has('lastname'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('lastname') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <label for="email" class="col-md-4 control-label">Correo electrónico</label>
-
-                                <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                    @if ($errors->has('email'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="col-md-4 control-label">Contraseña</label>
-
-                                <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control" name="password" required>
-
-                                    @if ($errors->has('password'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="password-confirm" class="col-md-4 control-label">Confirmar contraseña</label>
-
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        Registrar
-                                    </button>
-                                    <a class="btn btn-danger" type="submit" id = "cancel" href="{{ route ('home') }}"> Cancelar </a>
-                                </div>
-                            </div>
-                        </form>
+    <div class = "container">
+        <div class = "row">
+            <div class="col-md-8 col-md-offset-2">
+                @if(Session::has('success'))
+                    <div class="alert alert-success">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong>{{ Session::get('message', '') }} </strong>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>
+    <div class="container" style="filter: alpha(opacity=25); -moz-opacity: 0.3; opacity: 0.9; -khtml-opacity: 0.3;">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <form method="POST" action="{{route('organization.store')}}">
+                    {{ csrf_field() }}
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><h2>Agregar organización</h2></div>
+
+                        <div class="panel-body">
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <label> Nombre: </label>
+                                    <input type="text" name = "name" class="form-control" placeholder="Un techo para el país">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label>Correo: </label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon" id="arroba"> <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
+                                        <input type="text" class="form-control" placeholder="correo@micorreo.cl" name="email">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Confirmar correo: </label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon" id="arroba"> <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
+                                        <input type="text" class="form-control" placeholder="correo@micorreo.cl" name="emailv">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-8">
+                                    <label>Telefono contacto: </label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon" id="arroba"> <span class="glyphicon glyphicon-phone" aria-hidden="true"></span></span>
+                                        <input type="text" class="form-control" placeholder="98765432" name="run">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel-footer">
+                            <button class="btn btn-primary" type="submit" >Registrar organización</button>
+                            <a class="btn btn-danger" id = "cancel" href="{{ route ('home') }}"> Cancelar </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 @endsection

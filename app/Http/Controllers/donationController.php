@@ -83,8 +83,8 @@ class donationController extends Controller
 
         $donation->action()->save($action);
 
-        
-        return $request;
+
+        return redirect()->route('createDonation', $cat->id)->with('success', true)->with('message','Donación creada exitosamente');
     }
 
     /**

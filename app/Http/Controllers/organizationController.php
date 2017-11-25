@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Validator;
+use Mail;
+use Session;
+use Redirect;
+use App\User;
+
 class organizationController extends Controller
 {
 
@@ -19,36 +23,22 @@ class organizationController extends Controller
     }
 
 
-    public function store(Request $request)
-    {
-        $validator = Validator::make($request->all(),
-            [
-                'name' => 'required|string|max:100',
-                'last_name' => 'required|string|max:100',
-                'run' => 'required|string',
-                'email' => 'required|string|min:5|max:255',
-                'password' => 'required|string|min:6|confirmed',
-            ],
-            [
-                'required' => 'Este campo es requerido',
-                'string' => 'Debe usar caracteres',
-                'max' => 'Cantidad mayor a la permitida',
-            ]
-        );
-        if ($validator->fails()) {
-            return redirect()->route('organization.create')->withErrors($validator)->withInput();
-        }
-
+    public function store(Request $request){
         $user = new User;
-        $user->name = $request->name;
-        $user->last_name = $request->lastname;
-        $user->run = "0";
-        $user->password = $request->password;
         $user->role_id = 3;
-
+        $user->banned = 0;
+        $user->email = $request->email;
+        $user->name = $request->name;
+        $aux = $request->email[0] . $request->run ;
+        $user->password = bcrypt($aux);
+        $user->run = $request->run;
         $user->save();
-
-        return redirect()->route('organization.create')->with('success', true)->with('message','Catastrofe creada exitosamente');
+        Mail::send('mail.organization' , $request->all() , function($msj)
+    {
+        $msj->subject('Correo de contacto');
+        $msj->to('catastrofesudes@gmail.com');
+    });
+        return redirect()->route('organization.create')->with('success', true)->with('message','Organización creada exitosamente');
 
     }
 
