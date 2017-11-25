@@ -7,6 +7,8 @@ use App\Catastrophe;
 use Validator;
 use App\Volunteering;
 use App\Action;
+use App\Region;
+use App\Commune;
 use Auth;
 
 
@@ -33,7 +35,9 @@ class volunteeringController extends Controller
     public function create($id)
     {
         $c = Catastrophe::find($id);
-        return view('volunteering.create', compact("c"));
+        $regions = Region::all()->sortby('id');
+        $communes = Commune::all()->sortby('region_id');
+        return view('volunteering.create', compact("c","regions","communes"));
     }
 
     /**
@@ -56,6 +60,9 @@ class volunteeringController extends Controller
                 'max_voluntaries' => 'required|integer',
                 'type_work' => 'required|string',
                 'profile_voluntary' => 'required|string|min:5|max:255'
+                'region_id' => 'required|integer',
+                'commune_id' => 'required|integer',
+                'address' => 'required|string|min:5|max:255',
             ],
             [
                 'required' => 'Este campo es requerido',
@@ -74,11 +81,18 @@ class volunteeringController extends Controller
             return redirect()->route('createVol',$c->id)->withErrors($validator)->withInput();
         }
 
+        $loc = new Location;
+        $loc->commune_id= $request->commune_id;
+        $loc->calle = $request->address;
+        $loc->save();
+
+
         $volunt = new Volunteering;
         $volunt->min_voluntaries = $request->min_voluntaries;
         $volunt->max_voluntaries = $request->max_voluntaries;
         $volunt->profile_voluntary= $request->profile_voluntary;
         $volunt->type_work = $request->type_work;
+        $volunt->location_id = $loc->id;
 
         $volunt->save();
 

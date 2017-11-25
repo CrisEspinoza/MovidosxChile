@@ -1,3 +1,6 @@
-<?php 
-$I = new AcceptanceTester($scenario);
-$I->wantTo('perform actions and see result');
+<?php
+$I = new WebGuy($scenario);
+$I->wantTo('see GitHub word in title ');
+$I->amOnPage('/');
+$I->seeInTitle('GitHub');
+?>

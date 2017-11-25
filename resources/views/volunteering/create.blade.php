@@ -101,6 +101,45 @@
                                     </span>
                                     @endif
                                 </div>
+
+                                <div class="col-md-6">
+                                    <label> Dirección: </label>
+                                    <input type="text" name = "address" class="form-control" placeholder="Avenida ....">
+                                    @if ($errors->has('address'))
+                                        <span class="help-block" style="color:red">
+                                                <strong>{{ $errors->first('address') }}</strong>
+                                            </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label> Región: </label>
+                                    <select class="form-control" name="region_id" id="select-region">
+                                        <option value = ""> Seleccione una región </option>
+                                        @foreach ($regions as $region)
+                                            <option value="{{$region->id}}">{{ $region->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @if ($errors->has('region_id'))
+                                        <span class="help-block" style="color:red">
+                                                <strong>{{ $errors->first('region_id') }}</strong>
+                                            </span>
+                                    @endif
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label> Comuna: </label>
+                                    <select class="form-control" name="commune_id" id=select-commune>
+                                    </select>
+
+                                    @if ($errors->has('commune_id'))
+                                        <span class="help-block" style="color:red">
+                                                <strong>{{ $errors->first('commune_id') }}</strong>
+                                            </span>
+                                    @endif
+                                </div>
                             </div>
 
                             <div class="form-group row">

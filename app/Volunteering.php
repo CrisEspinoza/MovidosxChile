@@ -12,11 +12,17 @@ class Volunteering extends Model
 		'type_work',
 		'profile_voluntary',
 		'min_voluntaries',
-		'max_voluntaries'
+		'max_voluntaries',
+		'location_id'
 	];
 
 	public function action()
     {
     	return $this->morphMany(Action::class, 'actionOP');
+    }
+
+        public function location()
+	{
+        return $this->belongsTo(Location::class);
     }
 }

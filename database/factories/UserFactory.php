@@ -81,6 +81,7 @@ $factory->define(App\Volunteering::class, function (Faker $faker) {
         'profile_voluntary'=> $faker->sentence,
         'min_voluntaries' => random_int(5,10),
         'max_voluntaries' => random_int(15,20),
+        'location_id' => 1,
     ];
 });
 

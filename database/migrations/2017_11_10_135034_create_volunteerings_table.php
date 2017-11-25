@@ -19,6 +19,7 @@ class CreateVolunteeringsTable extends Migration
             $table->string('profile_voluntary');
             $table->integer('min_voluntaries');
             $table->integer('max_voluntaries');
+            $table->integer('location_id');
             $table->timestamps();
         });
     }
