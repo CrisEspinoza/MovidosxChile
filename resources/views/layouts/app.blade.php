@@ -20,41 +20,43 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
-<style>
-body { padding-top: 50px; }
 
-#myCarousel .carousel-caption {
-    left:0;
-	right:0;
-	bottom:0;
-	text-align:left;
-	padding:10px;
-	background:rgba(0,0,0,0.6);
-	text-shadow:none;
-}
+      <style>
+      #myCarousel .carousel-caption {
+          left:0;
+      	right:0;
+      	bottom:0;
+      	text-align:left;
+      	padding:10px;
+      	background:rgba(0,0,0,0.6);
+      	text-shadow:none;
+      }
 
-#myCarousel .list-group {
-	position:absolute;
-	top:0;
-	right:0;
-}
-#myCarousel .list-group-item {
-	border-radius:0px;
-	cursor:pointer;
-}
-#myCarousel .list-group .active {
-	background-color:#eee;
-}
+      #myCarousel .list-group {
+      	position:absolute;
+      	top:0;
+      	right:0;
+      }
+      #myCarousel .list-group-item {
+      	border-radius:0px;
+      	cursor:pointer;
+      }
+      #myCarousel .list-group .active {
+      	background-color:#eee;
+      }
 
-@media (min-width: 992px) {
-	#myCarousel {padding-right:33.3333%;}
-	#myCarousel .carousel-controls {display:none;}
-}
-@media (max-width: 991px) {
-	.carousel-caption p,
-	#myCarousel .list-group {display:none;}
-}
-</style>
+      @media (min-width: 992px) {
+      	#myCarousel {padding-right:33.3333%;}
+      	#myCarousel .carousel-controls {display:none;}
+      }
+      @media (max-width: 991px) {
+      	.carousel-caption p,
+      	#myCarousel .list-group {display:none;}
+      }
+      #map{
+        height: 100%;
+      }
+      </style>
 
 </head>
 <body>
@@ -152,35 +154,32 @@ body { padding-top: 50px; }
     <script src="{{ asset('js/app.js') }}"></script>
 
     <script>
-    $(document).ready(function(){
+    function myMap() {
+    var mapProp= {
+        center:new google.maps.LatLng(-33.444212,-70.653577),
+        zoom:4,
+    };
 
-    	var clickEvent = false;
-    	$('#myCarousel').carousel({
-    		interval:   4000
-    	}).on('click', '.list-group li', function() {
-    			clickEvent = true;
-    			$('.list-group li').removeClass('active');
-    			$(this).addClass('active');
-    	}).on('slid.bs.carousel', function(e) {
-    		if(!clickEvent) {
-    			var count = $('.list-group').children().length -1;
-    			var current = $('.list-group li.active');
-    			current.removeClass('active').next().addClass('active');
-    			var id = parseInt(current.data('slide-to'));
-    			if(count == id) {
-    				$('.list-group li').first().addClass('active');
-    			}
-    		}
-    		clickEvent = false;
-    	});
-    })
+    var script = document.createElement('script');
 
-    $(window).load(function() {
-        var boxheight = $('#myCarousel .carousel-inner').innerHeight();
-        var itemlength = $('#myCarousel .item').length;
-        var triggerheight = Math.round(boxheight/itemlength+1);
-    	$('#myCarousel .list-group-item').outerHeight(triggerheight);
-    });
+ script.src = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp';
+ document.getElementsByTagName('head')[0].appendChild(script);
+
+ window.eqfeed_callback = function(results) {
+   for (var i = 0; i < results.features.length; i++) {
+     var coords = results.features[i].geometry.coordinates;
+     var latLng = new google.maps.LatLng(coords[1],coords[0]);
+     var marker = new google.maps.Marker({
+       position: latLng,
+       map: map
+     });
+   }
+ }
+    var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    }
     </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7I-5tZicAc7BS97-GffJKP1dLqXBWwn8&callback=myMap"></script>
+
 </body>
 </html>
