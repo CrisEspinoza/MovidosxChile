@@ -1,8 +1,18 @@
 @extends('layouts.app')
 
-@section('title', 'NewCatastrophe')
-
 @section('content')
+    <div class = "container">
+        <div class = "row">
+            <div class="col-md-8 col-md-offset-2">
+                @if(Session::has('success'))
+                    <div class="alert alert-success">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong>{{ Session::get('message', '') }} </strong>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
 
     <div class="container">
         <div class="row">

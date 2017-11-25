@@ -5,7 +5,7 @@
 @section('content')
 
 
-    <div class = "container">
+    <div class = "container" style="filter: alpha(opacity=25); -moz-opacity: 0.3; opacity: 0.9; -khtml-opacity: 0.3;">
         <div class="col-md-6">
             <div class="thumbnail">
                 <img src="https://image.flaticon.com/icons/svg/291/291932.svg" alt="..." width="200" height="200">
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class = "container">
+    <div class = "container" style="filter: alpha(opacity=25); -moz-opacity: 0.3; opacity: 0.9; -khtml-opacity: 0.3;">
         <div class="col-md-6">
             <div class="thumbnail">
                 <img src="https://image.flaticon.com/icons/svg/291/291891.svg" alt="..." width="200" height="200">

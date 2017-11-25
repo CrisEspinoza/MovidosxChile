@@ -102,7 +102,7 @@ class eventController extends Controller
         $event->action()->save($action);
 
 
-        return $request;
+        return redirect()->route('createEvent', $cat->id)->with('success', true)->with('message','Evento creado exitosamente');;
 
     }
 
