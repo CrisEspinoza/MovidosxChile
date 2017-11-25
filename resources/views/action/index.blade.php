@@ -15,29 +15,33 @@
                             @foreach ($medidas as $medida)
 
                                 @if ($medida->actionOP_type == 'Donación' )
-                                     <div class="panel panel-success" >
-                                        <div class="panel-heading" style="background-color:#58FA58">
-                                            <h3 class="panel-title"> Donación </h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label>Meta donación:</label>
-                                                    <p> {{"$ " .$medida->goal}} </p>
-                                                    <a class="btn btn-success" type="button" href="#"> Participar en medida </a>
+                                    @foreach ($donaciones as $donacion)
+                                        @if($donacion->id == $medida->actionOP_id)
+                                             <div class="panel panel-success" >
+                                                <div class="panel-heading" style="background-color:#58FA58">
+                                                    <h3 class="panel-title"> Donación </h3>
                                                 </div>
-
-                                                <div class="col-md-6 ">
-                                                    <label>Progreso:</label>
-                                                        <div class="progress">
-                                                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-                                                                <span class="sr-only">45% Complete</span>
-                                                            </div>
+                                                <div class="panel-body">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label>Meta donación:</label>
+                                                            <p> {{"$ " .$medida->goal}} </p>
+                                                            <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Participar en medida </a>
                                                         </div>
+
+                                                        <div class="col-md-6 ">
+                                                            <label>Progreso:</label>
+                                                                <div class="progress">
+                                                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{$donacion->mount}}" aria-valuemin="0" aria-valuemax="{{$donacion->goal}}" style="width: {{$donacion->mount}}%">
+                                                                        <span class="sr-only"> {{$donacion->mount}} % Complete</span>
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                        @endif
+                                    @endforeach
                                 @endif
 
                                 @if ($medida->actionOP_type == 'Centro de acopio' )
@@ -52,13 +56,13 @@
                                                         <div class="col-md-6">
                                                             <label> Nombre centro de acopio: </label>
                                                                 <p>{{$centro->name}}</p>
-                                                                <a class="btn btn-success" type="button" href="#"> Participar en medida </a>
+                                                                <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Participar en medida </a>
                                                         </div>
                                                         <div class="col-md-6 ">
                                                             <label>Progreso:</label>
                                                                 <div class="progress">
-                                                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-                                                                        <span class="sr-only">45% Complete</span>
+                                                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="{{$centro->goal}}" style="width: 0%">
+                                                                        <span class="sr-only">0% Complete</span>
                                                                     </div>
                                                                 </div>
                                                         </div>
@@ -82,7 +86,7 @@
                                                         <div class="col-md-6">                                                    
                                                             <label> Nombre evento: </label>
                                                                 <p>{{$evento->name}}</p> 
-                                                                <a class="btn btn-success" type="button" href="#"> Participar en medida </a>
+                                                                <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Participar en medida </a>
                                                         </div>
                                                             <div class="col-md-6">
                                                                 <label>Progreso de avance:</label>
@@ -110,7 +114,7 @@
                                                 <div class="col-md-6">
                                                     <label> Meta voluntarios: </label>
                                                         <p>{{$medida->goal .' voluntarios'}}</p> 
-                                                        <a class="btn btn-success" type="button" href="#"> Participar en medida </a>
+                                                        <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Participar en medida </a>
                                                     
                                                     </div>
                                                     <div class="col-md-6 ">
