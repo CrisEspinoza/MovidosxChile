@@ -10,9 +10,10 @@ class userController extends Controller
 {
     public function index()
     {
-        $users = User::all();
-        $roles = Role::all();
-        return view('user.index', compact('users','roles'));
+        $users = User::where('role_id', 1)->get()->sortby('name');
+        $admins = User::where('role_id', 2)->get()->sortby('name');
+        $organs = User::where('role_id', 3)->get()->sortby('name');
+        return view('user.index', compact('users','admins', 'organs'));
     }
 
     public function create()
