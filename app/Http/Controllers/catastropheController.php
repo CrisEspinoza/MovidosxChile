@@ -14,6 +14,11 @@ use Thujohn\Twitter\Facades\Twitter;
 class catastropheController extends Controller
 {
 
+  public function __construct()
+  {
+      $this->middleware('permiso:2')->except('index, show, byRegion');
+  }
+
     public function index()
     {
         $catastrophes = Catastrophe::all()->sortBy('id');

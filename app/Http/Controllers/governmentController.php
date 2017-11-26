@@ -11,9 +11,15 @@ class governmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+     {
+         $this->middleware('permiso:2');
+     }
+
     public function index()
     {
-        return view('government.index'); 
+        return view('government.index');
     }
 
     /**

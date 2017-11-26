@@ -8,6 +8,12 @@ use App\Role;
 
 class userController extends Controller
 {
+
+  public function __construct()
+  {
+      $this->middleware('permiso:2');
+  }
+
     public function index()
     {
         $users = User::where('role_id', 1)->get()->sortby('name');
