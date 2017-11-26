@@ -141,9 +141,6 @@ class eventController extends Controller
     public function update(Request $request, $id)
     {
         $event = Event::find($id);
-        $event->participants = $event->participants + 1;
-        $event->update();
-
         $action = Action::where('actionOP_id',$id)->get();
 
 
@@ -157,7 +154,8 @@ class eventController extends Controller
                         return redirect()->route('action.edit', $action[$i]->id)->with('success', true)->with('message','No puedes participar al evento nuevamente, ya estas participando esta medida');
                     }
                 }
-
+                $event->participants = $event->participants + 1;
+                $event->update();
                 $action[$i]->progress = ($event->participants / $action[$i]->goal)*100;
                 $action[$i]->update();
 

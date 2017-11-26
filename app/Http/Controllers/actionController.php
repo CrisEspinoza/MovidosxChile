@@ -108,8 +108,6 @@ class actionController extends Controller
             $location = Location::find($event->location_id);
             return view('event.edit', compact('action','c','event','location'));
 
-
-
         }
         else if($action->actionOP_type == "App\Collection_center"){
             $action->actionOP_type = "Centro de acopio";
@@ -118,17 +116,11 @@ class actionController extends Controller
         else if($action->actionOP_type == "App\Volunteering"){
             $action->actionOP_type = "Voluntariado";
             $volunteering = Volunteering::find($action->actionOP_id);
+            $location = Location::find($volunteering->location_id);
+            return view('volunteering.edit', compact('action','c','volunteering','location'));
         }
 
 
-
-
-
-
-
-
-
-        //return view('action.edit', compact('action','c','donation','event','center','volunteering','location'));
 
     }
 
