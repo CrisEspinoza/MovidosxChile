@@ -11,6 +11,8 @@ use App\Region;
 use App\Commune;
 use App\Location;
 use Auth;
+use App\User;
+use App\ActionUser;
 
 
 class volunteeringController extends Controller
@@ -87,6 +89,7 @@ class volunteeringController extends Controller
         $volunt->profile_voluntary= $request->profile_voluntary;
         $volunt->type_work = $request->type_work;
         $volunt->location_id = $loc->id;
+        $volunt->current_voluntaries= 0;
 
         $volunt->save();
 
@@ -136,7 +139,36 @@ class volunteeringController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $volunteering = Volunteering::find($id);
+        $action = Action::where('actionOP_id',$id)->get();
+
+        for($i=0 ; $i< count($action); $i++){
+            if($action[$i]->actionOP_type == 'App\Volunteering'){
+                $user = User::find(Auth::id());
+                $action_users = ActionUser::where('user_id',$user->id)->get();
+
+                for($j=0 ; $j< count($action_users); $j++){
+                    if($action_users[$j]->user_id == $user->id and $action_users[$j]->action_type == "Volunteering"){
+                        return redirect()->route('action.edit', $action[$i]->id)->with('success', true)->with('message','No puedes participar en el voluntariado, ya estas participando esta medida');
+                    }
+                }
+                $volunteering->current_voluntaries = $volunteering->current_voluntaries + 1;
+                $volunteering->update();
+
+                $action[$i]->progress = ($volunteering->current_voluntaries / $action[$i]->goal)*100;
+                $action[$i]->update();
+
+                $action_user= new ActionUser;
+                $action_user->action_id= $action[$i]->id;
+                $action_user->user_id= $user->id;
+                $action_user->action_type = "Volunteering";
+                $action_user->save();
+
+                return redirect()->route('action.edit', $action[$i]->id)->with('success', true)->with('message','Gracias por participar en esta medida');
+            }
+        }
+
+        return $volunteering;
     }
 
     /**

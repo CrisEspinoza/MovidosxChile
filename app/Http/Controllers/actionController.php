@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Bank;
 use Illuminate\Http\Request;
 use App\Catastrophe;
 use App\Action;
@@ -9,9 +10,7 @@ use App\Event;
 use App\Volunteering;
 use App\Collection_center;
 use App\Donation;
-use Illuminate\Support\Facades\DB;
-use App\Commune;
-use App\Region;
+use App\Location;
 
 
 class actionController extends Controller
@@ -94,42 +93,34 @@ class actionController extends Controller
         //
         $action = Action::find($id);
 
-        $donation;
-        $event;
-        $center;
-        $volunteering;
-        $region;
-        $commune;
-
+        $c = Catastrophe::find($action->catastrophe_id);
 
         if($action->actionOP_type == "App\Donation"){
             $action->actionOP_type = "Donación";
             $donation = Donation::find($action->actionOP_id);
-            
+
+            return view('donation.edit', compact('action','c','donation'));
         }
         else if($action->actionOP_type == "App\Event"){
             $action->actionOP_type = "Evento a beneficio";
+
             $event = Event::find($action->actionOP_id);
-            $commune = Commune::find($event->location_id);
-            $region = Region::find($commune->id);
+            $location = Location::find($event->location_id);
+            return view('event.edit', compact('action','c','event','location'));
+
         }
         else if($action->actionOP_type == "App\Collection_center"){
             $action->actionOP_type = "Centro de acopio";
             $center = Collection_center::find($action->actionOP_id);
         }
-        else if($meaction->actionOP_type == "App\Volunteering"){
+        else if($action->actionOP_type == "App\Volunteering"){
             $action->actionOP_type = "Voluntariado";
             $volunteering = Volunteering::find($action->actionOP_id);
+            $location = Location::find($volunteering->location_id);
+            return view('volunteering.edit', compact('action','c','volunteering','location'));
         }
 
-        $c = Catastrophe::find($action->catastrophe_id);
 
-
-
-
-
-
-        return view('action.edit', compact('action','c','donation','event','center','volunteering','commune','region'));
 
     }
 

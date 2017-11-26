@@ -21,7 +21,7 @@ class CreateActionsTable extends Migration
           $table->morphs('actionOP');
 
           $table->string('status')->nullable();
-          $table->integer('progress')->nullable();
+          $table->double('progress')->nullable();
           $table->integer('goal');
           $table->date('start_date');
           $table->date('end_date');

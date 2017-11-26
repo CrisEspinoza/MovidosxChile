@@ -50,6 +50,7 @@ $factory->define(App\Event::class, function (Faker $faker) {
         'activity'=> $activities[random_int(0,3)],
         'foods'=> $foods[random_int(0,2)],
         'location_id'=>App\Location::all()->random()->id,
+        'participants' => 0,
     ];
 });
 
@@ -82,6 +83,7 @@ $factory->define(App\Volunteering::class, function (Faker $faker) {
         'min_voluntaries' => random_int(5,10),
         'max_voluntaries' => random_int(15,20),
         'location_id' => 1,
+        'current_voluntaries'=> 0,
     ];
 });
 
@@ -119,6 +121,7 @@ $factory->define(App\Collection_center::class, function (Faker $faker) {
     return [
         'name'=>$faker->name,
         'location_id'=>1,
+        'collected_assets'=>0,
     ];
 });
 $factory->define(App\Location::class, function (Faker $faker) {

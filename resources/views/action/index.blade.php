@@ -91,7 +91,7 @@
                                                             <div class="col-md-6">
                                                                 <label>Progreso de avance:</label>
                                                                     <div class="progress">
-                                                                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                                                                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{$medida->progress}}" aria-valuemin="0" aria-valuemax="{{$medida->goal}}}" style="width: {{$medida->progress}}%">
                                                                             <span class="sr-only">45% Complete</span>
                                                                         </div>
                                                                     </div>

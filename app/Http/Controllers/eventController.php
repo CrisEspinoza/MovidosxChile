@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\User;
 use Illuminate\Http\Request;
 use App\Catastrophe;
 use App\Region;
@@ -11,6 +12,7 @@ use App\Action;
 use App\Location;
 use Validator;
 use Auth;
+use App\ActionUser;
 
 class eventController extends Controller
 {
@@ -85,6 +87,7 @@ class eventController extends Controller
         $event->activity = $request->activities;
         $event->foods = $request->foods;
         $event->location_id = $loc->id;
+        $event->participants = 0;
 
         $event->save();
 
@@ -102,7 +105,7 @@ class eventController extends Controller
         $event->action()->save($action);
 
 
-        return redirect()->route('createEvent', $cat->id)->with('success', true)->with('message','Evento creado exitosamente');;
+        return redirect()->route('createEvent', $cat->id)->with('success', true)->with('message','Evento creado exitosamente');
 
     }
 
@@ -137,7 +140,36 @@ class eventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $event = Event::find($id);
+        $action = Action::where('actionOP_id',$id)->get();
+
+
+        for($i=0 ; $i< count($action); $i++){
+            if($action[$i]->actionOP_type == 'App\Event'){
+                $user = User::find(Auth::id());
+                $action_users = ActionUser::where('user_id',$user->id)->get();
+
+                for($j=0 ; $j< count($action_users); $j++){
+                    if($action_users[$j]->user_id == $user->id ){
+                        return redirect()->route('action.edit', $action[$i]->id)->with('success', true)->with('message','No puedes participar al evento nuevamente, ya estas participando esta medida');
+                    }
+                }
+                $event->participants = $event->participants + 1;
+                $event->update();
+                $action[$i]->progress = ($event->participants / $action[$i]->goal)*100;
+                $action[$i]->update();
+
+
+
+                $action_user= new ActionUser;
+                $action_user->action_id= $action[$i]->id;
+                $action_user->user_id= $user->id;
+                $action_user->action_type = "Event";
+                $action_user->save();
+
+                return redirect()->route('action.edit', $action[$i]->id)->with('success', true)->with('message','Gracias por participar en esta medida');
+            }
+        }
     }
 
     /**
