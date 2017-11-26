@@ -81,7 +81,7 @@ class eventController extends Controller
         $loc->calle = $request->address;
         $loc->save();
 
-        
+
         $event = new Event;
         $event->name = $request->nameEvent;
         $event->activity = $request->activities;
