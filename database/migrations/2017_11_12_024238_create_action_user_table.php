@@ -19,6 +19,8 @@ class CreateActionUserTable extends Migration
             $table->integer('action_id');
             $table->integer('user_id');
             $table->string('action_type');
+            $table->string('type_asset')->nullable();
+            $table->string('asset')->nullable();
             $table->integer('mount')->nullable();
 
             $table->timestamps();

@@ -66,22 +66,37 @@
 
                             <div class="form-group row">
                                 <div class="col-md-6">
-                                    <label> Que bien deseas donar: </label>
-                                    <select class="form-control" name="region_id" id="select-region">
+                                    <label> Tipo de bien: </label>
+                                    <select class="form-control" name="type_asset" >
                                         <option value = ""> Seleccione un tipo de bien</option>
                                         @foreach ($assets as $as)
-                                            <option value="{{$as->name}}">{{ $as->name }}</option>
+                                            <option value="{{$as->type}}">{{ $as->type }}</option>
                                         @endforeach
                                     </select>
+                                    @if ($errors->has('type_asset'))
+                                        <span class="help-block" style="color:red">
+                                        <strong>{{ $errors->first('type_asset') }}</strong>
+                                    </span>
+                                    @endif
+
                                 </div>
+
+                                <div class="col-md-6">
+                                    <label> Nombre del bien deseas donar: </label>
+                                        <input type="text" name = "name_asset" class="form-control" value="">
+                                    @if ($errors->has('name_asset'))
+                                        <span class="help-block" style="color:red">
+                                        <strong>{{ $errors->first('name_asset') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+
 
                             </div>
 
 
-
-
                             <div class="panel-footer">
-                                <button class="btn btn-primary" type="submit">Participar en el evento</button>
+                                <button class="btn btn-primary" type="submit">Me comprometo a donar a este bien</button>
                                 <a class="btn btn-danger" type="submit" id = "cancel" href="{{ route ('home') }}"> Cancelar </a>
                             </div>
 

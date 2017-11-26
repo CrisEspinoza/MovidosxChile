@@ -449,22 +449,16 @@ class DatabaseSeeder extends Seeder
         factory(App\Volunteering::class, 10)->create();
         factory(App\Donation::class, 10)->create();
         //factory(App\Event::class, 10)->create();
-
-
         factory(App\Collection_center::class, 10)->create();
-        factory(App\Asset::class, 10)->create()->each(function($asset){
-          $boolean = random_int(0,1);
-          $ids= range(1,10);
-          shuffle($ids);
 
-          if($boolean){
-            $sliced= array_slice($ids,0,2);
-            $asset->collection_center()->attach($sliced);
-          }
-          else{
-              $asset->collection_center()->attach(array_rand($ids,1));
-          }
-        });
+        DB::table('assets')->insert([ 'type'=>'Ropa']);
+        DB::table('assets')->insert([ 'type'=>'Comida']);
+        DB::table('assets')->insert([ 'type'=>'Medicamento']);
+        DB::table('assets')->insert([ 'type'=>'Bebestibles']);
+
+
+
+
 
         factory(App\Action::class, 10)->create();
 

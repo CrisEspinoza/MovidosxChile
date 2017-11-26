@@ -9,8 +9,11 @@ use App\Region;
 use App\Commune;
 use App\Action;
 use App\Location;
+use App\Asset;
 use Validator;
 use Auth;
+use App\ActionUser;
+use App\User;
 
 class collectionCenterController extends Controller
 {
@@ -121,7 +124,15 @@ class collectionCenterController extends Controller
      */
     public function edit($id)
     {
-        //
+        //el $id pertenece a la medida y ocn ese se encuentra la donacion
+        $action = Action::find($id);
+        $action->actionOP_type = "Centro de acopio";
+        $center = Collection_center::find($action->actionOP_id);
+        $location = Location::find($center->location_id);
+        $assets = Asset::all()->sortBy('id');
+        $c = Catastrophe::find($action->catastrophe_id);
+
+        return view('collection_center.edit', compact('action','c','center','location','assets'));
     }
 
     /**
@@ -133,7 +144,53 @@ class collectionCenterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(),
+            [
+                'type_asset' => 'required|string',
+                'name_asset' => 'required|string',
+            ],
+            [
+                'required' => 'Este campo es requerido',
+                'string' => 'Debe usar caracteres',
+            ]
+        );
+        if ($validator->fails()) {
+            $action = Action::where('actionOP_id',$id)->get();
+
+            for($i=0 ; $i< count($action); $i++){
+                if($action[$i]->actionOP_type == 'App\Collection_center'){
+                    return redirect()->route('collectionCenter.edit', $action[$i]->id)->withErrors($validator)->withInput();
+                }
+            }
+        }
+
+        $center = Collection_center::find($id);
+        $center->collected_assets = $center->collected_assets + 1;
+        $center->update();
+
+        $action = Action::where('actionOP_id',$id)->get();
+
+        for($i=0 ; $i< count($action); $i++){
+            if($action[$i]->actionOP_type == 'App\Collection_center'){
+                $action[$i]->progress = ($center->collected_assets / $action[$i]->goal)*100;
+                $action[$i]->update();
+
+                $user = User::find(Auth::id());
+
+                $action_user= new ActionUser;
+                $action_user->action_id= $action[$i]->id;
+                $action_user->user_id= $user->id;
+                $action_user->action_type = "Centro de acopio";
+                $action_user->type_asset = $request->type_asset;
+                $action_user->asset = $request->name_asset;
+                $action_user->save();
+
+                return redirect()->route('action.edit', $action[$i]->id)->with('success', true)->with('message','Gracias por participar en esta medida');
+            }
+        }
+
+
+
     }
 
     /**
