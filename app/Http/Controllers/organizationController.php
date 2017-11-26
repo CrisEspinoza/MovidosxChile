@@ -33,10 +33,10 @@ class organizationController extends Controller
         $user->password = bcrypt($aux);
         $user->run = $request->run;
         $user->save();
-        Mail::send('mail.organization' , $request->all() , function($msj)
+        Mail::send('mail.organization' , $request->all() , function($msj) use ($user)
     {
-        $msj->subject('Correo de contacto');
-        $msj->to('catastrofesudes@gmail.com');
+        $msj->subject('Correo de confirmacion de registro');
+        $msj->to($user->email);
     });
         return redirect()->route('organization.create')->with('success', true)->with('message','Organización creada exitosamente');
 

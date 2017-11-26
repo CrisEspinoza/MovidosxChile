@@ -10,6 +10,10 @@ use App\Region;
 use App\Commune;
 use App\Action;
 use App\Location;
+use Mail;
+use Session;
+use Redirect;
+use App\RNV;
 use Validator;
 use Auth;
 use App\ActionUser;
@@ -81,19 +85,20 @@ class eventController extends Controller
         $loc->calle = $request->address;
         $loc->save();
 
-        
+
         $event = new Event;
         $event->name = $request->nameEvent;
         $event->activity = $request->activities;
         $event->foods = $request->foods;
         $event->location_id = $loc->id;
         $event->participants = 0;
-        $event->save();
 
+        $event->save();
 
         $cat =  Catastrophe::where('name',$request->name)->first();
 
         $action = new Action;
+
         $action->start_date = $request->start_date;
         $action->end_date = $request->end_date;
         $action->catastrophe_id =$cat->id;
@@ -101,6 +106,17 @@ class eventController extends Controller
         $action->goal = $request->goal;
 
         $event->action()->save($action);
+
+        $rnvs = RNV::where('disponible',1)->get();
+
+        foreach ($rnvs as $rnv) 
+        {
+            Mail::send('mail.emailrnv' , $request->all() , function($msj) use ($rnv)
+            {
+                $msj->subject('Correo de aviso de creación de medida');
+                $msj->to($rnv->mail);
+            });   
+        }        
 
 
         return redirect()->route('createEvent', $cat->id)->with('success', true)->with('message','Evento creado exitosamente');

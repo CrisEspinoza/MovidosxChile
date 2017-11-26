@@ -82,6 +82,7 @@ class actionController extends Controller
 
     }
 
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -90,7 +91,7 @@ class actionController extends Controller
      */
     public function edit($id)
     {
-        //
+        
         $action = Action::find($id);
 
         $c = Catastrophe::find($action->catastrophe_id);
@@ -119,8 +120,6 @@ class actionController extends Controller
             $location = Location::find($volunteering->location_id);
             return view('volunteering.edit', compact('action','c','volunteering','location'));
         }
-
-
 
     }
 
