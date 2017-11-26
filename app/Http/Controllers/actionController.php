@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Bank;
 use Illuminate\Http\Request;
 use App\Catastrophe;
 use App\Action;
@@ -92,18 +93,13 @@ class actionController extends Controller
         //
         $action = Action::find($id);
 
-        $donation;
-        $event;
-        $center;
-        $volunteering;
-        $location;
-
         $c = Catastrophe::find($action->catastrophe_id);
 
         if($action->actionOP_type == "App\Donation"){
             $action->actionOP_type = "Donación";
             $donation = Donation::find($action->actionOP_id);
-            
+
+            return view('donation.edit', compact('action','c','donation'));
         }
         else if($action->actionOP_type == "App\Event"){
             $action->actionOP_type = "Evento a beneficio";

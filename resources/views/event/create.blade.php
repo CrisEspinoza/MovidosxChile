@@ -12,6 +12,7 @@
                         <strong>{{ Session::get('message', '') }} </strong>
                     </div>
                 @endif
+
             </div>
         </div>
     </div>
