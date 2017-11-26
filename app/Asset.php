@@ -15,7 +15,7 @@ class Asset extends Model
 
     public function collection_center()
     {
-        return $this->belongsToMany(Collection_center::class);
+        return $this->hasMany(Collection_center::class);
     }
 
 }

@@ -18,7 +18,7 @@ class Collection_center extends Model
     }
 
     public function assets(){
-         return $this->belongsToMany(Asset::class);
+         return $this->belongsTo(Asset::class);
     }
 
     public function location()
