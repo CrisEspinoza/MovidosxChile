@@ -439,7 +439,7 @@ class DatabaseSeeder extends Seeder
         DB::table('banks')->insert([ 'name'=>'Banco Itau']);
 
 
-
+        DB::table('r_n_vs')->insert([ 'name'=>'Julio', 'last_name'=>'Serrano','disponible'=>1,'mail'=>'julio.serrano@usach.cl']);
 
         factory(App\Location::class, 10)->create();
         factory(App\User::class, 10)->create();
