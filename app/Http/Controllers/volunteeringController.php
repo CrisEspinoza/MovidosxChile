@@ -11,6 +11,10 @@ use App\Region;
 use App\Commune;
 use App\Location;
 use Auth;
+use Mail;
+use Session;
+use Redirect;
+use App\RNV;
 use App\User;
 use App\ActionUser;
 
@@ -102,6 +106,17 @@ class volunteeringController extends Controller
         $action->catastrophe_id =$cat->id;
         $action->user_id = Auth::id();
         $action->goal = $request->goal;
+
+        $rnvs = RNV::where('disponible',1)->get();
+
+        foreach ($rnvs as $rnv) 
+        {
+            Mail::send('mail.emailrnvV' , $request->all() , function($msj) use ($rnv)
+            {
+                $msj->subject('Correo de aviso de creación de medida');
+                $msj->to($rnv->mail);
+            });   
+        } 
 
         $volunt->action()->save($action);
         return redirect()->route('createVol', $cat->id)->with('success', true)->with('message','Voluntariado creado exitosamente');

@@ -111,7 +111,7 @@ class eventController extends Controller
 
         foreach ($rnvs as $rnv) 
         {
-            Mail::send('mail.emailrnv' , $request->all() , function($msj) use ($rnv)
+            Mail::send('mail.emailrnvE' , $request->all() , function($msj) use ($rnv)
             {
                 $msj->subject('Correo de aviso de creación de medida');
                 $msj->to($rnv->mail);
