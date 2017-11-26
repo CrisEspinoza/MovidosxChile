@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Asset;
 use App\Bank;
 use Illuminate\Http\Request;
 use App\Catastrophe;
@@ -113,6 +114,10 @@ class actionController extends Controller
         else if($action->actionOP_type == "App\Collection_center"){
             $action->actionOP_type = "Centro de acopio";
             $center = Collection_center::find($action->actionOP_id);
+            $assets = Asset::all()->sortBy('id');
+            $location = Location::find($center->location_id);
+            return view('collection_center.edit', compact('action','c','center','location','assets'));
+
         }
         else if($action->actionOP_type == "App\Volunteering"){
             $action->actionOP_type = "Voluntariado";
