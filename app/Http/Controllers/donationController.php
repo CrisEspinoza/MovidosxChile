@@ -26,6 +26,12 @@ class donationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+     {
+        $this->middleware('permiso:3');
+     }
+
     public function index()
     {
         //
@@ -73,7 +79,7 @@ class donationController extends Controller
             $c = Catastrophe::where('name',$request->name)->first();
             return redirect()->route('createDonation',$c->id)->withErrors($validator)->withInput();
         }
-        
+
         $donation = new Donation;
         $donation->bank_id = $request->bank;
         $donation->mount = 0;

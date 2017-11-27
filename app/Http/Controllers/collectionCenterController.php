@@ -23,6 +23,12 @@ class collectionCenterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+     {
+        $this->middleware('permiso:3');
+     }
+
     public function index()
     {
         //
@@ -59,7 +65,7 @@ class collectionCenterController extends Controller
                 'commune_id' => 'required|integer',
                 'address' => 'required|string|min:5|max:255',
                 'goal' => 'required|integer',
-                
+
             ],
             [
                 'required' => 'Este campo es requerido',

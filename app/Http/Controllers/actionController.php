@@ -22,11 +22,18 @@ class actionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+     {
+        $this->middleware('permiso:3');
+        $this->middleware('auth')->only('index');
+     }
+
     public function index($id)
     {
         $c = Catastrophe::find($id);
         $medidas = Action::where('catastrophe_id',$id)->get()->sortBy('actionOP_type');
-        
+
         for ($i = 0; $i < count($medidas); $i++) {
             if($medidas[$i]->actionOP_type == "App\Donation"){
                 $medidas[$i]->actionOP_type = "Donación";
@@ -46,7 +53,7 @@ class actionController extends Controller
         $voluntariados= Volunteering::All();
         $donaciones = Donation::All();
         $centros = Collection_center::All();
-             
+
         return view('action.index', compact('c','medidas','eventos','voluntariados', 'donaciones', 'centros'));
     }
 
@@ -92,7 +99,7 @@ class actionController extends Controller
      */
     public function edit($id)
     {
-        
+
         $action = Action::find($id);
 
         $c = Catastrophe::find($action->catastrophe_id);

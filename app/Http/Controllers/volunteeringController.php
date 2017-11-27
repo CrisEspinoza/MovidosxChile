@@ -32,6 +32,12 @@ class volunteeringController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+     {
+        $this->middleware('permiso:3');
+     }
+
     public function create($id)
     {
         $c = Catastrophe::find($id);
@@ -109,14 +115,14 @@ class volunteeringController extends Controller
 
         $rnvs = RNV::where('disponible',1)->get();
 
-        foreach ($rnvs as $rnv) 
+        foreach ($rnvs as $rnv)
         {
             Mail::send('mail.emailrnvV' , $request->all() , function($msj) use ($rnv)
             {
                 $msj->subject('Correo de aviso de creación de medida');
                 $msj->to($rnv->mail);
-            });   
-        } 
+            });
+        }
 
         $volunt->action()->save($action);
         return redirect()->route('createVol', $cat->id)->with('success', true)->with('message','Voluntariado creado exitosamente');

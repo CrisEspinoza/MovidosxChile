@@ -26,6 +26,12 @@ class eventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+     {
+        $this->middleware('permiso:3');
+     }
+
     public function index()
     {
         //
@@ -109,14 +115,14 @@ class eventController extends Controller
 
         $rnvs = RNV::where('disponible',1)->get();
 
-        foreach ($rnvs as $rnv) 
+        foreach ($rnvs as $rnv)
         {
             Mail::send('mail.emailrnvE' , $request->all() , function($msj) use ($rnv)
             {
                 $msj->subject('Correo de aviso de creación de medida');
                 $msj->to($rnv->mail);
-            });   
-        }        
+            });
+        }
 
 
         return redirect()->route('createEvent', $cat->id)->with('success', true)->with('message','Evento creado exitosamente');
