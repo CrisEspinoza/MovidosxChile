@@ -12,6 +12,7 @@ use App\Volunteering;
 use App\Collection_center;
 use App\Donation;
 use App\Location;
+use Illuminate\Support\Facades\Auth;
 
 
 class actionController extends Controller
@@ -101,36 +102,61 @@ class actionController extends Controller
     {
 
         $action = Action::find($id);
-
         $c = Catastrophe::find($action->catastrophe_id);
 
-        if($action->actionOP_type == "App\Donation"){
-            $action->actionOP_type = "Donación";
-            $donation = Donation::find($action->actionOP_id);
+        if(Auth::user()->role_id == 1) {
+            if ($action->actionOP_type == "App\Donation") {
+                $action->actionOP_type = "Donación";
+                $donation = Donation::find($action->actionOP_id);
 
-            return view('donation.edit', compact('action','c','donation'));
+                return view('donation.edit', compact('action', 'c', 'donation'));
+            } else if ($action->actionOP_type == "App\Event") {
+                $action->actionOP_type = "Evento a beneficio";
+
+                $event = Event::find($action->actionOP_id);
+                $location = Location::find($event->location_id);
+                return view('event.edit', compact('action', 'c', 'event', 'location'));
+
+            } else if ($action->actionOP_type == "App\Collection_center") {
+                $action->actionOP_type = "Centro de acopio";
+                $center = Collection_center::find($action->actionOP_id);
+                $assets = Asset::all()->sortBy('id');
+                $location = Location::find($center->location_id);
+                return view('collection_center.edit', compact('action', 'c', 'center', 'location', 'assets'));
+
+            } else if ($action->actionOP_type == "App\Volunteering") {
+                $action->actionOP_type = "Voluntariado";
+                $volunteering = Volunteering::find($action->actionOP_id);
+                $location = Location::find($volunteering->location_id);
+                return view('volunteering.edit', compact('action', 'c', 'volunteering', 'location'));
+            }
         }
-        else if($action->actionOP_type == "App\Event"){
-            $action->actionOP_type = "Evento a beneficio";
+        else if(Auth::user()->role_id == 3){
+            if ($action->actionOP_type == "App\Donation") {
+                $action->actionOP_type = "Donación";
+                $donation = Donation::find($action->actionOP_id);
 
-            $event = Event::find($action->actionOP_id);
-            $location = Location::find($event->location_id);
-            return view('event.edit', compact('action','c','event','location'));
+                return view('donation.show', compact('action', 'c', 'donation'));
+            } else if ($action->actionOP_type == "App\Event") {
+                $action->actionOP_type = "Evento a beneficio";
 
-        }
-        else if($action->actionOP_type == "App\Collection_center"){
-            $action->actionOP_type = "Centro de acopio";
-            $center = Collection_center::find($action->actionOP_id);
-            $assets = Asset::all()->sortBy('id');
-            $location = Location::find($center->location_id);
-            return view('collection_center.edit', compact('action','c','center','location','assets'));
+                $event = Event::find($action->actionOP_id);
+                $location = Location::find($event->location_id);
+                return view('event.show', compact('action', 'c', 'event', 'location'));
 
-        }
-        else if($action->actionOP_type == "App\Volunteering"){
-            $action->actionOP_type = "Voluntariado";
-            $volunteering = Volunteering::find($action->actionOP_id);
-            $location = Location::find($volunteering->location_id);
-            return view('volunteering.edit', compact('action','c','volunteering','location'));
+            } else if ($action->actionOP_type == "App\Collection_center") {
+                $action->actionOP_type = "Centro de acopio";
+                $center = Collection_center::find($action->actionOP_id);
+                $assets = Asset::all()->sortBy('id');
+                $location = Location::find($center->location_id);
+                return view('collection_center.show', compact('action', 'c', 'center', 'location', 'assets'));
+
+            } else if ($action->actionOP_type == "App\Volunteering") {
+                $action->actionOP_type = "Voluntariado";
+                $volunteering = Volunteering::find($action->actionOP_id);
+                $location = Location::find($volunteering->location_id);
+                return view('volunteering.show', compact('action', 'c', 'volunteering', 'location'));
+            }
         }
 
     }

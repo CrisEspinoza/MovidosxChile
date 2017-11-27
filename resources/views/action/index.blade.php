@@ -26,7 +26,12 @@
                                                         <div class="col-md-6">
                                                             <label>Meta donación:</label>
                                                             <p> {{"$ " .$medida->goal}} </p>
-                                                            <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Participar en medida </a>
+                                                            @if (Auth::user()->role_id == 1)
+                                                                <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Participar en medida </a>
+                                                                @endif
+                                                            @if (Auth::user()->role_id == 3)
+                                                                <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Ver medida </a>
+                                                                @endif
                                                         </div>
 
                                                         <div class="col-md-6 ">
@@ -56,7 +61,12 @@
                                                         <div class="col-md-6">
                                                             <label> Nombre centro de acopio: </label>
                                                                 <p>{{$centro->name}}</p>
-                                                                <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Participar en medida </a>
+                                                                @if (Auth::user()->role_id == 1)
+                                                                    <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Participar en medida </a>
+                                                                @endif
+                                                                @if (Auth::user()->role_id == 3)
+                                                                    <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Ver medida </a>
+                                                                @endif
                                                         </div>
                                                         <div class="col-md-6 ">
                                                             <label>Progreso:</label>
@@ -85,8 +95,13 @@
                                                     <div class="row">
                                                         <div class="col-md-6">                                                    
                                                             <label> Nombre evento: </label>
-                                                                <p>{{$evento->name}}</p> 
-                                                                <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Participar en medida </a>
+                                                                <p>{{$evento->name}}</p>
+                                                                @if (Auth::user()->role_id == 1)
+                                                                    <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Participar en medida </a>
+                                                                @endif
+                                                                @if (Auth::user()->role_id == 3)
+                                                                    <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Ver medida </a>
+                                                                @endif
                                                         </div>
                                                             <div class="col-md-6">
                                                                 <label>Progreso de avance:</label>
@@ -113,8 +128,13 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <label> Meta voluntarios: </label>
-                                                        <p>{{$medida->goal .' voluntarios'}}</p> 
-                                                        <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Participar en medida </a>
+                                                        <p>{{$medida->goal .' voluntarios'}}</p>
+                                                        @if (Auth::user()->role_id == 1)
+                                                            <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Participar en medida </a>
+                                                        @endif
+                                                        @if (Auth::user()->role_id == 3)
+                                                            <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Ver medida </a>
+                                                        @endif
                                                     
                                                     </div>
                                                     <div class="col-md-6 ">
