@@ -32,8 +32,8 @@
                                                         <div class="col-md-6 ">
                                                             <label>Progreso:</label>
                                                                 <div class="progress">
-                                                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{$donacion->mount}}" aria-valuemin="0" aria-valuemax="{{$donacion->goal}}" style="width: {{$donacion->mount}}%">
-                                                                        <span class="sr-only"> {{$donacion->mount}} % Complete</span>
+                                                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{$medida->progress}}" aria-valuemin="0" aria-valuemax="{{$medida->goal}}" style="width:{{$medida->progress}}%">
+                                                                        {{$medida->progress}}%
                                                                     </div>
                                                                 </div>
                                                         </div>
@@ -61,8 +61,8 @@
                                                         <div class="col-md-6 ">
                                                             <label>Progreso:</label>
                                                                 <div class="progress">
-                                                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="{{$centro->goal}}" style="width: 0%">
-                                                                        <span class="sr-only">0% Complete</span>
+                                                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{$medida->progress}}" aria-valuemin="0" aria-valuemax="{{$medida->goal}}" style="width: {{$medida->progress}}%">
+                                                                        {{$medida->progress}}%
                                                                     </div>
                                                                 </div>
                                                         </div>
@@ -92,7 +92,7 @@
                                                                 <label>Progreso de avance:</label>
                                                                     <div class="progress">
                                                                         <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{$medida->progress}}" aria-valuemin="0" aria-valuemax="{{$medida->goal}}}" style="width: {{$medida->progress}}%">
-                                                                            <span class="sr-only">45% Complete</span>
+                                                                            {{$medida->progress}}%
                                                                         </div>
                                                                     </div>
 
@@ -121,7 +121,7 @@
                                                         <label>Progreso:</label>
                                                             <div class="progress">
                                                                 <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{$medida->progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$medida->progress}}%">
-                                                                    <span class="sr-only">{{$medida->progress}} Complete</span>
+                                                                    {{$medida->progress}}%
                                                                 </div>
                                                             </div>
                                                     </div>

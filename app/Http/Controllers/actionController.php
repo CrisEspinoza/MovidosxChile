@@ -25,8 +25,8 @@ class actionController extends Controller
 
      public function __construct()
      {
-        $this->middleware('permiso:3');
-        $this->middleware('auth')->only('index');
+        //$this->middleware('permiso:3');
+        //$this->middleware('auth')->only('index');
      }
 
     public function index($id)

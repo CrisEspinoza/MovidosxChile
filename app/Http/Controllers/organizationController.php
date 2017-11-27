@@ -13,7 +13,7 @@ class organizationController extends Controller
 
   public function __construct()
   {
-      $this->middleware('permiso:2');
+      //$this->middleware('permiso:2');
   }
 
     public function index()

@@ -29,7 +29,7 @@ class donationController extends Controller
 
      public function __construct()
      {
-        $this->middleware('permiso:3');
+        //$this->middleware('permiso:3');
      }
 
     public function index()
