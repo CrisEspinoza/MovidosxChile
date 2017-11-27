@@ -11,8 +11,8 @@ class userController extends Controller
 
   public function __construct()
   {
-      //$this->middleware('permiso:2')->except('edit');
-      //$this->middleware('auth');
+      $this->middleware('permiso:2')->except('edit');
+      $this->middleware('auth');
   }
 
     public function index()

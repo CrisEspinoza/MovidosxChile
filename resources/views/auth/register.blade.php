@@ -100,7 +100,7 @@
                             <div class="col-md-6">
                                 <div  class="input-group">
                                     <span class="input-group-addon" id="arroba"> <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></span>
-                                    <input id="password" type="password" class="form-control" name="password" required>
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                                 </div>
                             </div>
                         </div>
