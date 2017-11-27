@@ -27,6 +27,7 @@ class CreateActionsTable extends Migration
           $table->date('end_date');
           $table->integer('user_id');
           $table->integer('catastrophe_id');
+          $table->integer('approved');
 
           $table->timestamps();
         });
