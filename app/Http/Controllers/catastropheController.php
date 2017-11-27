@@ -16,9 +16,8 @@ class catastropheController extends Controller
 
     public function __construct()
     {
-      //$this->middleware('permiso:2')->only('create');
-
-      //$this->middleware('auth');
+      $this->middleware('permiso:2')->only('create');
+      $this->middleware('auth');
     }
 
     public function index()
