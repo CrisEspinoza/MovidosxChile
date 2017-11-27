@@ -110,7 +110,7 @@
                             @endif
                             <!-- Navbar for organization user -->
                             @if (Auth::user()->role_id == 3)
-                            <li><a href="#">Mis eventos</a></li>
+                            <li><a href="{{ route('indexAction', 1) }}">Mis eventos</a></li>
                             @endif
                             <!-- Default navbar -->
                             <li class="dropdown">

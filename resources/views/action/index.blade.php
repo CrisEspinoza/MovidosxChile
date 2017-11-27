@@ -8,7 +8,12 @@
         <div class = "row">
             <div class="col-md-12" style="filter: alpha(opacity=25); -moz-opacity: 0.3; opacity: 0.9; -khtml-opacity: 0.3;">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h2> Medidas de la catastrofe {{$c->id}}</h2></div>
+                    @if (Auth::user()->role_id == 1)
+                        <div class="panel-heading"><h2> Medidas de la catastrofe {{$c->id}}</h2></div>
+                    @endif
+                    @if (Auth::user()->role_id == 3)
+                        <div class="panel-heading"><h2> Medidas creadas por {{Auth::user()->name}}</h2></div>
+                    @endif
                     <div class="panel-body">
                         <table class="table table-hover">
                             

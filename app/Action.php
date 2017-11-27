@@ -9,7 +9,7 @@ class Action extends Model
     protected $table = 'actions';
 
 	protected $fillable = [
-		'id_user',
+		'user_id',
 		'status',
 		'progress',
 		'goal',
