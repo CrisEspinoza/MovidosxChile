@@ -11,7 +11,7 @@
         <div class="item active">
           <img src="http://glacierhub.org/wp-content/uploads/2017/06/greenland-tsunami-damage.jpg" height="400" width="760">
            <div class="carousel-caption">
-            <h4><a href="#">Tsunami en la region del Biobio causó gran destrucción en la zona.</p>
+               <h4><a href="#">Tsunami en la region del Biobio causó gran destrucción en la zona.</a></h4>
           </div>
         </div><!-- End Item -->
 
@@ -26,8 +26,8 @@
         <div class="item">
           <img src="http://i.frikkinawesome.com/2013/09/Volc%C3%A1n-de-Fuego-Guatemala-By-Adrian-Rohnfelder.jpg" height="400" width="760">
            <div class="carousel-caption">
-            <h4><a href="#">Volcan chaiten</a></h4>
-            <p>Volcan chaiten vuelve a reactivarse. </p>
+            <h4><a href="#">Volcán Chaitén</a></h4>
+            <p>Volcán Chaitén se reactiva nuevamente.</p>
           </div>
         </div><!-- End Item -->
 
@@ -50,7 +50,7 @@
       </div><!-- End Carousel Inner -->
 
 
-    <ul class="list-group col-sm-4">
+    <ul class="list-group col-sm-4" style="filter: alpha(opacity=25); -moz-opacity: 0.3; opacity: 0.9; -khtml-opacity: 0.3;">
       <li data-target="#myCarousel" data-slide-to="0" class="list-group-item active"><h4>Tsunami en la region del Biobio causó gran destrucción en la zona.</h4></li>
       <li data-target="#myCarousel" data-slide-to="1" class="list-group-item"><h4>Tsunami en Santiago</h4></li>
       <li data-target="#myCarousel" data-slide-to="2" class="list-group-item"><h4>Volcan Chaiten se reactiva</h4></li>
@@ -71,14 +71,49 @@
     </div><!-- End Carousel -->
 </div>
 
-<div class="container">
-  <div class="jumbotron jumbotron-fluid">
-  <div class="row">
-    <div class="col-md-4"><h3>Voluntariado</h3>Se podrá ver la necesidad de voluntarios por catastrofe</div>
-    <div class="col-md-4"><h3>Catastrofes</h3>Se tendrá una lista de las catastrofes con toda su información</div>
-    <div class="col-md-4"><h3>Donaciones</h3>A travez del sitio web se podrán realizar donaciones</div>
-  </div>
+<div>
+    <div class="container" style="filter: alpha(opacity=25); -moz-opacity: 0.3; opacity: 0.9; -khtml-opacity: 0.3;">
+      <div class="jumbotron jumbotron-fluid">
+      <div class="row">
+        <div class="col-md-4"><h3>Voluntariado</h3>Se podrá ver la necesidad de voluntarios por catastrofe</div>
+        <div class="col-md-4"><h3>Catastrofes</h3>Se tendrá una lista de las catastrofes con toda su información</div>
+        <div class="col-md-4"><h3>Donaciones</h3>A travez del sitio web se podrán realizar donaciones</div>
+      </div>
+        </div>
+    </div>
 </div>
+
+
+<div id="footer" style="background-color: #222222">
+    <div class="container">
+        <div class="row">
+            <br>
+            <div class="col-md-4">
+                <center>
+                    <a title="Síguenos" href="https://twitter.com/CatastrofesUdes"><img src="https://image.flaticon.com/icons/svg/185/185961.svg" class="img-circle" alt="the-brains" width="100"></a>
+                    <br>
+                    <h4 class="footertext">#CatastrofesUdes</h4><br>
+                </center>
+            </div>
+            <div class="col-md-4">
+                <center>
+                    <br>
+                    <h4 class="footertext">Team DBDZ</h4>
+                    <p class="footertext">Informanda al país Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa distinctio explicabo, facere fuga iste iure laborum magni maxime nihil nobis officiis praesentium quam quod ratione velit veritatis vero voluptatibus voluptatum?</p><br>
+                </center>
+            </div>
+            <div class="col-md-4">
+                <center>
+                    <a title="Únete" href="#"><img src="https://image.flaticon.com/icons/svg/149/149071.svg" class="img-circle" alt="..." width="100"></a>
+                    <br>
+                    <h4 class="footertext">Únete al Registro Nacional de Voluntarios</h4><br>
+                </center>
+            </div>
+        </div>
+        <div class="row">
+            <p><center>Universidad de Santiago de Chile - Departamento de Ingeniería Informática</center></p>
+        </div>
+    </div>
 </div>
 
 @endsection
