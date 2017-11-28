@@ -32,8 +32,6 @@ class catastropheController extends Controller
         $regions = Region::all()->sortby('id');
         $communes = Commune::all()->sortby('region_id');
         $typesCats = TypeCatastrophe::all()->sortby('id');
-        $hist = new historyController();
-        $hist->registerHistory(Auth::user()->id, "Se ha creado una catástrofe");
         return view('catastrophe.create',compact('regions', 'communes','typesCats'));
     }
 
@@ -69,6 +67,8 @@ class catastropheController extends Controller
         $cat->description = $request->description;
 
         $cat->save();
+        $hist = new historyController();
+        $hist->registerHistory(Auth::user()->id, "Create", "Catastrophe", $cat->id);
 
         return redirect()->route('catastrophe.index')->with('success', true)->with('message','Catastrofe creada exitosamente');
 
