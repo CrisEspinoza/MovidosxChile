@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+    
 @section('content')
 
 @if (Auth::user()->role_id == 1)
@@ -50,8 +50,16 @@
                 <img src="https://image.flaticon.com/icons/svg/327/327013.svg" alt="..." width="200" height="200">
                 <div class="caption">
                     <h3> Ver RNV </h3>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, beatae doloremque ea esse et, eveniet facere ipsam iusto, labore magni molestiae nesciunt saepe sed soluta unde vero voluptate! Ducimus, ratione. </p>
+<<<<<<< HEAD
+                    <p> Revisa los usuarios que perteneen a los usuarios de RNV  </p>
+=======
+                    <p>  Revisa los voluntarios del registro nacional de voluntarios</p>
+<<<<<<< HEAD
+                    <a class="btn btn-info btn-lg" type="button" href="{{ route('rnv.index') }}"> Ver listado de RNV </a>
+=======
+>>>>>>> a3cf4e7b711a4077cbee3f76b9e3bb4533637eb9
                     <a class="btn btn-info btn-lg" type="button" href="#"> Ver listado de RNV </a>
+>>>>>>> 214c7ed387ddb1b795885cc5f0adeb2d55e1a8c8
                 </div>
             </div>
         </div>

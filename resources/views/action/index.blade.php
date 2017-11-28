@@ -9,11 +9,19 @@
             <div class="col-md-12" style="filter: alpha(opacity=25); -moz-opacity: 0.3; opacity: 0.9; -khtml-opacity: 0.3;">
                 <div class="panel panel-default">
                     @if (Auth::user()->role_id == 1)
-                        <div class="panel-heading"><h2> Medidas de la catastrofe {{$c->id}}</h2></div>
+                        <div class="panel-heading"><h2> Medidas de la catastrofe {{$c->name}}</h2></div>
                     @endif
-                    @if (Auth::user()->role_id == 3)
+                    @if (Auth::user()->role_id == 2)
+                        <div class="panel-heading"><h2> Medidas pendientes </h2></div>
+                    @endif
+                    @if (Auth::user()->role_id == 3 and $aux==0)
                         <div class="panel-heading"><h2> Medidas creadas por {{Auth::user()->name}}</h2></div>
                     @endif
+
+                    @if (Auth::user()->role_id == 3 and $aux==1)
+                        <div class="panel-heading"><h2>  Medidas de la catastrofe {{$c->name}}</h2></div>
+                    @endif
+
                     <div class="panel-body">
                         <table class="table table-hover">
                             
@@ -34,7 +42,7 @@
                                                             @if (Auth::user()->role_id == 1)
                                                                 <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Participar en medida </a>
                                                                 @endif
-                                                            @if (Auth::user()->role_id == 3)
+                                                            @if (Auth::user()->role_id == 3 || Auth::user()->role_id == 2)
                                                                 <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Ver medida </a>
                                                                 @endif
                                                         </div>
@@ -69,7 +77,7 @@
                                                                 @if (Auth::user()->role_id == 1)
                                                                     <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Participar en medida </a>
                                                                 @endif
-                                                                @if (Auth::user()->role_id == 3)
+                                                                @if (Auth::user()->role_id == 3 || Auth::user()->role_id == 2)
                                                                     <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Ver medida </a>
                                                                 @endif
                                                         </div>
@@ -80,8 +88,7 @@
                                                                         {{$medida->progress}}%
                                                                     </div>
                                                                 </div>
-                                                        </div>
-                                                    
+                                                        </div>                                                                                                          
                                                     </div>
                                             </div>
                                         @endif
@@ -104,7 +111,7 @@
                                                                 @if (Auth::user()->role_id == 1)
                                                                     <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Participar en medida </a>
                                                                 @endif
-                                                                @if (Auth::user()->role_id == 3)
+                                                                @if (Auth::user()->role_id == 3 || Auth::user()->role_id == 2)
                                                                     <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Ver medida </a>
                                                                 @endif
                                                         </div>
@@ -137,7 +144,7 @@
                                                         @if (Auth::user()->role_id == 1)
                                                             <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Participar en medida </a>
                                                         @endif
-                                                        @if (Auth::user()->role_id == 3)
+                                                        @if (Auth::user()->role_id == 3 || Auth::user()->role_id == 2)
                                                             <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Ver medida </a>
                                                         @endif
                                                     

@@ -40,3 +40,4 @@ Route::resource('organization', 'organizationController');
 Route::resource('user', 'userController');
 Route::resource('voluntary', 'voluntaryController');
 Route::resource('volunteering', 'volunteeringController');
+Route::resource('rnv', 'rnvController');

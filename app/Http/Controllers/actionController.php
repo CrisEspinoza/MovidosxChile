@@ -52,10 +52,12 @@ class actionController extends Controller
                 }
             }
 
+            
+
             return view('action.index', compact('c', 'medidas', 'eventos', 'voluntariados', 'donaciones', 'centros'));
         }
-        else if(Auth::user()->role_id == 3){
-            $medidas = Action::where('user_id', Auth::id())->get()->sortBy('actionOP_type');
+        else if(Auth::user()->role_id == 2) {
+            $medidas = Action::where('approved', 0)->get();
 
             for ($i = 0; $i < count($medidas); $i++) {
                 if ($medidas[$i]->actionOP_type == "App\Donation") {
@@ -70,6 +72,46 @@ class actionController extends Controller
             }
 
             return view('action.index', compact('c', 'medidas', 'eventos', 'voluntariados', 'donaciones', 'centros'));
+        }
+        else if(Auth::user()->role_id == 3 and $id == 0 ){
+            $medidas = Action::where('user_id', Auth::id())->get()->sortBy('actionOP_type');
+
+            for ($i = 0; $i < count($medidas); $i++) {
+                if ($medidas[$i]->actionOP_type == "App\Donation") {
+                    $medidas[$i]->actionOP_type = "Donación";
+                } else if ($medidas[$i]->actionOP_type == "App\Event") {
+                    $medidas[$i]->actionOP_type = "Evento a beneficio";
+                } else if ($medidas[$i]->actionOP_type == "App\Collection_center") {
+                    $medidas[$i]->actionOP_type = "Centro de acopio";
+                } else if ($medidas[$i]->actionOP_type == "App\Volunteering") {
+                    $medidas[$i]->actionOP_type = "Voluntariado";
+                }
+            }
+
+            $aux = 0;
+
+            return view('action.index', compact('c', 'medidas', 'eventos', 'voluntariados', 'donaciones', 'centros','aux'));
+
+        }
+
+        else if(Auth::user()->role_id == 3 and $id != 0 ){
+             $medidas = Action::where('catastrophe_id', $id)->get()->sortBy('actionOP_type');
+
+            for ($i = 0; $i < count($medidas); $i++) {
+                if ($medidas[$i]->actionOP_type == "App\Donation") {
+                    $medidas[$i]->actionOP_type = "Donación";
+                } else if ($medidas[$i]->actionOP_type == "App\Event") {
+                    $medidas[$i]->actionOP_type = "Evento a beneficio";
+                } else if ($medidas[$i]->actionOP_type == "App\Collection_center") {
+                    $medidas[$i]->actionOP_type = "Centro de acopio";
+                } else if ($medidas[$i]->actionOP_type == "App\Volunteering") {
+                    $medidas[$i]->actionOP_type = "Voluntariado";
+                }
+            }
+
+            $aux= 1;
+
+            return view('action.index', compact('c', 'medidas', 'eventos', 'voluntariados', 'donaciones', 'centros','aux'));
 
         }
 
@@ -148,7 +190,7 @@ class actionController extends Controller
                 return view('volunteering.edit', compact('action', 'c', 'volunteering', 'location'));
             }
         }
-        else if(Auth::user()->role_id == 3){
+        else if(Auth::user()->role_id == 3 or Auth::user()->role_id == 2){
             if ($action->actionOP_type == "App\Donation") {
                 $action->actionOP_type = "Donación";
                 $donation = Donation::find($action->actionOP_id);
