@@ -69,6 +69,9 @@ class catastropheController extends Controller
         $cat->save();
         $hist = new historyController();
         $hist->registerHistory(Auth::user()->id, "Create", "Catastrophe", $cat->id);
+        $message = "ALERTA DE CATÁSTROFE: " . $request->name . " en la comuna de " . $loc->commune->name . ", región de " . $loc->commune->region->name . " #CatastrofeNacional";
+        Twitter::postTweet(['status' => $message, 'format' => 'json']);
+
 
         return redirect()->route('catastrophe.index')->with('success', true)->with('message','Catastrofe creada exitosamente');
 
