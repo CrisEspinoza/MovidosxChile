@@ -203,4 +203,6 @@ class donationController extends Controller
 
         return redirect()->route('indexAction', 1)->with('success', true)->with('message','Se ha eliminado la medida exitosamente');
     }
+    
+    
 }

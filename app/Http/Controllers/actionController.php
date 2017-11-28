@@ -229,7 +229,7 @@ class actionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -248,6 +248,14 @@ class actionController extends Controller
         $c = Catastrophe::find($id);
         return view('action.menu',compact('c'));
 
+    }
+
+    public function acceptAction($id){
+        $action =  Action::find($id);
+        $action->approved= 1;
+        $action->update();
+
+        return redirect()->route('indexAction', 1)->with('success', true)->with('message','Se ha aprobado la medida exitosamente');
     }
 
 }
