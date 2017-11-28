@@ -60,13 +60,10 @@
                             <div class="panel-footer">
                                 @if (Auth::user()->role_id == 2)
                                     <a class="btn btn-success" type="submit" id = "cancel" href="{{ route ('home') }}"> Aceptar medida </a>                                
-                                    <a class="btn btn-danger" type="submit" id = "cancel" href="{{ route ('deleteDonation', $action->id) }}"> Rechazar medida </a>
+                                    <a class="btn btn-danger" method="POST" type="submit"  href="{{ route ('deleteDonation' , $action->id) }}"> Rechazar medida </a>
                                 @endif
                                 <a class="btn btn-info" type="submit" id = "Atrás" href="{{ route ('home') }}"> Volver </a>
                             </div>
-
-
-
 
 
                         </div>
