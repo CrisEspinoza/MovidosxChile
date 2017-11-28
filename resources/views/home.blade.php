@@ -51,7 +51,7 @@
                 <div class="caption">
                     <h3> Ver RNV </h3>
                     <p>  Revisa los voluntarios del registro nacional de voluntarios</p>
-                    <a class="btn btn-info btn-lg" type="button" href="#"> Ver listado de RNV </a>
+                    <a class="btn btn-info btn-lg" type="button" href="{{ route('rnv.index') }}"> Ver listado de RNV </a>
                 </div>
             </div>
         </div>
