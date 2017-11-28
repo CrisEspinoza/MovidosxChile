@@ -9,6 +9,7 @@ use App\Commune;
 use App\TypeCatastrophe;
 use App\Location;
 use Validator;
+use Illuminate\Support\Facades\Auth;
 use Thujohn\Twitter\Facades\Twitter;
 
 class catastropheController extends Controller
@@ -31,6 +32,8 @@ class catastropheController extends Controller
         $regions = Region::all()->sortby('id');
         $communes = Commune::all()->sortby('region_id');
         $typesCats = TypeCatastrophe::all()->sortby('id');
+        $hist = new historyController();
+        $hist->registerHistory(Auth::user()->id, "Se ha creado una catástrofe");
         return view('catastrophe.create',compact('regions', 'communes','typesCats'));
     }
 
