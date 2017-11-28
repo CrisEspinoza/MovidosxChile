@@ -41,7 +41,7 @@
                                 @endif
 
                                 @if (Auth::user()->role_id == 3)
-                                    <td> <a class="btn btn-warning" type="button" href="{{ route('menu',$c->id) }}"> Agregar medida </a></td>
+                                    <td> <a class="btn btn-success" type="button" href="{{ route('menu',$c->id) }}"> Agregar medida </a></td>
                                     <td> <a class="btn btn-warning" type="button" href="{{ route('indexAction', $c->id) }}"> Ver medidas </a></td>
                                 @endif
 
