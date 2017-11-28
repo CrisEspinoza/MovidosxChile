@@ -2,7 +2,16 @@
     
 @section('content')
 
-@if (Auth::user()->role_id == 1)
+@if (Auth::user()->role_id == 1 and Auth::user()->banned == 1)
+<div class = "container" style="filter: alpha(opacity=25); -moz-opacity: 0.3; opacity: 0.9; -khtml-opacity: 0.3;">
+    <div class="jumbotron jumbotron-fluid">
+        <h1> Usuario bloqueado </h1>
+        <p> Contactar con soporte </p>
+    </div>
+</div>
+@endif
+
+@if (Auth::user()->role_id == 1 and Auth::user()->banned == 0)
 <div class = "container" style="filter: alpha(opacity=25); -moz-opacity: 0.3; opacity: 0.9; -khtml-opacity: 0.3;">
     <div class="jumbotron jumbotron-fluid">
         <h1> Catastrofes </h1>
@@ -49,21 +58,8 @@
             <div class="thumbnail">
                 <img src="https://image.flaticon.com/icons/svg/327/327013.svg" alt="..." width="200" height="200">
                 <div class="caption">
-                    <h3> Ver RNV </h3>
-<<<<<<< HEAD
                     <p>  Revisa los inscritos en el registro nacional de voluntariados </p>
-=======
-<<<<<<< HEAD
-                    <p> Revisa los usuarios que perteneen a los usuarios de RNV  </p>
-=======
-                    <p>  Revisa los voluntarios del registro nacional de voluntarios</p>
-<<<<<<< HEAD
                     <a class="btn btn-info btn-lg" type="button" href="{{ route('rnv.index') }}"> Ver listado de RNV </a>
-=======
->>>>>>> a3cf4e7b711a4077cbee3f76b9e3bb4533637eb9
->>>>>>> 06f3e192774cb348a048b7a25d75c7e75a994ade
-                    <a class="btn btn-info btn-lg" type="button" href="#"> Ver listado de RNV </a>
->>>>>>> 214c7ed387ddb1b795885cc5f0adeb2d55e1a8c8
                 </div>
             </div>
         </div>

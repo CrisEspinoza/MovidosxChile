@@ -100,7 +100,7 @@
                             <li><a href="{{ route('register') }}">Registrarse</a></li>
                         @else
                             <!-- Navbar for normal user -->
-                            @if (Auth::user()->role_id == 1)
+                            @if (Auth::user()->role_id == 1 and Auth::user()->banned == 0)
                             <li><a href="{{ route('user.edit' , Auth::user() ) }}">Mis datos</a></li>
                             @endif
                             <!-- Navbar for government user -->
@@ -114,6 +114,7 @@
                             @if (Auth::user()->role_id == 3)
                             <li><a href="{{ route('indexAction', 0) }}">Mis eventos</a></li>
                             @endif
+
                             <!-- Default navbar -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
