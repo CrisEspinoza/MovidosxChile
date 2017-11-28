@@ -208,6 +208,7 @@ class collectionCenterController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $action = Action::find($id);
+        return $action;
     }
 }
