@@ -21,9 +21,10 @@ Auth::routes();
 
 Route::get('/action/{id}','actionController@menu')->name('menu');
 
+Route::get('/collectionCenter/{id}','collectionCenterController@destroy')->name('deleteCollection');
+Route::resource('collectionCenter', 'collectionCenterController');
 
 Route::get('/volunteering/{id}','volunteeringController@create')->name('createVol');
-Route::get('/volunteering/{id}','volunteeringController@destroy')->name('deleteVol');
 Route::get('/event/{id}','eventController@create')->name('createEvent');
 Route::get('/collection_center/{id}','collectionCenterController@create')->name('createCollCenter');
 Route::get('/donation/{id}','donationController@create')->name('createDonation');
@@ -34,7 +35,6 @@ Route::resource('action', 'actionController');
 Route::resource('asset', 'assetController');
 Route::resource('bank', 'bankController');
 Route::resource('catastrophe', 'catastropheController');
-Route::resource('collectionCenter', 'collectionCenterController');
 Route::resource('donation', 'donationController');
 Route::resource('event', 'eventController');
 Route::resource('organization', 'organizationController');

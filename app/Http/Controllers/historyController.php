@@ -16,7 +16,6 @@ class historyController extends Controller
         $hist->action = $action;
         $hist->table_modified = $table;
         $hist->id_entity = $id_entity;
-        $table->timestamps();
         $hist->save();
     }
 }

@@ -106,9 +106,10 @@ class collectionCenterController extends Controller
         $action->goal = $request->goal;
         $action->approved = 0;
         $hist = new historyController();
-        $hist->registerHistory(Auth::user()->id, "Create", "Action/CollectionCenter", $action->id);
+
 
         $collection->action()->save($action);
+        $hist->registerHistory(Auth::user()->id, "Create", "Action/CollectionCenter", $action->id);
 
 
         return redirect()->route('createCollCenter', $cat->id)->with('success', true)->with('message','Centro de acopio creado exitosamente');;
@@ -213,6 +214,6 @@ class collectionCenterController extends Controller
     public function destroy($id)
     {
         $action = Action::find($id);
-        return $action;
+        $action->delete();
     }
 }

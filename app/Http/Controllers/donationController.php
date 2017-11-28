@@ -199,5 +199,7 @@ class donationController extends Controller
     public function destroy($id)
     {
         //
+        $action = Action::find($id);
+        $action->delete();
     }
 }
