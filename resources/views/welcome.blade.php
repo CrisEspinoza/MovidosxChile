@@ -88,28 +88,21 @@
     <div class="container">
         <div class="row">
             <br>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <center>
                     <a title="Síguenos" href="https://twitter.com/CatastrofesUdes"><img src="https://image.flaticon.com/icons/svg/185/185961.svg" class="img-circle" alt="the-brains" width="100"></a>
                     <br>
                     <h3 class="footertext">#CatastrofesUdes</h3><br>
                 </center>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <center>
                     <a title="Síguenos" href="https://www.facebook.com/CatastrofesUdes/?modal=admin_todo_tour"><img src="https://image.flaticon.com/icons/svg/187/187189.svg" class="img-circle" alt="the-brains" width="100"></a>
                     <br>
                     <h3 class="footertext">Catástrofes Udes</h3><br>
                 </center>
             </div>
-            <div class="col-md-3">
-                <center>
-                    <a title="Únete" href="#"><img src="https://image.flaticon.com/icons/svg/149/149071.svg" class="img-circle" alt="..." width="100"></a>
-                    <br>
-                    <h3 class="footertext">Únete al Registro Nacional de Voluntarios</h3><br>
-                </center>
-            </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <center>
                     <a title="GitHub" href="https://github.com/CrisEspinoza/MovidosxChile"><img src="https://image.flaticon.com/icons/svg/179/179323.svg" class="img-circle" alt="..." width="100"></a>
                     <br>

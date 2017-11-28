@@ -91,9 +91,9 @@ class actionController extends Controller
                 }
             }
 
-            
+            $aux = 6;
 
-            return view('action.index', compact('c', 'medidas', 'eventos', 'voluntariados', 'donaciones', 'centros'));
+            return view('action.index', compact('c', 'medidas', 'eventos', 'voluntariados', 'donaciones', 'centros', 'aux'));
         }
         else if(Auth::user()->role_id == 2) {
             $medidas = Action::where('approved', 0)->get();

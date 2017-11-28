@@ -10,11 +10,11 @@ use Illuminate\Support\Facades\Auth;
 class userController extends Controller
 {
 
-  public function __construct()
+  /*public function __construct()
   {
       $this->middleware('permiso:2')->except('edit');
       $this->middleware('auth');
-  }
+  }*/
 
     public function index()
     {
@@ -67,7 +67,7 @@ class userController extends Controller
         $user->email = $request->input('email');
         $user->update();
 
-        return redirect()->route('user.index');
+        return redirect()->route('home');
     }
 
 
