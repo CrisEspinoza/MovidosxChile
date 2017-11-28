@@ -198,8 +198,11 @@ class donationController extends Controller
      */
     public function destroy($id)
     {
-        //
         $action = Action::find($id);
         $action->delete();
+
+        return redirect()->route('indexAction', 1)->with('success', true)->with('message','Se ha eliminado la medida exitosamente');
     }
+    
+    
 }

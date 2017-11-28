@@ -112,9 +112,10 @@ class eventController extends Controller
         $action->goal = $request->goal;
         $action->approved = 0;
         $hist = new historyController();
-        $hist->registerHistory(Auth::user()->id, "Create", "Action/Donation", $action->id);
+
 
         $event->action()->save($action);
+        $hist->registerHistory(Auth::user()->id, "Create", "Action/Donation", $action->id);
 
         $rnvs = RNV::where('disponible',1)->get();
 
@@ -206,6 +207,9 @@ class eventController extends Controller
     public function destroy($id)
     {
         //
+        $action = Action::find($id);
+        $action->delete();
+        return redirect()->route('indexAction', 1)->with('success', true)->with('message','Se ha eliminado la medida exitosamente');
     }
 
 }

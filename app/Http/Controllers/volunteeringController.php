@@ -208,6 +208,8 @@ class volunteeringController extends Controller
     {
         $action = Action::find($id);
         $action->delete();
+
+        return redirect()->route('indexAction', 1)->with('success', true)->with('message','Se ha eliminado la medida exitosamente');
     }
 
 }

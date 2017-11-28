@@ -78,11 +78,11 @@
                             </div>
 
                             <div class="panel-footer">
-                                <a class="btn btn-info" type="submit" id = "cancel" href="{{ route ('home') }}"> Volver</a>
                                 @if (Auth::user()->role_id == 2)
                                     <a class="btn btn-success" type="submit" id = "cancel" href="{{ route ('home') }}"> Aceptar medida </a>                                
-                                    <a class="btn btn-danger" type="submit" id = "cancel" href="{{ route ('home') }}"> Rechazar medida </a>
+                                    <a class="btn btn-danger" method="POST" type="submit"  href="{{ route ('deleteDonation' , $action->id) }}"> Rechazar medida </a>
                                 @endif
+                                <a class="btn btn-info" type="submit" id = "Atrás" href="{{ route ('home') }}"> Volver </a>
                             </div>
 
                         </div>
