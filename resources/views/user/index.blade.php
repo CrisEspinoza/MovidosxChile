@@ -8,14 +8,28 @@
                     <div class="panel-heading"><h2>Lista de usuarios</h2></div>
                     <div class="col-md-6">
                         <ul class="nav nav-pills">
-                            <li class="active"><a data-toggle="pill" href="#admin">Administradores</a></li>
-                            <li><a data-toggle="pill" href="#organ">Organizaciones</a></li>
-                            <li><a data-toggle="pill" href="#user">Usuarios</a></li>
+                            @if($aux == 2)
+                                <li class="active"><a data-toggle="pill" href="#admin">Administradores</a></li>
+                                <li><a data-toggle="pill" href="#organ">Organizaciones</a></li>
+                                <li><a data-toggle="pill" href="#user">Usuarios</a></li>
+                            @elseif($aux == 1)
+                                <li><a data-toggle="pill" href="#admin">Administradores</a></li>
+                                <li><a data-toggle="pill" href="#organ">Organizaciones</a></li>
+                                <li class="active"><a data-toggle="pill" href="#user">Usuarios</a></li>
+                            @else
+                                <li><a data-toggle="pill" href="#admin">Administradores</a></li>
+                                <li class="active"><a data-toggle="pill" href="#organ">Organizaciones</a></li>
+                                <li><a data-toggle="pill" href="#user">Usuarios</a></li>
+                            @endif
                         </ul>
                     </div>
 
                     <div class="tab-content">
+                        @if($aux == 2)
                         <div id="admin" class="tab-pane fade in active">
+                        @else
+                        <div id="admin" class="tab-pane fade">
+                        @endif
                             <div class="panel-body">
                                 <table class="table" style="width:100%">
                                     <thead>
@@ -44,8 +58,11 @@
                                 </table>
                             </div>
                         </div>
-
+                        @if($aux == 3)
+                        <div id="organ" class="tab-pane fade in active">
+                        @else
                         <div id="organ" class="tab-pane fade">
+                        @endif
                             <div class="panel-body">
 
                                 <table class="table" style="width:100%">
@@ -71,14 +88,25 @@
                                             @endif
                                             <td> <a class="btn btn-primary" type="button" href="{{ route('user.edit', $organ->id) }}" > Editar </a> </td>
                                             <td> <a class="btn btn-warning" type="button" href="{{ route('user.show', $organ->id) }}" > Ver </a> </td>
-                                            <td> <a class="btn btn-danger" type="button" data-toggle="modal" data-target="#myModalBan"> Bloquear </a> </td>
+
+                                            <td>
+                                                <form class="form" method="post" action="{{ route('user.destroy', $organ->id) }}">
+                                                    {{ method_field('DELETE') }}
+                                                    {{ csrf_field() }}
+                                                    <button type="submit" class="btn btn-danger">Bloquear</button>
+                                                </form>
+                                            </td>
+
                                         </tr>
                                     @endforeach
                                 </table>
                             </div>
                         </div>
-
+                        @if($aux == 1)
+                        <div id="user" class="tab-pane fade in active">
+                        @else
                         <div id="user" class="tab-pane fade">
+                        @endif
                             <div class="panel-body">
 
                                 <table class="table" style="width:100%">
@@ -108,42 +136,21 @@
                                             @endif
                                             <td> <a class="btn btn-primary" type="button" href="{{ route('user.edit', $user->id) }}" > Editar </a> </td>
                                             <td> <a class="btn btn-warning" type="button" href="{{ route('user.show', $user->id) }}" > Ver </a> </td>
-                                            <td> <a class="btn btn-danger" type="button" data-toggle="modal" data-target="#myModalBan"> Bloquear </a> </td>
+                                            <td>
+                                                <form class="form" method="post" action="{{ route('user.destroy', $user->id) }}">
+                                                    {{ method_field('DELETE') }}
+                                                    {{ csrf_field() }}
+                                                    <button type="submit" class="btn btn-danger">Bloquear</button>
+                                                </form>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </table>
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- Modal -->
-    <div id="myModalBan" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">¿Estás seguro de que quieres eliminar a {{ $user->name }} {{ $user->last_name }}?</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Este usuario será bloqueado del sistema y no podrá iniciar sesión. </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Si</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-                </div>
-            </div>
-
         </div>
     </div>
 

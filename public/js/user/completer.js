@@ -1,5 +1,5 @@
 function formatRUT() {
-    var rut_input = document.getElementById('name');
+    var rut_input = document.getElementById('run');
     var rut = rut_input.value.replace(/[^0-9]/g, '');
     var rut_format = '';
     var ultimo = rut.length - 1;
@@ -10,6 +10,5 @@ function formatRUT() {
         else if((ultimo - i) % 3 == 0)
             rut_format = '.' + rut_format;
     }
-
     rut_input.value = rut_format;
 }

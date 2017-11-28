@@ -35,16 +35,16 @@
                                     <div class="col-md-4">
                                         <label> Estado: </label>
                                         
-                                            @if ($user->role_id != 2  )    
-                                                @if ($user->banned)
+                                            @if (Auth::user()->role_id != 2  )
+                                                @if ($user->banned == 1)
                                                     <input disabled class="form-control" name="banned" id="banned" value="Bloqueado"> 
                                                 @else
                                                     <input disabled class="form-control" name="banned" id="banned" value="Activo">
                                                 @endif
-                                            @else
 
+                                            @else
                                             <select class="col-md-6 form-control" name="banned" id="banned">
-                                                @if ($user->banned)
+                                                @if ($user->banned == 1)
                                                     <option value="{{ 1 }}" selected> Bloqueado </option>
                                                     <option value="{{ 0 }}"> Activo </option>
                                                 @else

@@ -8,6 +8,7 @@ use Redirect;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\historyController;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -76,7 +77,7 @@ class RegisterController extends Controller
             'banned' => 0,
         ]);
         $hist = new historyController();
-        $hist->registerHistory(Auth::user()->id, "Create", "User/Organization", $user->id);
+        $hist->registerHistory(0, "Create", "User/".$data['name'], 0);
         return $user;
     }
 }

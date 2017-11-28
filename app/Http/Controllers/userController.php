@@ -21,7 +21,8 @@ class userController extends Controller
         $users = User::where('role_id', 1)->get()->sortby('name');
         $admins = User::where('role_id', 2)->get()->sortby('name');
         $organs = User::where('role_id', 3)->get()->sortby('name');
-        return view('user.index', compact('users','admins', 'organs'));
+        $aux = 1;
+        return view('user.index', compact('users','admins', 'organs', 'aux'));
     }
 
     public function create()
@@ -36,7 +37,8 @@ class userController extends Controller
 
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        return view('user.show', compact('user'));
     }
 
     public function edit($id)
@@ -73,6 +75,10 @@ class userController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-        return redirect()->route('users.index');
+        $users = User::where('role_id', 1)->get()->sortby('name');
+        $admins = User::where('role_id', 2)->get()->sortby('name');
+        $organs = User::where('role_id', 3)->get()->sortby('name');
+        $aux = $user->role->id;
+        return view('user.index', compact('users','admins', 'organs', 'aux'));
     }
 }

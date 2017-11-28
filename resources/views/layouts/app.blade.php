@@ -145,6 +145,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script type="text/javascript" src="/js/user/completer.js"></script>
 <script>
 $(document).ready(function(){
 

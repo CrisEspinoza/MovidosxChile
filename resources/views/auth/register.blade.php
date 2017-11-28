@@ -48,7 +48,7 @@
                             <div class="col-md-6">
                                 <div  class="input-group">
                                     <span class="input-group-addon" id="arroba"> <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span></span>
-                                    <input id="run" type="text" class="form-control" name="run" value="{{ old('run') }}" required autofocus>
+                                    <input id="run" type="text" class="form-control" name="run" value="{{ old('run') }}" oninput="formatRUT()" required autofocus>
                                 </div>
 
                                 @if ($errors->has('run'))
