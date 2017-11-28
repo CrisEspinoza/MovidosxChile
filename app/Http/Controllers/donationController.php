@@ -17,7 +17,6 @@ use App\User;
 
 
 
-
 class donationController extends Controller
 {
     //
@@ -85,7 +84,6 @@ class donationController extends Controller
         $donation->mount = 0;
         $donation->save();
 
-
         $cat =  Catastrophe::where('name',$request->name)->first();
 
         $action = new Action;
@@ -98,7 +96,8 @@ class donationController extends Controller
         $action->approved = 0;
 
         $donation->action()->save($action);
-
+        $hist = new historyController();
+        $hist->registerHistory(Auth::user()->id, "Create", "Action/Donation", $action->id);
 
         return redirect()->route('createDonation', $cat->id)->with('success', true)->with('message','Donación creada exitosamente');
     }
@@ -127,6 +126,7 @@ class donationController extends Controller
         $action->actionOP_type = "Donación";
         $donation = Donation::find($action->actionOP_id);
         $c = Catastrophe::find($action->catastrophe_id);
+
 
         return view('donation.edit', compact('action','c','donation'));
     }
@@ -179,6 +179,8 @@ class donationController extends Controller
                 $action_user->action_type = "Donation";
                 $action_user->mount = $request->monto;
                 $action_user->save();
+                $hist = new historyController();
+                $hist->registerHistory(Auth::user()->id, "Update", "Action/Donation", $action->id);
 
                 return redirect()->route('action.edit', $action[$i]->id)->with('success', true)->with('message','Gracias por participar en esta medida');
             }

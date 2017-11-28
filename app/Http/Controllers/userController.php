@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Role;
+use Illuminate\Support\Facades\Auth;
 
 class userController extends Controller
 {
@@ -54,6 +55,9 @@ class userController extends Controller
         else{
             $user->banned=0;
         }
+
+        $hist = new historyController();
+        $hist->registerHistory(Auth::user()->id, "Update", "User/".$user->role->type, $user->id);
 
         $user->banned = $request->input('banned');
         $user->name = $request->input('name');

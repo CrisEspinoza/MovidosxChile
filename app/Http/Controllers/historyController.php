@@ -8,14 +8,15 @@ use Illuminate\Http\Request;
 
 class historyController extends Controller
 {
-    public function registerHistory($id_user, $action)
+    public function registerHistory($id_user, $action, $table, $id_entity)
     {
         $hist = new History();
 
         $hist->user_id = $id_user;
         $hist->action = $action;
-        $dateTime = Carbon::now();
-        $hist->date = $dateTime;
+        $hist->table_modified = $table;
+        $hist->id_entity = $id_entity;
+        $table->timestamps();
         $hist->save();
     }
 }

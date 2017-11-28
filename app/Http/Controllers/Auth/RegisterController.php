@@ -66,7 +66,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'last_name' => $data['lastname'],
             'email' => $data['email'],
@@ -75,5 +75,8 @@ class RegisterController extends Controller
             'role_id' => 1,
             'banned' => 0,
         ]);
+        $hist = new historyController();
+        $hist->registerHistory(Auth::user()->id, "Create", "User/Organization", $user->id);
+        return $user;
     }
 }
