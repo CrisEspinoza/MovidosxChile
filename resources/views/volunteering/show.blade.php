@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
     <div class = "container">
         <div class = "row">
@@ -12,8 +13,6 @@
             </div>
         </div>
     </div>
-
-
 
     <div class="container">
         <div class="row">
@@ -81,7 +80,7 @@
                             <div class="panel-footer">
                                 @if (Auth::user()->role_id == 2)
                                     <a class="btn btn-success" type="submit" id = "cancel" href="{{ route ('home') }}"> Aceptar medida </a>                               
-                                    <a class="btn btn-danger" type="submit" id = "cancel" href="{{ route ('volunteering.destroy' , $action->id) }}"> Rechazar medida </a>
+                                    <a class="btn btn-danger" type="button" href="{{ route ('volunteering.destroy' , $action->id) }}"> Rechazar medida </a>
                                 @endif
                                 <a class="btn btn-info" type="submit" id = "cancel" href="{{ route ('home') }}"> Volver</a>
                             </div>
@@ -92,10 +91,5 @@
             </div>
         </div>
     </div>
-
-
-
-
-
 
 @endsection

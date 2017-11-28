@@ -207,7 +207,7 @@ class volunteeringController extends Controller
     public function destroy($id)
     {
         $action = Action::find($id);
-        return $action;
+        $action->delete();
     }
 
 }
