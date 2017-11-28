@@ -105,6 +105,8 @@ class collectionCenterController extends Controller
         $action->user_id = Auth::id();
         $action->goal = $request->goal;
         $action->approved = 0;
+        $hist = new historyController();
+        $hist->registerHistory(Auth::user()->id, "Create", "Action/CollectionCenter", $action->id);
 
         $collection->action()->save($action);
 
@@ -176,6 +178,8 @@ class collectionCenterController extends Controller
         $center->update();
 
         $action = Action::where('actionOP_id',$id)->get();
+        $hist = new historyController();
+        $hist->registerHistory(Auth::user()->id, "Update", "Action/CollectionCenter", $action->id);
 
         for($i=0 ; $i< count($action); $i++){
             if($action[$i]->actionOP_type == 'App\Collection_center'){

@@ -17,7 +17,6 @@ use App\User;
 
 
 
-
 class donationController extends Controller
 {
     //
@@ -127,7 +126,7 @@ class donationController extends Controller
         $action->actionOP_type = "Donación";
         $donation = Donation::find($action->actionOP_id);
         $c = Catastrophe::find($action->catastrophe_id);
-        
+
 
         return view('donation.edit', compact('action','c','donation'));
     }

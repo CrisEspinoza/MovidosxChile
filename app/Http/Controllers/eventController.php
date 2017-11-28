@@ -111,6 +111,8 @@ class eventController extends Controller
         $action->user_id = Auth::id();
         $action->goal = $request->goal;
         $action->approved = 0;
+        $hist = new historyController();
+        $hist->registerHistory(Auth::user()->id, "Create", "Action/Donation", $action->id);
 
         $event->action()->save($action);
 
@@ -187,6 +189,8 @@ class eventController extends Controller
                 $action_user->user_id= $user->id;
                 $action_user->action_type = "Event";
                 $action_user->save();
+                $hist = new historyController();
+                $hist->registerHistory(Auth::user()->id, "Update", "Action/Donation", $action->id);
 
                 return redirect()->route('action.edit', $action[$i]->id)->with('success', true)->with('message','Gracias por participar en esta medida');
             }

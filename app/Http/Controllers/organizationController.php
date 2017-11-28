@@ -7,6 +7,7 @@ use Mail;
 use Session;
 use Redirect;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class organizationController extends Controller
 {
@@ -43,6 +44,8 @@ class organizationController extends Controller
         $msj->subject('Correo de confirmacion de registro');
         $msj->to($user->email);
     });
+        $hist = new historyController();
+        $hist->registerHistory(Auth::user()->id, "Create", "User/Organization", $user->id);
         return redirect()->route('organization.create')->with('success', true)->with('message','Organización creada exitosamente');
 
     }

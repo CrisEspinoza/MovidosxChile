@@ -102,6 +102,8 @@ class volunteeringController extends Controller
         $volunt->current_voluntaries= 0;
 
         $volunt->save();
+        $hist = new historyController();
+        $hist->registerHistory(Auth::user()->id, "Create", "Action/Volunteering", $volunt->id);
 
         $cat =  Catastrophe::where('name',$request->name)->first();
 
@@ -176,6 +178,9 @@ class volunteeringController extends Controller
                 }
                 $volunteering->current_voluntaries = $volunteering->current_voluntaries + 1;
                 $volunteering->update();
+
+                $hist = new historyController();
+                $hist->registerHistory(Auth::user()->id, "Update", "Action/Volunteering", $volunteering->id);
 
                 $action[$i]->progress = ($volunteering->current_voluntaries / $action[$i]->goal)*100;
                 $action[$i]->update();
