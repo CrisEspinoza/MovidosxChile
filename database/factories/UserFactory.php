@@ -69,6 +69,7 @@ $factory->define(App\Action::class, function (Faker $faker) {
         'end_date' => $faker->date,
         'user_id'=> App\User::all()->random()->id,
         'catastrophe_id'=> App\Catastrophe::all()->random()->id,
+        'approved'=>1,
     ];
 });
 

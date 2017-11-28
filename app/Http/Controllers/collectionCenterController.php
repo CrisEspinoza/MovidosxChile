@@ -104,6 +104,7 @@ class collectionCenterController extends Controller
         $action->catastrophe_id =$cat->id;
         $action->user_id = Auth::id();
         $action->goal = $request->goal;
+        $action->approved = 0;
 
         $collection->action()->save($action);
 

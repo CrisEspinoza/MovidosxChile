@@ -95,6 +95,7 @@ class donationController extends Controller
         $action->catastrophe_id =$cat->id;
         $action->user_id = Auth::id();
         $action->goal = $request->goal;
+        $action->approved = 0;
 
         $donation->action()->save($action);
 
