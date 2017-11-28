@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 use App\Catastrophe;
 use App\Action;
 use App\Event;
+use DB;
+use Datetime;
+use Carbon\Carbon;
+use App\Quotation;
 use App\Volunteering;
 use App\Collection_center;
 use App\Donation;
@@ -28,6 +32,41 @@ class actionController extends Controller
      {
        //$this->middleware('auth');
      }
+
+    public function actionForFinish()
+    {
+        $date = Carbon::now();
+        $date = $date->format('Y-m-d');
+        $date1 = strtotime ('-1 week', strtotime($date));
+        $date1 = date('Y-m-j', $date1);
+        $medidas = DB::table('actions')->where([
+                    ['progress', '>', 60],
+                    ['end_date','>',$date1],
+                    ['end_date','<',$date],
+                ])
+                    ->get();
+
+        for ($i = 0; $i < count($medidas); $i++) {
+                if ($medidas[$i]->actionOP_type == "App\Donation") {
+                    $medidas[$i]->actionOP_type = "Donación";
+                } else if ($medidas[$i]->actionOP_type == "App\Event") {
+                    $medidas[$i]->actionOP_type = "Evento a beneficio";
+                } else if ($medidas[$i]->actionOP_type == "App\Collection_center") {
+                    $medidas[$i]->actionOP_type = "Centro de acopio";
+                } else if ($medidas[$i]->actionOP_type == "App\Volunteering") {
+                    $medidas[$i]->actionOP_type = "Voluntariado";
+                }
+            }
+
+        $eventos = Event::All();
+        $voluntariados = Volunteering::All();
+        $donaciones = Donation::All();
+        $centros = Collection_center::All();
+
+        $aux = 3;
+ 
+        return view('action.index', compact('medidas', 'eventos', 'voluntariados', 'donaciones', 'centros' , 'aux'));
+    }
 
     public function index($id)
     {
@@ -71,7 +110,9 @@ class actionController extends Controller
                 }
             }
 
-            return view('action.index', compact('c', 'medidas', 'eventos', 'voluntariados', 'donaciones', 'centros'));
+            $aux = 5;
+
+            return view('action.index', compact('c', 'medidas', 'eventos', 'voluntariados', 'donaciones', 'centros', 'aux'));
         }
         else if(Auth::user()->role_id == 3 and $id == 0 ){
             $medidas = Action::where('user_id', Auth::id())->get()->sortBy('actionOP_type');
@@ -256,6 +297,20 @@ class actionController extends Controller
         $action->update();
 
         return redirect()->route('indexAction', 1)->with('success', true)->with('message','Se ha aprobado la medida exitosamente');
+    }
+
+        /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function apportGovernment($id)
+    {
+        $action = Action::find($id);
+        $action->delete();
+
+        return redirect()->route('actionFinish')->with('success', true)->with('message','Se ha aportado el dinero faltante a la medida');
     }
 
 }

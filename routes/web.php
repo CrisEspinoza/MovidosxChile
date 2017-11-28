@@ -29,6 +29,8 @@ Route::get('/deleteDonation/{id}','donationController@destroy')->name('deleteDon
 Route::get('/deleteEvent/{id}','eventController@destroy')->name('deleteEvent');
 
 Route::get('/acceptAction/{id}','actionController@acceptAction')->name('accept');
+Route::get('/apportGovernment/{id}','actionController@apportGovernment')->name('apportGovernment');
+Route::get('actionFinish','actionController@actionForFinish')->name('actionFinish');
 
 
 Route::get('/volunteering/{id}','volunteeringController@create')->name('createVol');

@@ -448,7 +448,7 @@ class DatabaseSeeder extends Seeder
         factory(App\Catastrophe::class, 10)->create();
         factory(App\Volunteering::class, 10)->create();
         factory(App\Donation::class, 10)->create();
-        //factory(App\Event::class, 10)->create();
+        factory(App\Event::class, 10)->create();
         factory(App\Collection_center::class, 10)->create();
 
         DB::table('assets')->insert([ 'type'=>'Ropa']);

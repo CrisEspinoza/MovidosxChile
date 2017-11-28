@@ -107,7 +107,8 @@
                             @if (Auth::user()->role_id == 2)
                             <!--<li><a href="#">Roles de Usuario</a></li>-->
                             <li><a href="{{ route('catastrophe.index')}}">Lista de Catástrofes</a></li>
-                            <li><a href="{{ route('indexAction', 1) }}"> Medidas pendientes  </a></li>
+                            <li><a href="{{ route('indexAction', 1) }}"> Medidas pendientes </a></li>
+                            <li><a href="{{ route('actionFinish') }}"> Medidas por finalizar </a></li>
                             <!--<li><a href="#">Bancos</a></li>-->
                             @endif
                             <!-- Navbar for organization user -->

@@ -8,6 +8,10 @@ use App\Region;
 use App\Commune;
 use App\TypeCatastrophe;
 use App\Location;
+use DB;
+use Datetime;
+use Carbon\Carbon;
+use App\Quotation;
 use Validator;
 use Illuminate\Support\Facades\Auth;
 use Thujohn\Twitter\Facades\Twitter;
@@ -26,7 +30,7 @@ class catastropheController extends Controller
         $catastrophes = Catastrophe::all()->sortBy('id');
         return view('catastrophe.index', compact('catastrophes'));
     }
-
+    
     public function create()
     {
         $regions = Region::all()->sortby('id');

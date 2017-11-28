@@ -24,14 +24,17 @@
                     @if (Auth::user()->role_id == 1)
                         <div class="panel-heading"><h2> Medidas de la catastrofe {{$c->name}}</h2></div>
                     @endif
-                    @if (Auth::user()->role_id == 2)
+                    @if (Auth::user()->role_id == 2 and $aux == 5)
                         <div class="panel-heading"><h2> Medidas pendientes </h2></div>
                     @endif
-                    @if (Auth::user()->role_id == 3 and $aux==0)
+                    @if (Auth::user()->role_id == 2 and $aux == 3)
+                        <div class="panel-heading"><h2> Medidas por terminar y aun no cumplen su meta </h2></div>
+                    @endif
+                    @if (Auth::user()->role_id == 3 and $aux == 0)
                         <div class="panel-heading"><h2> Medidas creadas por {{Auth::user()->name}}</h2></div>
                     @endif
 
-                    @if (Auth::user()->role_id == 3 and $aux==1)
+                    @if (Auth::user()->role_id == 3 and $aux == 1)
                         <div class="panel-heading"><h2>  Medidas de la catastrofe {{$c->name}}</h2></div>
                     @endif
 
@@ -57,6 +60,9 @@
                                                                 @endif
                                                             @if (Auth::user()->role_id == 3 || Auth::user()->role_id == 2)
                                                                 <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Ver medida </a>
+                                                                @endif
+                                                            @if ($aux == 3)
+                                                                    <a class="btn btn-warning" type="button" href="{{route('apportGovernment',$medida->id)}}"> Aportar Dinero</a>
                                                                 @endif
                                                         </div>
 
@@ -93,6 +99,9 @@
                                                                 @if (Auth::user()->role_id == 3 || Auth::user()->role_id == 2)
                                                                     <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Ver medida </a>
                                                                 @endif
+                                                                @if ($aux == 3)
+                                                                    <a class="btn btn-warning" type="button" href="{{route('apportGovernment',$medida->id)}}"> Aportar Dinero</a>
+                                                                @endif
                                                         </div>
                                                         <div class="col-md-6 ">
                                                             <label>Progreso:</label>
@@ -127,6 +136,9 @@
                                                                 @if (Auth::user()->role_id == 3 || Auth::user()->role_id == 2)
                                                                     <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Ver medida </a>
                                                                 @endif
+                                                                @if ($aux == 3)
+                                                                    <a class="btn btn-warning" type="button" href="{{route('apportGovernment',$medida->id)}}"> Aportar Dinero</a>
+                                                                @endif
                                                         </div>
                                                             <div class="col-md-6">
                                                                 <label>Progreso de avance:</label>
@@ -159,6 +171,9 @@
                                                         @endif
                                                         @if (Auth::user()->role_id == 3 || Auth::user()->role_id == 2)
                                                             <a class="btn btn-success" type="button" href="{{route('action.edit',$medida->id)}}"> Ver medida </a>
+                                                        @endif
+                                                        @if ($aux == 3)
+                                                            <a class="btn btn-warning" type="button" href="{{route('apportGovernment',$medida->id)}}"> Aportar Dinero</a>
                                                         @endif
                                                     
                                                     </div>

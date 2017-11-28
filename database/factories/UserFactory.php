@@ -66,7 +66,7 @@ $factory->define(App\Action::class, function (Faker $faker) {
         'actionOP_id'=> random_int(1,10),
         'actionOP_type'=> $action_types[random_int(0,3)],
         'start_date' => $faker->date,
-        'end_date' => $faker->date,
+        'end_date' => "2017-11-25",
         'user_id'=> App\User::all()->random()->id,
         'catastrophe_id'=> App\Catastrophe::all()->random()->id,
         'approved'=>1,
